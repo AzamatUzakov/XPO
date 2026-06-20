@@ -1,6 +1,6 @@
 export default function ContactForm() {
   return (
-    <div className="max-w-[1200px] mx-auto px-[24px] lg:px-[40px] lg:py-[64px] lg:mb-[110px]">
+    <div className="max-w-[1200px] mx-auto px-[24px] lg:px-[40px] lg:mb-[110px]">
       <div className="lg:grid lg:grid-cols-[1fr_500px] lg:gap-x-[72px] lg:items-center">
 
         <div className="hidden lg:block lg:order-1 lg:pr-[24px]">
