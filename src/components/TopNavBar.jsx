@@ -20,15 +20,22 @@ import { Button } from "./ui/button";
 export default function TopNavBar() {
   return (
     <header className="flex items-center justify-between bg-slate-200 py-3 px-4 border-b border-slate-300">
-      <div className="">
+      <div className="flex-1">
         <img
-          className="w-[80px] md:w-[100px]"
+          className="w-[80px] md:w-[90px] lg:w-[100px]"
           src="../../public/header-logo.svg"
           alt="header-logo"
         />
       </div>
+      <nav className="hidden md:flex items-center justify-center shrink-0 gap-4 lg:gap-8 xl:gap-12 text-sm lg:text-base text-white font-medium" style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}>
+        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">Услуги</a>
+        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">География</a>
+        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">О нас</a>
+        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">Ценности</a>
+        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">Партнеры</a>
+      </nav>
 
-      <div className="flex items-center gap-4 cursor-pointer">
+      <div className="flex-1 flex items-center justify-end gap-4 cursor-pointer">
         <Select defaultValue="ru">
           <SelectTrigger className="w-fit px-3 h-10 cursor-pointer rounded-lg bg-transparent border border-slate-400 shadow-none focus:ring-0 md:border-0 md:text-xl font-heading">
             <SelectValue placeholder="Язык" />
@@ -148,7 +155,7 @@ export default function TopNavBar() {
           </Sheet>
         </div>
 
-        <Button className="hidden md:block px-10 cursor-pointer h-[45px] bg-[#00A8CC] hover:bg-[#008ba8] text-white rounded-none border-none ">
+        <Button className="hidden md:block px-4 lg:px-10 cursor-pointer h-[40px] lg:h-[45px] bg-[#00A8CC] hover:bg-[#008ba8] text-white rounded-none border-none text-sm lg:text-base">
           Контакты
         </Button>
       </div>
