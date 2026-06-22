@@ -19,7 +19,7 @@ import { Button } from "./ui/button";
 
 export default function TopNavBar() {
   return (
-    <header className="flex items-center justify-between bg-slate-200 py-3 px-4 border-b border-slate-300">
+    <header className="flex items-center justify-between bg-transparent py-3 px-2 border-b border-white/20">
       <div className="flex-1">
         <img
           className="w-[80px] md:w-[90px] lg:w-[100px]"
@@ -37,7 +37,10 @@ export default function TopNavBar() {
 
       <div className="flex-1 flex items-center justify-end gap-4 cursor-pointer">
         <Select defaultValue="ru">
-          <SelectTrigger className="w-fit px-3 h-10 cursor-pointer rounded-lg bg-transparent border border-slate-400 shadow-none focus:ring-0 md:border-0 md:text-xl font-heading">
+          <SelectTrigger 
+            className="w-fit px-3 h-10 cursor-pointer rounded-lg bg-transparent border border-slate-400 shadow-none focus:ring-0 md:border-0 md:text-xl font-heading text-white"
+            style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
+          >
             <SelectValue placeholder="Язык" />
           </SelectTrigger>
           <SelectContent
