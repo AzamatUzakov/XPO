@@ -16,9 +16,12 @@ export default function App() {
       <main className="px-[20px] py-0 flex flex-col gap-8 mt-8 mb-8">
         <HeroSection />
         <Services />
-        <Geography />
         <Workflow />
-        <AboutUs />
+        <div className="flex flex-col">
+          <AboutUs />
+          <Geography />
+        </div>
+
         <Marquee />
         <ContactForm />
       </main>
