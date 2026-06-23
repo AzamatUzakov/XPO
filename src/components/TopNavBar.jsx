@@ -96,10 +96,8 @@ export default function TopNavBar() {
 
         <div className="md:hidden">
           <Sheet>
-            <SheetTrigger asChild>
-              <button className="flex cursor-pointer items-center justify-center w-10 h-10 text-2xl text-white hover:text-slate-100">
-                <FiMenu />
-              </button>
+            <SheetTrigger className="flex cursor-pointer items-center justify-center w-10 h-10 text-2xl text-white hover:text-slate-100">
+              <FiMenu />
             </SheetTrigger>
             <SheetContent
               side="top"
@@ -113,10 +111,8 @@ export default function TopNavBar() {
                   src="../../public/header-logo.svg"
                   alt="header-logo"
                 />
-                <SheetClose asChild>
-                  <button className="flex  items-center justify-center w-10 h-10 text-3xl text-white hover:text-slate-300 transition-colors">
-                    <FiX className="cursor-pointer" />
-                  </button>
+                <SheetClose className="flex items-center justify-center w-10 h-10 text-3xl text-white hover:text-slate-300 transition-colors">
+                  <FiX className="cursor-pointer" />
                 </SheetClose>
               </div>
 
