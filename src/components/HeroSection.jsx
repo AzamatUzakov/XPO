@@ -12,9 +12,12 @@ export default function HeroSection() {
             ГЛОБАЛЬНАЯ
           </span>{" "}
           <br />
-          <span className="text-2xl md:text-[44px] lg:text-[64px]">
-            <TypewriterText />
-          </span>
+          <div className="relative inline-block text-2xl md:text-[44px] lg:text-[64px] whitespace-nowrap">
+            <span className="invisible opacity-0 pr-3">НАДЁЖНАЯ ЛОГИСТИКА</span>
+            <div className="absolute left-0 top-0 w-full h-full">
+              <TypewriterText />
+            </div>
+          </div>
         </h1>
 
         <div className="mt-6 border-l-[3px] border-[#00A8CC] pl-4">

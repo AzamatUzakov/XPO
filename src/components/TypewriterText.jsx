@@ -42,12 +42,12 @@ export default function TypewriterText() {
   }, [text, isDeleting, index]);
 
   return (
-    <span className="text-[#00A8CC] inline-flex items-center min-h-[1.2em]">
+    <span className="text-[#00A8CC] inline-block whitespace-nowrap">
       {text}
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-        className="inline-block w-[4px] h-[1em] bg-[#00A8CC] ml-1 rounded-[2px]"
+        className="inline-block w-[4px] h-[0.9em] bg-[#00A8CC] ml-1 rounded-[2px] align-baseline"
       />
     </span>
   );

@@ -28,7 +28,7 @@ export default function App() {
           <HeroSection />
         </div>
       </div>
-      <main className="px-[12px] py-0 flex flex-col gap-8 mt-8 mb-8">
+      <main className="px-[12px] py-0 flex flex-col gap-8">
         <Services />
         <Geography />
         <Workflow />
