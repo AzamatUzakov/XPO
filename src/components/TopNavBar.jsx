@@ -27,17 +27,45 @@ export default function TopNavBar() {
           alt="header-logo"
         />
       </div>
-      <nav className="hidden md:flex items-center justify-center shrink-0 gap-4 lg:gap-8 xl:gap-12 text-sm lg:text-base text-white font-medium" style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}>
-        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">Услуги</a>
-        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">География</a>
-        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">О нас</a>
-        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">Ценности</a>
-        <a href="#" className="hover:text-[#00A8CC] transition-colors duration-300">Партнеры</a>
+      <nav
+        className="hidden md:flex items-center justify-center shrink-0 gap-4 lg:gap-8 xl:gap-12 text-sm lg:text-base text-white font-medium"
+        style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
+      >
+        <a
+          href="#"
+          className="hover:text-[#00A8CC] transition-colors duration-300"
+        >
+          Услуги
+        </a>
+        <a
+          href="#"
+          className="hover:text-[#00A8CC] transition-colors duration-300"
+        >
+          География
+        </a>
+        <a
+          href="#"
+          className="hover:text-[#00A8CC] transition-colors duration-300"
+        >
+          О нас
+        </a>
+        <a
+          href="#"
+          className="hover:text-[#00A8CC] transition-colors duration-300"
+        >
+          Ценности
+        </a>
+        <a
+          href="#"
+          className="hover:text-[#00A8CC] transition-colors duration-300"
+        >
+          Партнеры
+        </a>
       </nav>
 
       <div className="flex-1 flex items-center justify-end gap-4 cursor-pointer">
         <Select defaultValue="ru">
-          <SelectTrigger 
+          <SelectTrigger
             className="w-fit px-3 h-10 cursor-pointer rounded-lg bg-transparent border border-slate-400 shadow-none focus:ring-0 md:border-0 md:text-xl font-heading text-white"
             style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
           >
