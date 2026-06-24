@@ -1,128 +1,66 @@
-import React, { useState, useEffect, useRef } from "react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
-
-const activeNumericIds = {
-  "643": "Россия",
-  "156": "Китай",
-  "398": "Казахстан",
-  "860": "Узбекистан",
-  "417": "Кыргызстан",
-  "762": "Таджикистан",
-  "795": "Туркменистан",
-  "112": "Беларусь",
-  "031": "Азербайджан",
-  "051": "Армения",
-  "276": "Германия",
-  "250": "Франция",
-  "616": "Польша",
-  "380": "Италия",
-  "724": "Испания",
-  "826": "Великобритания",
-  "804": "Украина"
-};
-
-// Настройки проекции по брейкпоинтам.
-// На мобилке мы не показываем весь мир (он становится нечитаемой точкой),
-// а зумим и сдвигаем поворот так, чтобы в кадре оставалась Евразия —
-// именно там сосредоточены все активные страны.
-function getMapConfig(width) {
-  if (width < 480) {
-    return { scale: 480, rotate: [-65, -18, 0], aspect: "4 / 5" };
-  }
-  if (width < 640) {
-    return { scale: 540, rotate: [-65, -18, 0], aspect: "4 / 5" };
-  }
-  if (width < 768) {
-    return { scale: 420, rotate: [-40, -8, 0], aspect: "1 / 1" };
-  }
-  if (width < 1024) {
-    return { scale: 190, rotate: [-10, 0, 0], aspect: "1400 / 700" };
-  }
-  if (width < 1280) {
-    return { scale: 210, rotate: [-10, 0, 0], aspect: "1400 / 700" };
-  }
-  return { scale: 230, rotate: [-10, 0, 0], aspect: "1400 / 700" };
-}
-
-export default function GeographyMap() {
-  const [tooltip, setTooltip] = useState(null);
-  const [config, setConfig] = useState(() =>
-    getMapConfig(typeof window !== "undefined" ? window.innerWidth : 1400)
-  );
-
-  useEffect(() => {
-    function update() {
-      setConfig(getMapConfig(window.innerWidth));
-    }
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
+import { Globe } from "@/components/ui/globe";
+import AnimatedNumber from "./AnimatedNumber";
+export default function Geography() {
   return (
-    <section className="relative left-1/2 -translate-x-1/2 w-screen bg-black text-white overflow-hidden flex flex-col items-center justify-center py-12 sm:py-16 md:py-0 md:min-h-[100dvh]">
-      <div
-        className="relative w-full max-w-[1400px] px-4 sm:px-6 md:px-12 flex items-center justify-center"
-        style={{ aspectRatio: config.aspect }}
-      >
-        <ComposableMap
-          width={1400}
-          height={700}
-          projectionConfig={{
-            rotate: config.rotate,
-            scale: config.scale
-          }}
-          style={{ width: "100%", height: "100%" }}
-        >
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                const countryId = geo.id;
-                const displayName = activeNumericIds[countryId];
-                const isTarget = Boolean(displayName);
+    <section className="bg-[#f7f9ff] py-24 -mx-[12px] px-[12px]">
+      <div className="md:grid md:grid-cols-2 md:items-center md:gap-8 max-w-7xl mx-auto">
+        <div>
+          <h2 className="text-2xl text-[#003366] font-normal">
+            Глобальное присутствие{" "}
+          </h2>
+          <p className="text-[16px] text-[#43474F] mt-6">
+            Мы расширяем границы возможного, открывая прямые
+            трансконтинентальные коридоры в Северную Америку (США, Канада) и по
+            всей Евразии.
+          </p>
+          <div className="grid grid-cols-2 gap-4 mt-10">
+            <div className="bg-white p-6 shadow-sm ">
+              <p className="flex flex-col">
+                <span className="text-[#00A8CC] font-black text-[32px]">
+                  <AnimatedNumber value={50} suffix="+" />
+                </span>
+                <span className="text-[12px] mt-1 text-[#43474F]">
+                  Стран охвата
+                </span>
+              </p>
+            </div>
 
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onMouseEnter={() =>
-                      setTooltip(displayName || geo.properties.name)
-                    }
-                    onMouseLeave={() => setTooltip(null)}
-                    style={{
-                      default: {
-                        fill: isTarget ? "#004d5e" : "#1a1a1a",
-                        stroke: "#000000",
-                        strokeWidth: 0.6,
-                        outline: "none",
-                        transition: "fill 0.2s ease"
-                      },
-                      hover: {
-                        fill: isTarget ? "#00A8CC" : "#252525",
-                        stroke: "#000000",
-                        strokeWidth: 0.6,
-                        outline: "none",
-                        cursor: "pointer"
-                      },
-                      pressed: {
-                        fill: "#007a94",
-                        outline: "none"
-                      }
-                    }}
-                  />
-                );
-              })
-            }
-          </Geographies>
-        </ComposableMap>
+            <div className="bg-white p-6 shadow-sm ">
+              <p className="flex flex-col">
+                <span className="text-[#00A8CC] font-black text-[32px]">
+                  <AnimatedNumber value={1000} suffix="+" />
+                </span>
+                <span className="text-[12px] mt-1 text-[#43474F]">
+                  Маршрутов
+                </span>
+              </p>
+            </div>
 
-        {tooltip && (
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-gray-300 text-slate-900 px-4 sm:px-5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-2xl border border-slate-200 pointer-events-none transition-all z-10 max-w-[80%] text-center">
-            {tooltip}
+            <div className="bg-white p-6 shadow-sm ">
+              <p className="flex flex-col">
+                <span className="text-[#00A8CC] font-black text-[32px]">
+                  <AnimatedNumber value={24} suffix="/7" />
+                </span>
+                <span className="text-[12px] mt-1 text-[#43474F]">
+                  Мониторинг
+                </span>
+              </p>
+            </div>
+
+            <div className="bg-white p-6 shadow-sm ">
+              <p className="flex flex-col">
+                <span className="text-[#00A8CC] font-black text-[32px]">
+                  <AnimatedNumber value={15} />
+                </span>
+                <span className="text-[12px] mt-1 text-[#43474F]">Хабов</span>
+              </p>
+            </div>
           </div>
-        )}
+        </div>
+
+        <div className="relative h-[300px] mt-8 md:h-[500px]">
+          <Globe />
+        </div>
       </div>
     </section>
   );
