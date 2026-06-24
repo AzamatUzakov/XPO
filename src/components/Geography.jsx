@@ -1,4 +1,3 @@
-import GlobeComponent from "./GlobeComponent";
 import { Globe } from "@/components/ui/globe";
 import AnimatedNumber from "./AnimatedNumber";
 export default function Geography() {
@@ -60,7 +59,7 @@ export default function Geography() {
         </div>
 
         <div className="relative h-[300px] mt-8 md:h-[500px]">
-          <Globe  />
+          <Globe />
         </div>
       </div>
     </section>

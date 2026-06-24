@@ -7,6 +7,7 @@ import AboutUs from "./AboutUs";
 import Marquee from "./Marquee";
 import ContactForm from "./ContactForm";
 import Footer from "./Footer";
+import GeographyMap from "./GeographyMap";
 
 export default function App() {
   return (
@@ -32,7 +33,10 @@ export default function App() {
         <Services />
         <Geography />
         <Workflow />
-        <AboutUs />
+        <div className="flex flex-col">
+          <AboutUs />
+          <GeographyMap />
+        </div>
         <Marquee />
         <ContactForm />
       </main>
