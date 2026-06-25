@@ -1,11 +1,14 @@
 import GlobeComponent from "./GlobeComponent";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { Truck, TrainFront, Plane, Share2 } from "lucide-react";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-const activeNumericIds = {
+// Полный справочник "numeric id страны -> название".
+// Используется для тултипа независимо от выбранного режима.
+const countryNames = {
   "643": "Россия",
   "156": "Китай",
   "398": "Казахстан",
@@ -22,8 +25,61 @@ const activeNumericIds = {
   "380": "Италия",
   "724": "Испания",
   "826": "Великобритания",
-  "804": "Украина"
+  "804": "Украина",
+  "840": "США",
+  "124": "Канада",
+  "484": "Мексика",
+  "076": "Бразилия",
+  "036": "Австралия",
+  "356": "Индия",
+  "392": "Япония",
+  "410": "Южная Корея",
+  "784": "ОАЭ",
+  "792": "Турция",
+  "528": "Нидерланды",
 };
+
+// Режимы перевозки: ключ, подпись, иконка и набор стран (numeric id),
+// которые подсвечиваются на карте при выборе этого режима.
+const modes = [
+  {
+    key: "auto",
+    label: "Авто",
+    icon: Truck,
+    countries: [
+      "643", "398", "860", "417", "762", "795", "112",
+      "031", "051", "804", "616", "276", "250", "380", "724",
+    ],
+  },
+  {
+    key: "rail",
+    label: "Ж/Д",
+    icon: TrainFront,
+    countries: [
+      "643", "156", "398", "860", "417", "762", "795",
+      "112", "804", "616", "276",
+    ],
+  },
+  {
+    key: "air",
+    label: "Авиа",
+    icon: Plane,
+    countries: [
+      "643", "156", "826", "276", "250", "724", "380",
+      "840", "784", "392", "410", "356", "076", "036",
+    ],
+  },
+  {
+    key: "multimodal",
+    label: "Мультимодальные",
+    icon: Share2,
+    countries: [
+      "643", "156", "398", "860", "417", "762", "795", "112",
+      "031", "051", "804", "276", "250", "616", "380", "724",
+      "826", "840", "124", "484", "784", "792", "528",
+    ],
+  },
+];
 
 // Настройки проекции по брейкпоинтам.
 // На мобилке мы не показываем весь мир (он становится нечитаемой точкой),
@@ -50,6 +106,7 @@ function getMapConfig(width) {
 
 export default function GeographyMap() {
   const [tooltip, setTooltip] = useState(null);
+  const [activeMode, setActiveMode] = useState(modes[0].key);
   const [config, setConfig] = useState(() =>
     getMapConfig(typeof window !== "undefined" ? window.innerWidth : 1400)
   );
@@ -63,62 +120,117 @@ export default function GeographyMap() {
     return () => window.removeEventListener("resize", update);
   }, []);
 
+  const activeCountries = useMemo(() => {
+    const current = modes.find((m) => m.key === activeMode);
+    return new Set(current ? current.countries : []);
+  }, [activeMode]);
+
   return (
-    <section className="relative left-1/2 -translate-x-1/2 w-screen bg-black text-white overflow-hidden flex flex-col items-center justify-center py-12 sm:py-16 md:py-0 md:min-h-[100dvh]">
+    <section className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
+      {/* Заголовок и описание */}
+      <div className="max-w-3xl px-4 text-center mb-8 sm:mb-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5">
+          География перевозок
+        </h2>
+        <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+          Осуществляем доставку в более чем 60 стран мира. Используем
+          автотранспорт, авиа, железную дорогу и мультимодальные решения.
+          Обеспечиваем точную логистику, оптимальные маршруты и контроль на
+          всех этапах перевозки.
+        </p>
+      </div>
+
+      {/* Переключатели режимов перевозки */}
+      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 px-4 mb-12 sm:mb-16">
+        {modes.map(({ key, label, icon: Icon }) => {
+          const isActive = key === activeMode;
+          return (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setActiveMode(key)}
+              className={`flex items-center gap-2 rounded-xl px-5 py-3 text-sm sm:text-base font-medium border transition-colors duration-200
+                ${
+                  isActive
+                    ? "bg-[#2DBE6C] border-[#2DBE6C] text-white"
+                    : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-white/20"
+                }`}
+            >
+              <Icon size={18} className="shrink-0" />
+              {label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Карта */}
       <div
-        className="relative w-full max-w-[1400px] px-4 sm:px-6 md:px-12 flex items-center justify-center"
+        className="relative w-full max-w-[1400px] px-4 sm:px-6 md:px-12 overflow-hidden flex items-center justify-center"
         style={{ aspectRatio: config.aspect }}
       >
-        <ComposableMap
-          width={1400}
-          height={700}
-          projectionConfig={{
-            rotate: config.rotate,
-            scale: config.scale
-          }}
-          style={{ width: "100%", height: "100%" }}
+        {/*
+          Внутренний слой держит родную пропорцию SVG-карты (1400/700),
+          поэтому она НИКОГДА не растягивается и не искажается.
+          Внешний контейнер просто обрезает то, что выходит за рамки
+          (классический "object-fit: cover" через abs+overflow-hidden).
+        */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full min-w-full"
+          style={{ aspectRatio: "1400 / 700" }}
         >
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                const countryId = geo.id;
-                const displayName = activeNumericIds[countryId];
-                const isTarget = Boolean(displayName);
+          <ComposableMap
+            width={1400}
+            height={700}
+            projectionConfig={{
+              rotate: config.rotate,
+              scale: config.scale,
+            }}
+            className="w-full h-full"
+          >
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const countryId = geo.id;
+                  const isTarget = activeCountries.has(countryId);
+                  const displayName = countryNames[countryId];
 
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onMouseEnter={() =>
-                      setTooltip(displayName || geo.properties.name)
-                    }
-                    onMouseLeave={() => setTooltip(null)}
-                    style={{
-                      default: {
-                        fill: isTarget ? "#004d5e" : "#1a1a1a",
-                        stroke: "#000000",
-                        strokeWidth: 0.6,
-                        outline: "none",
-                        transition: "fill 0.2s ease"
-                      },
-                      hover: {
-                        fill: isTarget ? "#00A8CC" : "#252525",
-                        stroke: "#000000",
-                        strokeWidth: 0.6,
-                        outline: "none",
-                        cursor: "pointer"
-                      },
-                      pressed: {
-                        fill: "#007a94",
-                        outline: "none"
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={() =>
+                        setTooltip(displayName || geo.properties.name)
                       }
-                    }}
-                  />
-                );
-              })
-            }
-          </Geographies>
-        </ComposableMap>
+                      onMouseLeave={() => setTooltip(null)}
+                      className="outline-none [&:hover]:cursor-pointer"
+                      style={{
+                        default: {
+                          fill: isTarget ? "#2DBE6C" : "#1a1a1a",
+                          stroke: "#000000",
+                          strokeWidth: 0.6,
+                          outline: "none",
+                          transition: "fill 0.4s ease",
+                        },
+                        hover: {
+                          fill: isTarget ? "#4DD988" : "#252525",
+                          stroke: "#000000",
+                          strokeWidth: 0.6,
+                          outline: "none",
+                          cursor: "pointer",
+                          transition: "fill 0.2s ease",
+                        },
+                        pressed: {
+                          fill: isTarget ? "#229c57" : "#2a2a2a",
+                          outline: "none",
+                        },
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ComposableMap>
+        </div>
 
         {tooltip && (
           <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-gray-300 text-slate-900 px-4 sm:px-5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-2xl border border-slate-200 pointer-events-none transition-all z-10 max-w-[80%] text-center">

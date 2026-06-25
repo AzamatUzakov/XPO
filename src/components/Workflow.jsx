@@ -1,11 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  AnimatePresence,
-} from "framer-motion";
+import { useRef, useState, useLayoutEffect } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const STEPS = [
   {
@@ -25,133 +19,214 @@ const STEPS = [
   },
 ];
 
-const stepVariants = {
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
-  exit:    { opacity: 0, y: -24 },
-};
-
-const transition = { duration: 0.3, ease: "easeInOut" };
-
 export default function Workflow() {
   const sectionRef = useRef(null);
-  // useRef to avoid stale closure in scroll callback
-  const activeStepRef = useRef(0);
-  const [activeStep, setActiveStep] = useState(0);
 
+  // Линия и кружки рендерятся ДВАЖДЫ в DOM — отдельный набор для мобилки
+  // и отдельный для десктопа (переключаются через hidden/md:flex).
+  // Поэтому у каждого набора свой wrapRef и свой массив circleRefs,
+  // чтобы измерения не перезатирали друг друга.
+  const mobileLineWrapRef = useRef(null);
+  const mobileCircleRefs = useRef([]);
+  const [mobileThresholds, setMobileThresholds] = useState(
+    STEPS.map((_, i) => i / (STEPS.length - 1 || 1))
+  );
+
+  const desktopLineWrapRef = useRef(null);
+  const desktopCircleRefs = useRef([]);
+  const [desktopThresholds, setDesktopThresholds] = useState(
+    STEPS.map((_, i) => i / (STEPS.length - 1 || 1))
+  );
+
+  // offset смещён так, что прогресс 0→1 проходит раньше:
+  // старт считается, когда верх секции доходит до низа экрана (а не до центра),
+  // конец — когда низ секции доходит до 30% высоты экрана (а не до центра).
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"],
+    offset: ["start end", "end 30%"],
   });
 
-  // Subscribe directly to avoid stale closure — no useMotionValueEvent needed
-  useEffect(() => {
-    // Set correct step on mount in case page starts mid-scroll
-    const compute = (v) => Math.max(0, Math.min(2, Math.floor(v * 3)));
-
-    const unsub = scrollYProgress.on("change", (v) => {
-      const next = compute(v);
-      if (next !== activeStepRef.current) {
-        activeStepRef.current = next;
-        setActiveStep(next);
-      }
-    });
-
-    // Sync on mount
-    const initial = compute(scrollYProgress.get());
-    activeStepRef.current = initial;
-    setActiveStep(initial);
-
-    return unsub;
-  }, [scrollYProgress]);
-
-  // Per-bar progress: each bar fills during its own third of scroll
-  const p1 = useSpring(
-    useTransform(scrollYProgress, [0, 1 / 3], [0, 1]),
-    { stiffness: 200, damping: 30 }
+  const lineProgress = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 1]),
+    { stiffness: 300, damping: 40, mass: 0.5 }
   );
-  const p2 = useSpring(
-    useTransform(scrollYProgress, [1 / 3, 2 / 3], [0, 1]),
-    { stiffness: 200, damping: 30 }
-  );
-  const p3 = useSpring(
-    useTransform(scrollYProgress, [2 / 3, 1], [0, 1]),
-    { stiffness: 200, damping: 30 }
-  );
-  const bars = [p1, p2, p3];
+
+  // Измеряем РЕАЛЬНУЮ позицию каждого кружка относительно высоты линии,
+  // вместо равномерного деления (index / totalSteps). Так threshold всегда
+  // точно совпадает с физическим местом кружка, даже если блоки разной высоты
+  // из-за разной длины текста.
+  useLayoutEffect(() => {
+    function measureSet(wrapRef, refsArr, setFn) {
+      const wrap = wrapRef.current;
+      if (!wrap) return;
+      const wrapRect = wrap.getBoundingClientRect();
+      const totalHeight = wrapRect.height;
+      if (!totalHeight) return;
+
+      const next = refsArr.current.map((el) => {
+        if (!el) return 0;
+        const r = el.getBoundingClientRect();
+        const circleCenter = r.top + r.height / 2;
+        const fraction = (circleCenter - wrapRect.top) / totalHeight;
+        return Math.min(1, Math.max(0, fraction));
+      });
+
+      setFn(next);
+    }
+
+    function measureAll() {
+      measureSet(mobileLineWrapRef, mobileCircleRefs, setMobileThresholds);
+      measureSet(desktopLineWrapRef, desktopCircleRefs, setDesktopThresholds);
+    }
+
+    // небольшая задержка, чтобы шрифты/layout успели применится перед первым замером
+    const raf = requestAnimationFrame(measureAll);
+    window.addEventListener("resize", measureAll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", measureAll);
+    };
+  }, []);
 
   return (
-    /*
-      mx-[-20px] w-[calc(100%+40px)] breaks out of parent's px-[20px] padding
-      so the sticky section spans the full viewport width.
-    */
-    <section
-      ref={sectionRef}
-      className="relative h-[300vh] mx-[-20px] w-[calc(100%+40px)]"
-    >
-      {/* Sticky container — must NOT have overflow:hidden, or sticky breaks */}
-      <div className="sticky top-0 h-screen w-full flex flex-col">
-        {/* Inner layout — centred, max-width, same horizontal padding as the rest of the page */}
-        <div className="mx-auto flex h-full w-full max-w-[640px] flex-col justify-between px-6 py-12 md:max-w-[768px] md:py-16">
+    <section ref={sectionRef} className="relative w-full py-20 md:py-28">
+      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-16 px-6 md:max-w-[768px] md:gap-20">
 
-          {/* Label */}
-          <div className="text-[13px] font-bold tracking-wider text-[#1B3A6B] md:text-[15px]">
-            ПРОЦЕСС РАБОТЫ
-          </div>
+        {/* Label */}
+        <div className="text-[13px] font-bold tracking-wider text-[#1B3A6B] md:text-[15px]">
+          ПРОЦЕСС РАБОТЫ
+        </div>
 
-          {/* Active step — AnimatePresence mode="wait" ensures only ONE step visible at a time */}
-          <div className="relative flex flex-1 items-center w-full min-h-0">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeStep}
-                variants={stepVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={transition}
-                className="flex gap-6 md:gap-8 items-start w-full"
-              >
-                {/* Circle — filled #2BB3C0 with white text */}
-                <div className="
-                  flex-shrink-0
-                  flex h-[50px] w-[50px] items-center justify-center
-                  rounded-full border-2 border-[#2BB3C0] bg-[#2BB3C0]
-                  font-bold text-white
-                  md:h-16 md:w-16 md:text-xl
-                ">
-                  {STEPS[activeStep].num}
-                </div>
+        {/* Steps list */}
+        <div className="relative flex flex-col">
+          {/* ===== Линии: мобильная (слева) и десктопная (по центру) ===== */}
+          <div
+            ref={mobileLineWrapRef}
+            className="absolute left-[25px] top-[25px] bottom-[25px] md:hidden"
+            aria-hidden="true"
+          />
+          <div
+            ref={desktopLineWrapRef}
+            className="absolute left-1/2 top-8 bottom-8 hidden -translate-x-1/2 md:block"
+            aria-hidden="true"
+          />
 
-                {/* Text content */}
-                <div className="flex flex-col justify-center">
-                  <h3 className="mb-2 text-xl font-semibold text-[#1B3A6B] md:text-2xl">
-                    {STEPS[activeStep].title}
-                  </h3>
-                  <p className="max-w-[420px] text-[15px] leading-relaxed text-gray-500 md:max-w-[540px] md:text-[17px]">
-                    {STEPS[activeStep].text}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+          {/* Трек — серый */}
+          <div
+            className="absolute left-[25px] top-[25px] bottom-[25px] w-[1px] bg-gray-200 md:left-1/2 md:top-8 md:bottom-8 md:-translate-x-1/2"
+            aria-hidden="true"
+          />
+          {/* Заполняемая линия */}
+          <motion.div
+            className="absolute left-[25px] top-[25px] w-[1px] origin-top bg-[#2BB3C0] md:left-1/2 md:top-8 md:-translate-x-1/2"
+            style={{
+              scaleY: lineProgress,
+              height: "calc(100% - 50px)",
+            }}
+            aria-hidden="true"
+          />
 
-          {/* Progress bars — 3 horizontal bars filling left→right */}
-          <div className="flex gap-3 w-full">
-            {bars.map((scaleX, i) => (
+          {STEPS.map((step, i) => {
+            const isLeft = i % 2 === 0; // десктоп: 01, 03 — текст слева; 02 — текст справа
+            return (
               <div
-                key={i}
-                className="relative h-[4px] flex-1 rounded-full bg-gray-200 overflow-hidden"
+                key={step.num}
+                className={`relative flex items-start gap-6 ${
+                  isLeft ? "md:justify-start" : "md:justify-end"
+                } ${i === 0 ? "" : "mt-16 md:mt-20"} md:gap-8`}
               >
-                <motion.div
-                  className="absolute inset-0 bg-[#2BB3C0] origin-left"
-                  style={{ scaleX }}
-                />
-              </div>
-            ))}
-          </div>
+                {/* ===== МОБИЛКА: кружок слева, текст справа ===== */}
+                <div className="flex w-full items-start gap-6 md:hidden">
+                  <Circle
+                    circleRef={(el) => (mobileCircleRefs.current[i] = el)}
+                    num={step.num}
+                    lineProgress={lineProgress}
+                    threshold={mobileThresholds[i]}
+                  />
+                  <div className="flex flex-col justify-center pt-1 text-left">
+                    <h3 className="mb-2 text-xl font-semibold text-[#1B3A6B]">
+                      {step.title}
+                    </h3>
+                    <p className="max-w-[420px] text-[15px] leading-relaxed text-gray-500">
+                      {step.text}
+                    </p>
+                  </div>
+                </div>
 
+                {/* ===== ДЕСКТОП: зигзаг ===== */}
+                {isLeft ? (
+                  <>
+                    <div className="hidden w-[calc(50%-32px)] flex-col items-end justify-center pt-1 text-right md:flex">
+                      <h3 className="mb-2 text-2xl font-semibold text-[#1B3A6B]">
+                        {step.title}
+                      </h3>
+                      <p className="max-w-[540px] text-[17px] leading-relaxed text-gray-500">
+                        {step.text}
+                      </p>
+                    </div>
+                    <div className="hidden md:block">
+                      <Circle
+                        circleRef={(el) => (desktopCircleRefs.current[i] = el)}
+                        num={step.num}
+                        lineProgress={lineProgress}
+                        threshold={desktopThresholds[i]}
+                      />
+                    </div>
+                    <div className="hidden w-[calc(50%-32px)] md:block" aria-hidden="true" />
+                  </>
+                ) : (
+                  <>
+                    <div className="hidden w-[calc(50%-32px)] md:block" aria-hidden="true" />
+                    <div className="hidden md:block">
+                      <Circle
+                        circleRef={(el) => (desktopCircleRefs.current[i] = el)}
+                        num={step.num}
+                        lineProgress={lineProgress}
+                        threshold={desktopThresholds[i]}
+                      />
+                    </div>
+                    <div className="hidden w-[calc(50%-32px)] flex-col items-start justify-center pt-1 text-left md:flex">
+                      <h3 className="mb-2 text-2xl font-semibold text-[#1B3A6B]">
+                        {step.title}
+                      </h3>
+                      <p className="max-w-[540px] text-[17px] leading-relaxed text-gray-500">
+                        {step.text}
+                      </p>
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
+  );
+}
+
+function Circle({ circleRef, num, lineProgress, threshold }) {
+  // threshold — реальная измеренная доля высоты линии, на которой стоит этот кружок.
+  // Прилетает сверху уже точным числом (0..1), посчитанным от фактического DOM,
+  // а не предположением о равных интервалах.
+  const background = useTransform(lineProgress, (v) =>
+    v >= threshold ? "#2BB3C0" : "#ffffff"
+  );
+  const color = useTransform(lineProgress, (v) =>
+    v >= threshold ? "#ffffff" : "#1B3A6B"
+  );
+
+  return (
+    <motion.div
+      ref={circleRef}
+      style={{ backgroundColor: background, color }}
+      className="
+        relative z-10 flex h-[50px] w-[50px] flex-shrink-0 items-center justify-center
+        rounded-full border-2 border-[#2BB3C0]
+        font-bold
+        md:h-16 md:w-16 md:text-xl
+      "
+    >
+      {num}
+    </motion.div>
   );
 }
