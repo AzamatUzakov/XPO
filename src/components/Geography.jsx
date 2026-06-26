@@ -3,7 +3,7 @@ import AnimatedNumber from "./AnimatedNumber";
 export default function Geography() {
   return (
     <section className="bg-[#f7f9ff] py-24 -mx-[12px] px-[12px]">
-      <div className="md:grid md:grid-cols-2 md:items-center md:gap-8 max-w-7xl mx-auto">
+      <div className="flex flex-col md:grid md:grid-cols-2 md:items-center gap-10 md:gap-8 max-w-7xl mx-auto">
         <div>
           <h2 className="text-2xl text-[#003366] font-normal">
             Глобальное присутствие{" "}
@@ -58,7 +58,7 @@ export default function Geography() {
           </div>
         </div>
 
-        <div className="relative h-[300px] mt-8 md:h-[500px]">
+        <div className="relative w-full aspect-square max-w-[400px] md:max-w-[500px] mx-auto">
           <Globe />
         </div>
       </div>

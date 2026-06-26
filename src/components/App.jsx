@@ -11,7 +11,7 @@ import GeographyMap from "./GeographyMap";
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50">
+    <div className="flex flex-col min-h-screen bg-white">
       <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900 rounded-b-3xl shadow-xl">
         <video
           autoPlay

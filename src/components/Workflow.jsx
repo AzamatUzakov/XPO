@@ -29,13 +29,13 @@ export default function Workflow() {
   const mobileLineWrapRef = useRef(null);
   const mobileCircleRefs = useRef([]);
   const [mobileThresholds, setMobileThresholds] = useState(
-    STEPS.map((_, i) => i / (STEPS.length - 1 || 1))
+    STEPS.map((_, i) => i / (STEPS.length - 1 || 1)),
   );
 
   const desktopLineWrapRef = useRef(null);
   const desktopCircleRefs = useRef([]);
   const [desktopThresholds, setDesktopThresholds] = useState(
-    STEPS.map((_, i) => i / (STEPS.length - 1 || 1))
+    STEPS.map((_, i) => i / (STEPS.length - 1 || 1)),
   );
 
   // offset смещён так, что прогресс 0→1 проходит раньше:
@@ -48,7 +48,7 @@ export default function Workflow() {
 
   const lineProgress = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1]),
-    { stiffness: 300, damping: 40, mass: 0.5 }
+    { stiffness: 300, damping: 40, mass: 0.5 },
   );
 
   // Измеряем РЕАЛЬНУЮ позицию каждого кружка относительно высоты линии,
@@ -91,11 +91,8 @@ export default function Workflow() {
   return (
     <section ref={sectionRef} className="relative w-full py-20 md:py-28">
       <div className="mx-auto flex w-full max-w-[640px] flex-col gap-16 px-6 md:max-w-[768px] md:gap-20">
-
         {/* Label */}
-        <div className="text-[13px] font-bold tracking-wider text-[#1B3A6B] md:text-[15px]">
-          ПРОЦЕСС РАБОТЫ
-        </div>
+        <h2 className="text-2xl text-[#003366] font-normal text-center  ">ПРОЦЕСС РАБОТЫ</h2>
 
         {/* Steps list */}
         <div className="relative flex flex-col">
@@ -172,11 +169,17 @@ export default function Workflow() {
                         threshold={desktopThresholds[i]}
                       />
                     </div>
-                    <div className="hidden w-[calc(50%-32px)] md:block" aria-hidden="true" />
+                    <div
+                      className="hidden w-[calc(50%-32px)] md:block"
+                      aria-hidden="true"
+                    />
                   </>
                 ) : (
                   <>
-                    <div className="hidden w-[calc(50%-32px)] md:block" aria-hidden="true" />
+                    <div
+                      className="hidden w-[calc(50%-32px)] md:block"
+                      aria-hidden="true"
+                    />
                     <div className="hidden md:block">
                       <Circle
                         circleRef={(el) => (desktopCircleRefs.current[i] = el)}
@@ -209,10 +212,10 @@ function Circle({ circleRef, num, lineProgress, threshold }) {
   // Прилетает сверху уже точным числом (0..1), посчитанным от фактического DOM,
   // а не предположением о равных интервалах.
   const background = useTransform(lineProgress, (v) =>
-    v >= threshold ? "#2BB3C0" : "#ffffff"
+    v >= threshold ? "#2BB3C0" : "#ffffff",
   );
   const color = useTransform(lineProgress, (v) =>
-    v >= threshold ? "#ffffff" : "#1B3A6B"
+    v >= threshold ? "#ffffff" : "#1B3A6B",
   );
 
   return (
