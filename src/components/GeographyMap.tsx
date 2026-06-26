@@ -107,15 +107,16 @@ function getMapConfig(width) {
 export default function GeographyMap() {
   const [tooltip, setTooltip] = useState(null);
   const [activeMode, setActiveMode] = useState(modes[0].key);
-  const [config, setConfig] = useState(() =>
-    getMapConfig(typeof window !== "undefined" ? window.innerWidth : 1400)
-  );
+  // Всегда начинаем с SSR-безопасного значения (1400px),
+  // чтобы сервер и клиент рендерили одинаковый HTML.
+  // Реальный размер подставляется в useEffect (только на клиенте).
+  const [config, setConfig] = useState(() => getMapConfig(1400));
 
   useEffect(() => {
     function update() {
       setConfig(getMapConfig(window.innerWidth));
     }
-    update();
+    update(); // Сразу синхронизируем с реальной шириной
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
