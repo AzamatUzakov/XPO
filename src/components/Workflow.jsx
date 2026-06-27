@@ -90,7 +90,7 @@ export default function Workflow() {
 
   return (
     <section ref={sectionRef} className="relative w-full py-20 md:py-28">
-      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-16 px-6 md:max-w-[768px] md:gap-20">
+      <div className="mx-auto flex w-full max-w-[640px] flex-col gap-16  md:max-w-[768px] md:gap-20">
         {/* Label */}
         <h2 className="text-2xl text-[#003366] font-normal text-center  ">ПРОЦЕСС РАБОТЫ</h2>
 

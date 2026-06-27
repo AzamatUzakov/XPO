@@ -12,8 +12,8 @@ import AI_Chat from "./AI_Chat";
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50">
-      <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900 rounded-b-3xl shadow-xl">
+    <div className="flex flex-col min-h-screen bg-white">
+      <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900  shadow-xl">
         <video
           autoPlay
           loop
@@ -30,7 +30,7 @@ export default function App() {
           <HeroSection />
         </div>
       </div>
-      <main className="px-[12px] py-0 flex flex-col gap-8">
+      <main className="px-[12px] py-0 flex flex-col">
         <Services />
         <Geography />
         <Workflow />

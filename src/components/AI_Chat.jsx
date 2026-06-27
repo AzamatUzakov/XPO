@@ -94,7 +94,7 @@ export default function AI_Chat() {
   };
 
   return (
-    <div className="fixed right-7 bottom-10 z-50">
+    <div className="fixed right-3 bottom-[80px] md:right-7 md:bottom-10 z-50">
       {isOpen && (
         <div
           className="absolute bottom-20 right-0 w-80 rounded-2xl overflow-hidden flex flex-col"
@@ -111,12 +111,12 @@ export default function AI_Chat() {
             style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
           >
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-400" />
+              <div className="w-2 h-2 rounded-full bg-green-500" />
               <span className="text-white text-sm font-medium">AI Ассистент</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white/40 hover:text-white/80 transition-colors text-lg leading-none"
+              className="text-white/40 cursor-pointer text-2xl hover:text-white/80 transition-colors  leading-none"
             >
               ×
             </button>
