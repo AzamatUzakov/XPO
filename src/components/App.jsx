@@ -8,6 +8,7 @@ import Marquee from "./Marquee";
 import ContactForm from "./ContactForm";
 import Footer from "./Footer";
 import GeographyMap from "./GeographyMap";
+import AI_Chat from "./AI_Chat";
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
         <Marquee />
         <ContactForm />
         <GeographyMap />
+        <AI_Chat />
       </main>
       <Footer />
     </div>
