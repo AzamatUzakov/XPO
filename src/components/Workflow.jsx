@@ -99,7 +99,7 @@ export default function Workflow() {
           {/* ===== Линии: мобильная (слева) и десктопная (по центру) ===== */}
           <div
             ref={mobileLineWrapRef}
-            className="absolute left-[25px] top-[25px] bottom-[25px] md:hidden"
+            className="absolute left-[18px] top-[18px] bottom-[18px] md:hidden"
             aria-hidden="true"
           />
           <div
@@ -110,15 +110,15 @@ export default function Workflow() {
 
           {/* Трек — серый */}
           <div
-            className="absolute left-[25px] top-[25px] bottom-[25px] w-[1px] bg-gray-200 md:left-1/2 md:top-8 md:bottom-8 md:-translate-x-1/2"
+            className="absolute left-[18px] top-[18px] bottom-[18px] w-[1px] bg-gray-200 md:left-1/2 md:top-8 md:bottom-8 md:-translate-x-1/2"
             aria-hidden="true"
           />
           {/* Заполняемая линия */}
           <motion.div
-            className="absolute left-[25px] top-[25px] w-[1px] origin-top bg-[#2BB3C0] md:left-1/2 md:top-8 md:-translate-x-1/2"
+            className="absolute left-[18px] top-[18px] w-[1px] origin-top bg-[#2BB3C0] md:left-1/2 md:top-8 md:-translate-x-1/2"
             style={{
               scaleY: lineProgress,
-              height: "calc(100% - 50px)",
+              height: "calc(100% - 36px)",
             }}
             aria-hidden="true"
           />
@@ -223,9 +223,9 @@ function Circle({ circleRef, num, lineProgress, threshold }) {
       ref={circleRef}
       style={{ backgroundColor: background, color }}
       className="
-        relative z-10 flex h-[50px] w-[50px] flex-shrink-0 items-center justify-center
+        relative z-10 flex h-9 w-9 flex-shrink-0 items-center justify-center
         rounded-full border-2 border-[#2BB3C0]
-        font-bold
+        text-xs font-bold
         md:h-16 md:w-16 md:text-xl
       "
     >
