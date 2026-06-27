@@ -2,7 +2,7 @@ const LOGOS = [
   { src: "/orion.svg", alt: "Orion" },
   { src: "/agromir.png", alt: "Agromir" },
   { src: "/smz.svg", alt: "SMZ" },
-  { src: "/uzairways.svg", alt: "Uzbekistan Airways" },
+  { src: "/uzairways.jpg", alt: "Uzbekistan Airways" },
   { src: "/samauto.png", alt: "SamAuto" },
   { src: "/sag-gilamlar.png", alt: "SAG Gilamlar" },
 ];
@@ -18,10 +18,10 @@ export default function LogoMarquee() {
         </h2>
       </div>
 
-      <div className="w-[calc(100%+40px)] mx-[-20px] overflow-hidden bg-[#F7F9FF] select-none mb-[164px]">
-        <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
+      <div className="w-[calc(100%+40px)] mx-[-20px] overflow-hidden select-none mb-[164px]">
+        <style>{` 
+        @keyframes marquee { 
+          0% { transform: translateX(0); } 
           100% { transform: translateX(-100%); }
         }
         .animate-custom-marquee {

@@ -1,13 +1,9 @@
-import GlobeComponent from "./GlobeComponent";
-
 import React, { useState, useEffect, useMemo } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { Truck, TrainFront, Plane, Share2 } from "lucide-react";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Полный справочник "numeric id страны -> название".
-// Используется для тултипа независимо от выбранного режима.
 const countryNames = {
   "643": "Россия",
   "156": "Китай",
@@ -81,10 +77,6 @@ const modes = [
   },
 ];
 
-// Настройки проекции по брейкпоинтам.
-// На мобилке мы не показываем весь мир (он становится нечитаемой точкой),
-// а зумим и сдвигаем поворот так, чтобы в кадре оставалась Евразия —
-// именно там сосредоточены все активные страны.
 function getMapConfig(width) {
   if (width < 480) {
     return { scale: 480, rotate: [-65, -18, 0], aspect: "4 / 5" };
@@ -107,16 +99,13 @@ function getMapConfig(width) {
 export default function GeographyMap() {
   const [tooltip, setTooltip] = useState(null);
   const [activeMode, setActiveMode] = useState(modes[0].key);
-  // Всегда начинаем с SSR-безопасного значения (1400px),
-  // чтобы сервер и клиент рендерили одинаковый HTML.
-  // Реальный размер подставляется в useEffect (только на клиенте).
   const [config, setConfig] = useState(() => getMapConfig(1400));
 
   useEffect(() => {
     function update() {
       setConfig(getMapConfig(window.innerWidth));
     }
-    update(); // Сразу синхронизируем с реальной шириной
+    update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
@@ -169,12 +158,6 @@ export default function GeographyMap() {
         className="relative w-full max-w-[1400px] px-4 sm:px-6 md:px-12 overflow-hidden flex items-center justify-center"
         style={{ aspectRatio: config.aspect }}
       >
-        {/*
-          Внутренний слой держит родную пропорцию SVG-карты (1400/700),
-          поэтому она НИКОГДА не растягивается и не искажается.
-          Внешний контейнер просто обрезает то, что выходит за рамки
-          (классический "object-fit: cover" через abs+overflow-hidden).
-        */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full min-w-full"
           style={{ aspectRatio: "1400 / 700" }}

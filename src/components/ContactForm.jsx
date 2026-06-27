@@ -1,7 +1,8 @@
+
 export default function ContactForm() {
   return (
-    <div className="max-w-[1200px] mx-auto px-[24px] lg:px-[40px] lg:mb-[110px]">
-      <div className="lg:grid lg:grid-cols-[1fr_500px] lg:gap-x-[72px] lg:items-center">
+    <div className="w-full px-[24px] lg:px-[64px] xl:px-[100px] lg:mb-[110px]">
+      <div className="lg:grid lg:grid-cols-[1fr_500px] lg:gap-x-[40px] lg:justify-between lg:items-center">
 
         <div className="hidden lg:block lg:order-1 lg:pr-[24px]">
           <p className="font-normal text-[12px] leading-[16px] tracking-[0.12em] uppercase text-[#003B73] mb-[16px]">
@@ -51,7 +52,7 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <div className="lg:order-2">
+        <div className="lg:order-2 lg:justify-self-end">
           <div className="bg-white shadow-[0_20px_60px_-15px_rgba(0,30,64,0.15)] p-[40px] lg:p-[48px] w-full max-w-[500px] mb-[48px] lg:mb-0 mx-auto lg:mx-0 lg:sticky lg:top-[120px]">
 
             <div className="lg:hidden">
