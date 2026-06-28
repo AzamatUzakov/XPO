@@ -30,7 +30,7 @@ export default function App() {
           <HeroSection />
         </div>
       </div>
-      <main className="px-[12px] py-0 flex flex-col">
+      <main className="py-0 flex flex-col">
         <Services />
         <Geography />
         <Workflow />

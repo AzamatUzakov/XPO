@@ -1,5 +1,6 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import SectionInner from "./SectionInner";
 
 const STEPS = [
   {
@@ -90,9 +91,12 @@ export default function Workflow() {
 
   return (
     <section ref={sectionRef} className="relative w-full my-20 md:my-[120px]">
+      <SectionInner>
       <div className="mx-auto flex w-full max-w-[640px] flex-col gap-16  md:max-w-[768px] md:gap-20">
         {/* Label */}
-        <h2 className="text-2xl text-[#003366] font-normal text-center  ">ПРОЦЕСС РАБОТЫ</h2>
+        <h2 className="text-2xl text-[#003366] font-normal text-center  ">
+          ПРОЦЕСС РАБОТЫ
+        </h2>
 
         {/* Steps list */}
         <div className="relative flex flex-col">
@@ -203,6 +207,7 @@ export default function Workflow() {
           })}
         </div>
       </div>
+      </SectionInner>
     </section>
   );
 }

@@ -1,6 +1,9 @@
+import SectionInner from "./SectionInner";
+
 export default function Services() {
   return (
-    <section className="rounded-lg mt-[80px]  pb-4 md:mt-[120px]  ">
+    <section className="rounded-lg mt-[80px] pb-4 md:mt-[120px]">
+      <SectionInner>
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <h2 className="text-2xl text-[#003366] font-normal">
           Логистические решения
@@ -158,6 +161,7 @@ export default function Services() {
           <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20"></div>
         </div>
       </div>
+      </SectionInner>
     </section>
   );
 }

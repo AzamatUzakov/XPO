@@ -9,18 +9,20 @@ import {
 import { FiMenu, FiX, FiPhone, FiMail } from "react-icons/fi";
 import ReactCountryFlag from "react-country-flag";
 import { Button } from "./ui/button";
+import SectionInner from "./SectionInner";
 
 export default function TopNavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header
-      className={`relative z-[100] flex items-center justify-between py-3 px-2 transition-all duration-300 ${
+      className={`relative z-[100] transition-all duration-300 ${
         isMobileMenuOpen
           ? "bg-[#17384e]/95 backdrop-blur-md border-b border-transparent"
           : "bg-transparent border-b border-white/20"
       }`}
     >
+      <SectionInner className="flex items-center justify-between py-3">
       <div className="relative z-[101] flex-1">
         <img
           className="w-[80px] md:w-[90px] lg:w-[100px]"
@@ -150,6 +152,7 @@ export default function TopNavBar() {
           Контакты
         </Button>
       </div>
+      </SectionInner>
 
       {/* Выезжающая шторка мобильного меню */}
       <div
