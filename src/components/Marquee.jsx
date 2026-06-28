@@ -1,3 +1,5 @@
+import SectionInner from "./SectionInner";
+
 const LOGOS = [
   { src: "/orion.svg", alt: "Orion" },
   { src: "/agromir.png", alt: "Agromir" },
@@ -11,17 +13,21 @@ export default function LogoMarquee() {
   const doubledLogos = [...LOGOS, ...LOGOS];
 
   return (
-    <div>
-      <div className="mb-[52px] sm:mb-[50px] md:mb-[49px] lg:mb-[48px] xl:mb-[48px] 2xl:mb-[48px]">
-        <h2 className="text-2xl text-[#003366] font-normal">
-          Стратегические партнеры
-        </h2>
-      </div>
+    <section className="mt-[64px] md:mt-[96px]">
+      {/* Заголовок с отступами */}
+      <SectionInner>
+        <div className="mb-[52px] sm:mb-[50px] md:mb-[49px] lg:mb-[48px] xl:mb-[48px] 2xl:mb-[48px]">
+          <h2 className="text-2xl text-[#003366] font-normal">
+            Стратегические партнеры
+          </h2>
+        </div>
+      </SectionInner>
 
-      <div className="w-[calc(100%+40px)] mx-[-20px] overflow-hidden select-none mb-[164px]">
-        <style>{` 
-        @keyframes marquee { 
-          0% { transform: translateX(0); } 
+      {/* Лента логотипов — edge-to-edge, без горизонтальных отступов */}
+      <div className="w-full overflow-hidden select-none mb-[164px]">
+        <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
           100% { transform: translateX(-100%); }
         }
         .animate-custom-marquee {
@@ -64,6 +70,6 @@ export default function LogoMarquee() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
