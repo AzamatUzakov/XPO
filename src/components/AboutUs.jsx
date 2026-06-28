@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <div className="w-[calc(100%+40px)] mx-[-20px] min-h-screen md:min-h-[100dvh] bg-[#001E40] text-white px-5 md:px-[64px] py-12 sm:py-16 md:py-0 flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-12">
+    <div className="w-[calc(100%+40px)] mx-[-20px] min-h-screen md:min-h-[100dvh] bg-[#001E40] text-white px-[12px] py-12 sm:py-16 md:py-0 flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-12">
       <div className="md:max-w-[50%]">
         <div>
           <p className="text-[26px] sm:text-[28px] md:text-[32px] leading-tight tracking-normal font-black uppercase text-white">

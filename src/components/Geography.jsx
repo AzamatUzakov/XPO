@@ -2,7 +2,7 @@ import { Globe } from "@/components/ui/globe";
 import AnimatedNumber from "./AnimatedNumber";
 export default function Geography() {
   return (
-    <section className="bg-[#f7f9ff] py-24 -mx-[12px] px-[12px]">
+    <section className="bg-[#f7f9ff] mt-[80px] md:mt-[120px] py-24 -mx-[12px] px-[12px]">
       <div className="flex flex-col md:grid md:grid-cols-2 md:items-center gap-10 md:gap-8 max-w-7xl mx-auto">
         <div>
           <h2 className="text-2xl text-[#003366] font-normal">

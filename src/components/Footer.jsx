@@ -1,16 +1,16 @@
 export default function Footer() {
   return (
     <footer className="bg-white text-[#0D0D0D]">
-      <div className="mx-auto max-w-[1920px] px-5 py-10 sm:px-8 sm:py-12 md:px-10 lg:px-16 lg:py-14 xl:px-[140px] xl:py-[60px] 2xl:px-[140px]">
+      <div className="mx-auto max-w-[1920px] px-[12px]  py-10  sm:py-12 ">
 
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:flex-wrap lg:gap-y-10">
 
           {/* Logo */}
-          <div className="flex items-center justify-center lg:justify-start">
+          <div className="">
             <img
               src="/header-logo.svg"
               alt="XPOTrans"
-              className="h-[72px] w-auto sm:h-[90px] md:h-[110px] lg:h-[130px] xl:h-[150px]"
+              className="h-[100px] w-auto  md:h-[110px] lg:h-[130px] xl:h-[150px]"
             />
           </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
 
             {/* Контакты */}
             <div className="col-span-2 flex lg:col-span-1">
-              <div className="mr-6 w-[2px] shrink-0 self-stretch bg-[#00A8CC]/20 sm:mr-8 lg:mr-10" />
+              <div className="mr-6 w-[2px] shrink-0 self-stretch bg-[#00a8cc] sm:mr-8 lg:mr-10" />
 
               <div className="flex flex-col gap-5 sm:gap-6 lg:gap-[24px]">
                 <div>

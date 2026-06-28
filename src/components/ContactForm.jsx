@@ -119,7 +119,7 @@ export default function ContactForm() {
         </div>
 
         <div className="lg:order-2 w-full shrink-0 lg:w-[480px]">
-          <div className="bg-[#F4F7FC] shadow-xl p-[16px] sm:p-[24px] lg:p-[48px] rounded-[16px] lg:rounded-3xl w-full max-w-[500px] mb-[48px] lg:mb-0 mx-auto lg:mx-0 lg:sticky lg:top-[120px]">
+          <div className="bg-[#F4F7FC] shadow-xl p-[16px] sm:p-[24px] lg:p-[48px]  w-full max-w-[500px] mb-[48px] lg:mb-0 mx-auto lg:mx-0 lg:sticky lg:top-[120px]">
 
             <div className="lg:hidden mb-[16px]">
               <p className="text-[20px] font-medium leading-[24px] uppercase text-[#001E40] mb-[6px]">

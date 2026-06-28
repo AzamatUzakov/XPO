@@ -287,7 +287,7 @@ export default function GeographyMap() {
               key={key}
               type="button"
               onClick={() => setActiveMode(key)}
-              className={`flex items-center gap-2 rounded-xl px-5 py-3 text-sm sm:text-base font-medium border transition-colors duration-200
+              className={`flex items-center gap-2 rounded-xl px-5 py-3 text-sm sm:text-base font-medium border transition-colors duration-200 cursor-pointer
                 ${
                   isActive
                     ? "bg-[#2DBE6C] border-[#2DBE6C] text-white"
@@ -303,7 +303,7 @@ export default function GeographyMap() {
 
       {/* Карта */}
       <div
-        className="relative w-full max-w-[1400px] px-4 sm:px-6 md:px-12 overflow-hidden"
+        className="relative w-full max-w-[1400px] cursor-pointer px-4 sm:px-6 md:px-12 overflow-hidden"
         style={{ aspectRatio: config.aspect }}
       >
         <ComposableMap
