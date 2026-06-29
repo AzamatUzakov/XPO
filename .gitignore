@@ -7,6 +7,10 @@ dist/
 # dependencies
 node_modules/
 
+# Добавь в .gitignore
+echo ".vercel/" >> .gitignore
+echo ".vercel/output/" >> .gitignore
+
 # logs
 npm-debug.log*
 yarn-debug.log*
