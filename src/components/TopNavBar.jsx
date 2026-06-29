@@ -26,7 +26,7 @@ export default function TopNavBar() {
       <div className="relative z-[101] flex-1">
         <img
           className="w-[80px] md:w-[90px] lg:w-[100px]"
-          src="../../public/header-logo.svg"
+          src="/header-logo.svg"
           alt="header-logo"
         />
       </div>
