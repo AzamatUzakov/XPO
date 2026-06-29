@@ -2,7 +2,7 @@ import SectionInner from "./SectionInner";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-[#0D0D0D]">
+    <footer className="bg-white text-[#0D0D0D] mt-10">
       <SectionInner className="mx-auto max-w-[1920px] py-10 sm:py-12">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:flex-wrap lg:gap-y-10">
           {/* Logo */}

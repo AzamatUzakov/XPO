@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 import TopNavBar from "./TopNavBar";
 import HeroSection from "./HeroSection";
 import Services from "./Services";
@@ -11,6 +14,30 @@ import GeographyMap from "./GeographyMap";
 import AI_Chat from "./AI_Chat";
 
 export default function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900  shadow-xl">

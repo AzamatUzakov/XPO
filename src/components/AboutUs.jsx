@@ -1,22 +1,24 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import SectionInner from "./SectionInner";
 
 export default function AboutUs() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px 0px" });
+  // Вынесли настройки viewport в общую константу
+  // amount: 0.2 означает, что анимация начнется, когда 20% самой картинки зайдет в экран
+  const viewportSettings = { once: true, amount: 0.2, margin: "0px 0px -50px 0px" };
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 24 },
-    animate: isInView ? { opacity: 1, y: 0 } : {},
+    whileInView: { opacity: 1, y: 0 },
+    viewport: viewportSettings,
     transition: { duration: 0.5, ease: "easeOut", delay },
   });
 
   const fadeLeft = (delay = 0) => ({
     initial: { opacity: 0, x: -20 },
-    animate: isInView ? { opacity: 1, x: 0 } : {},
+    whileInView: { opacity: 1, x: 0 },
+    viewport: viewportSettings,
     transition: { duration: 0.45, ease: "easeOut", delay },
   });
 
@@ -42,7 +44,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="w-full bg-[#001E40] text-white" ref={ref}>
+    <div className="w-full bg-[#001E40] text-white">
       <SectionInner className="min-h-full md:min-h-[100dvh] py-12 sm:py-16 md:py-0 flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-12">
         {/* Левая колонка */}
         <div className="md:max-w-[50%]">
@@ -80,11 +82,12 @@ export default function AboutUs() {
           ))}
         </div>
 
-        {/* Правая колонка — фото появляется справа */}
+        {/* Правая колонка — теперь сама отслеживает свое появление на экране */}
         <motion.div
           className="w-full md:max-w-[50%]"
           initial={{ opacity: 0, x: 32 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={viewportSettings}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
         >
           <div className="relative w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[480px]">
@@ -95,11 +98,12 @@ export default function AboutUs() {
             />
             <div className="absolute inset-0 bg-[#001E40]/40 pointer-events-none" />
 
-            {/* Бейдж "12+ лет" — появляется последним с лёгким scale */}
+            {/* Бейдж "12+ лет" — завязан на то, что родитель вошел во viewport */}
             <motion.div
               className="absolute left-0 bottom-0 md:-left-12 md:-bottom-10 bg-[#00A8CC] text-center w-[110px] h-[110px] sm:w-[140px] sm:h-[140px] md:w-[170px] md:h-[170px] lg:w-[185px] lg:h-[185px] p-3 sm:p-4 flex flex-col justify-center items-center select-none"
               initial={{ opacity: 0, scale: 0.85 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={viewportSettings}
               transition={{ duration: 0.4, ease: "easeOut", delay: 0.55 }}
             >
               <p className="text-white text-[32px] sm:text-[40px] md:text-[50px] lg:text-[56px] font-black leading-none mb-1">

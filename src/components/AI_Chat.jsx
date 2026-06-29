@@ -122,7 +122,7 @@ export default function AI_Chat() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-4 py-3 flex flex-col gap-3">
+          <div data-lenis-prevent className="flex-1 overflow-y-auto px-4 py-3 flex flex-col gap-3">
             {messages.map((msg, i) => (
               <div
                 key={i}
