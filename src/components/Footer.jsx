@@ -22,37 +22,37 @@ export default function Footer() {
               className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]"
             >
               <a
-                href="https://agl.uz/o-kompanii/"
+                href="#"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
               >
                 О компании
               </a>
               <a
-                href="https://agl.uz/news/"
+                href="#"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
               >
                 Новости
               </a>
               <a
-                href="https://agl.uz/project/"
+                href="#"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
               >
                 Проекты
               </a>
               <a
-                href="https://agl.uz/nashi-partnery/"
+                href="#"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
               >
                 Партнеры
               </a>
               <a
-                href="https://agl.uz/vakansii/"
+                href="#"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
               >
                 Вакансии
               </a>
               <a
-                href="https://agl.uz/kontakty/"
+                href="#"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
               >
                 Контакты
@@ -65,7 +65,7 @@ export default function Footer() {
               className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]"
             >
               <a
-                href="https://www.instagram.com/agl.uz/"
+                href="https://www.instagram.com/XPOTrans_group/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
@@ -73,7 +73,7 @@ export default function Footer() {
                 Instagram
               </a>
               <a
-                href="https://www.facebook.com/share/1AasRMECCz/?mibextid=wwXIfr"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
@@ -81,7 +81,7 @@ export default function Footer() {
                 Facebook
               </a>
               <a
-                href="https://www.youtube.com/@ArrowGreenLogistics"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
@@ -100,12 +100,12 @@ export default function Footer() {
                     Наш адрес
                   </p>
                   <a
-                    href="https://maps.google.com/maps?q=41.345498,69.364679&ll=41.345498,69.364679&z=16"
+                    href="https://maps.app.goo.gl/98xCDDPKY5ncLqcWA"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block max-w-[260px] text-[15px] leading-[22px] text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:max-w-[280px] sm:text-[16px] sm:leading-[24px] lg:text-[18px] lg:leading-[27px]"
                   >
-                    г. Ташкент, Мирзо-Улугбекский район, 2-й проезд Шуртепа, 14
+                    г. Самарканд, Самаркандская область, улица Гагарина, 36
                   </a>
                 </div>
 
@@ -114,10 +114,10 @@ export default function Footer() {
                     Телефонный номер
                   </p>
                   <a
-                    href="tel:+998555181900"
+                    href="tel:+998952338327"
                     className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
                   >
-                    +998 55 518-19-00
+                    +998 95 233-83-27
                   </a>
                 </div>
 
@@ -126,16 +126,10 @@ export default function Footer() {
                     Электронная почта
                   </p>
                   <a
-                    href="mailto:info@agl.uz"
+                    href="mailto:xpotrans_group@mail.ru"
                     className="block text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
                   >
-                    info@agl.uz
-                  </a>
-                  <a
-                    href="mailto:sales@agl.uz"
-                    className="mt-2 block text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-                  >
-                    sales@agl.uz
+                    xpotrans_group@mail.ru
                   </a>
                 </div>
               </div>
