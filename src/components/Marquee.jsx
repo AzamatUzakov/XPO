@@ -7,6 +7,9 @@ const LOGOS = [
   { src: "/uzairways.jpg", alt: "Uzbekistan Airways" },
   { src: "/samauto.png", alt: "SamAuto" },
   { src: "/sag-gilamlar.png", alt: "SAG Gilamlar" },
+  { src: "/nestle.svg", alt: "Nestle" },
+  { src: "/uzkimyoimpeks.png", alt: "Uzkimyoimpeks" },
+  { src: "/orientMotors.png", alt: "OrientMotors" },
 ];
 
 export default function LogoMarquee() {
