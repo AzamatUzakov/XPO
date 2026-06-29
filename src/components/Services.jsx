@@ -1,166 +1,154 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import SectionInner from "./SectionInner";
 
+function ServiceCard({ children, index, colSpan, addTopMargin }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-60px 0px" });
+
+  const fromLeft = index % 2 === 0;
+
+  const baseClass = `relative w-full overflow-hidden group cursor-pointer shadow-md ${colSpan} ${addTopMargin ? "mt-6 md:mt-0" : ""}`;
+
+  return (
+    <div ref={ref} className={baseClass}>
+      <motion.div
+        className="hidden md:block w-full h-full"
+        initial={{ opacity: 0, y: 28 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+        transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      >
+        {children}
+      </motion.div>
+
+      <motion.div
+        className="md:hidden w-full h-full"
+        initial={{ opacity: 0, x: fromLeft ? -40 : 40 }}
+        animate={
+          isInView
+            ? { opacity: 1, x: 0 }
+            : { opacity: 0, x: fromLeft ? -40 : 40 }
+        }
+        transition={{ duration: 0.45, ease: "easeOut" }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
 export default function Services() {
+  const headerRef = useRef(null);
+  const headerInView = useInView(headerRef, {
+    once: true,
+    margin: "-40px 0px",
+  });
+
+  const cards = [
+    {
+      colSpan: "md:col-span-2",
+      src: "/service-1.png",
+      alt: "Авиафрахт",
+      title: "АВИАФРАХТ",
+      mobileDesc: "Срочная доставка по всему миру",
+      desktopDesc:
+        "Экспресс-доставка по всему миру с приоритетной обработкой грузов.",
+    },
+    {
+      colSpan: "md:col-span-2",
+      src: "/service-2.png",
+      alt: "Ж/Д перевозки",
+      title: "Ж/Д ПЕРЕВОЗКИ",
+      mobileDesc: "Надежные перевозки по СНГ и Европе",
+      desktopDesc:
+        "Экономичные трансконтинентальные решения через Евразийские коридоры.",
+    },
+    {
+      colSpan: "md:col-span-2",
+      src: "/service-3.png",
+      alt: "Морской фрахт",
+      title: "МОРСКОЙ ФРАХТ",
+      mobileDesc: "Экономичные контейнерные перевозки",
+      desktopDesc:
+        "Прямые контракты с крупнейшими линиями (FCL/LCL) по всем океанским путям.",
+    },
+    {
+      colSpan: "md:col-span-3",
+      src: "/service-4.png",
+      alt: "СБОРНЫЕ ГРУЗЫ",
+      title: "СБОРНЫЕ ГРУЗЫ (LCL)",
+      mobileDesc: "Оптимизация затрат для малых партий",
+      desktopDesc:
+        "Оптимизация затрат для небольших партий товаров с регулярным графиком отправок.",
+    },
+    {
+      colSpan: "md:col-span-3",
+      src: "/service-5.png",
+      alt: "Негабаритные грузы",
+      title: "НЕГАБАРИТНЫЕ ГРУЗЫ",
+      mobileDesc: "Проектная логистика любой сложности",
+      desktopDesc:
+        "Проектная логистика повышенной сложности для индустриальных гигантов.",
+    },
+  ];
+
   return (
     <section className="rounded-lg mt-[80px] pb-4 md:mt-[120px]">
       <SectionInner>
-      <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-        <h2 className="text-2xl text-[#003366] font-normal">
-          Логистические решения
-        </h2>{" "}
-        <p className="text-[#00A8CC] text-[12px] md:text-[16px]">
-          Professional Services
-        </p>
-      </div>
-      <hr className="border-t-2 mt-6 border-[#C3C6D1]" />
+        <motion.div
+          ref={headerRef}
+          className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
+          initial={{ opacity: 0, y: -16 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
+          <h2 className="text-2xl text-[#003366] font-normal">
+            Логистические решения
+          </h2>
+          <p className="text-[#00A8CC] text-[12px] md:text-[16px]">
+            Professional Services
+          </p>
+        </motion.div>
 
-      <div className="mt-10 md:grid md:grid-cols-6 md:gap-4 lg:gap-6">
-        <div className="relative w-full md:col-span-2 overflow-hidden group cursor-pointer shadow-md">
-          <img
-            className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-            src="/service-1.png"
-            alt="Авиафрахт"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none"></div>
+        <hr className="border-t-2 mt-6 border-[#C3C6D1]" />
 
-          <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-5 md:pb-7 z-10 text-white">
-            <h3 className="text-[18px] md:text-[20px] lg:text-[26px] font-normal">
-              АВИАФРАХТ
-            </h3>
-            <div className="grid grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 transition-all duration-500">
-              <div className="overflow-hidden">
-                <p className="text-[14px] lg:text-[16px] text-white/80 font-normal pt-1">
-                  <span className="md:hidden">
-                    Срочная доставка по всему миру
-                  </span>
-                  <span className="hidden md:inline">
-                    Экспресс-доставка по всему миру с приоритетной обработкой
-                    грузов.
-                  </span>
-                </p>
+        <div className="mt-10 md:grid md:grid-cols-6 md:gap-4 lg:gap-6">
+          {cards.map((card, i) => (
+            <ServiceCard
+              key={card.title}
+              index={i}
+              colSpan={card.colSpan}
+              addTopMargin={i > 0}
+            >
+              <img
+                className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
+                src={card.src}
+                alt={card.alt}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none" />
+
+              <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-5 md:pb-7 z-10 text-white">
+                <h3 className="text-[18px] md:text-[20px] lg:text-[26px] font-normal">
+                  {card.title}
+                </h3>
+                <div className="grid grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 transition-all duration-500">
+                  <div className="overflow-hidden">
+                    <p className="text-[14px] lg:text-[16px] text-white/80 font-normal pt-1">
+                      <span className="md:hidden">{card.mobileDesc}</span>
+                      <span className="hidden md:inline">
+                        {card.desktopDesc}
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          {/* Анимированная полоса */}
-          <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20"></div>
+
+              <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20" />
+            </ServiceCard>
+          ))}
         </div>
-
-        <div className="relative w-full mt-6 md:mt-0 md:col-span-2 overflow-hidden group cursor-pointer shadow-md">
-          <img
-            className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-            src="/service-2.png"
-            alt="Ж/Д перевозки"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none"></div>
-
-          <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-5 md:pb-7 z-10 text-white">
-            <h3 className="text-[18px] md:text-[20px] lg:text-[26px] font-normal">
-              Ж/Д ПЕРЕВОЗКИ
-            </h3>
-            <div className="grid grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 transition-all duration-500">
-              <div className="overflow-hidden">
-                <p className="text-[14px] lg:text-[16px] text-white/80 font-normal pt-1">
-                  <span className="md:hidden">
-                    Надежные перевозки по СНГ и Европе
-                  </span>
-                  <span className="hidden md:inline">
-                    Экономичные трансконтинентальные решения через Евразийские
-                    коридоры.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20"></div>
-        </div>
-
-        <div className="relative w-full mt-6 md:mt-0 md:col-span-2 overflow-hidden group cursor-pointer shadow-md">
-          <img
-            className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-            src="/service-3.png"
-            alt="Морской фрахт"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none"></div>
-
-          <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-5 md:pb-7 z-10 text-white">
-            <h3 className="text-[18px] md:text-[20px] lg:text-[26px] font-normal">
-              МОРСКОЙ ФРАХТ
-            </h3>
-            <div className="grid grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 transition-all duration-500">
-              <div className="overflow-hidden">
-                <p className="text-[14px] lg:text-[16px] text-white/80 font-normal pt-1">
-                  <span className="md:hidden">
-                    Экономичные контейнерные перевозки
-                  </span>
-                  <span className="hidden md:inline">
-                    Прямые контракты с крупнейшими линиями (FCL/LCL) по всем
-                    океанским путям.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20"></div>
-        </div>
-
-        <div className="relative w-full mt-6 md:mt-0 md:col-span-3 overflow-hidden group cursor-pointer shadow-md">
-          <img
-            className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-            src="/service-4.png"
-            alt="СБОРНЫЕ ГРУЗЫ "
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none"></div>
-
-          <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-5 md:pb-7 z-10 text-white">
-            <h3 className="text-[18px] md:text-[20px] lg:text-[26px] font-normal">
-              СБОРНЫЕ ГРУЗЫ (LCL)
-            </h3>
-            <div className="grid grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 transition-all duration-500">
-              <div className="overflow-hidden">
-                <p className="text-[14px] lg:text-[16px] text-white/80 font-normal pt-1">
-                  <span className="md:hidden">
-                    Оптимизация затрат для малых партий
-                  </span>
-                  <span className="hidden md:inline">
-                    Оптимизация затрат для небольших партий товаров с регулярным
-                    графиком отправок.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20"></div>
-        </div>
-
-        <div className="relative w-full mt-6 md:mt-0 md:col-span-3 overflow-hidden group cursor-pointer shadow-md">
-          <img
-            className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-            src="/service-5.png"
-            alt="Негабаритные грузы  "
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none"></div>
-
-          <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-5 md:pb-7 z-10 text-white">
-            <h3 className="text-[18px] md:text-[20px] lg:text-[26px] font-normal">
-              НЕГАБАРИТНЫЕ ГРУЗЫ
-            </h3>
-            <div className="grid grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 transition-all duration-500">
-              <div className="overflow-hidden">
-                <p className="text-[14px] lg:text-[16px] text-white/80 font-normal pt-1">
-                  <span className="md:hidden">
-                    Проектная логистика любой сложности
-                  </span>
-                  <span className="hidden md:inline">
-                    Проектная логистика повышенной сложности для индустриальных
-                    гигантов.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20"></div>
-        </div>
-      </div>
       </SectionInner>
     </section>
   );
