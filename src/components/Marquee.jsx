@@ -8,8 +8,8 @@ const LOGOS = [
   { src: "/samauto.png", alt: "SamAuto" },
   { src: "/sag-gilamlar.png", alt: "SAG Gilamlar" },
   { src: "/nestle.svg", alt: "Nestle" },
-  { src: "/uzkimyoimpeks.png", alt: "Uzkimyoimpeks" },
-  { src: "/orientMotors.png", alt: "OrientMotors" },
+  { src: "/uzkimyoimpeks.jpg", alt: "Uzkimyoimpeks" },
+  { src: "/orientMotors.jpg", alt: "OrientMotors" },
 ];
 
 export default function LogoMarquee() {
