@@ -1,12 +1,17 @@
 
 import { useState, useRef, useEffect } from "react";
+import { useI18n } from "./I18nProvider";
 
 export default function AI_Chat() {
+  const { translations } = useI18n();
+  const chat = translations.chat || {};
+  const welcomeMessage = chat.welcome ?? chat.defaultMessage ?? "Здравствуйте! Я помощник по международным перевозкам. Чем могу помочь?";
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "Здравствуйте! Я помощник по международным перевозкам. Чем могу помочь?",
+      content: welcomeMessage,
       uiOnly: true,
     },
   ]);
@@ -84,7 +89,7 @@ export default function AI_Chat() {
         const updated = [...prev];
         updated[updated.length - 1] = {
           role: "assistant",
-          content: `Ошибка: ${e.message || "Попробуйте ещё раз."}`,
+          content: `${chat.errorPrefix ?? "Ошибка:"} ${e.message || (chat.retryMessage ?? "Попробуйте ещё раз.")}`,
         };
         return updated;
       });
@@ -112,7 +117,7 @@ export default function AI_Chat() {
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500" />
-              <span className="text-white text-sm font-medium">AI Ассистент</span>
+              <span className="text-white text-sm font-medium">{chat.assistantLabel ?? "AI Ассистент"}</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -139,7 +144,7 @@ export default function AI_Chat() {
                   }}
                 >
                   {msg.content || (
-                    <span className="opacity-50 italic">Печатает...</span>
+                    <span className="opacity-50 italic">{chat.typing ?? "Печатает..."}</span>
                   )}
                 </div>
               </div>
@@ -158,7 +163,7 @@ export default function AI_Chat() {
                 color: "white",
                 border: "1px solid rgba(255,255,255,0.1)",
               }}
-              placeholder="Напишите вопрос..."
+              placeholder={chat.placeholder ?? "Напишите вопрос..."}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}

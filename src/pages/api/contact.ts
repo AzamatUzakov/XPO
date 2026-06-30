@@ -5,13 +5,13 @@ import { isValidPhoneNumber } from "libphonenumber-js";
 
 const NAME_RE = /^[A-Za-zА-ЯЁа-яёÀ-ÿ]+([\s-][A-Za-zА-ЯЁа-яёÀ-ÿ]+)+$/;
 
-const SERVICES = [
-    "Авиафрахт",
-    "Морской фрахт",
-    "Автомобильные перевозки",
-    "Железнодорожные перевозки",
-    "Мультимодальные перевозки",
-];
+import { translations } from "../../lib/i18n";
+
+const SERVICES = Array.from(
+    new Set(
+        Object.values(translations).flatMap((locale) => (locale.contact?.serviceOptions ?? []))
+    )
+);
 
 function escapeMd(s: string) {
     return s.replace(/[_*[\]()~`>#+\-=|{}.!]/g, "\\$&");
@@ -34,7 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // server-side валидация — не доверяем клиенту
     if (typeof name !== "string" || !NAME_RE.test(name.trim())) {
-        return new Response(JSON.stringify({ error: "Некорректное имя" }), {
+        return new Response(JSON.stringify({ errorCode: "invalid_name", error: "Invalid name" }), {
             status: 400,
             headers: { "Content-Type": "application/json" },
         });
@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (typeof phone !== "string" || !phone.trim().startsWith("+")) {
         return new Response(
-            JSON.stringify({ error: "Укажите номер с кодом страны, например +998..." }),
+            JSON.stringify({ errorCode: "invalid_phone_prefix", error: "Phone number must include country code, e.g. +998..." }),
             { status: 400, headers: { "Content-Type": "application/json" } }
         );
     }
@@ -55,14 +55,14 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     if (!isPhoneValid) {
-        return new Response(JSON.stringify({ error: "Некорректный телефон" }), {
+        return new Response(JSON.stringify({ errorCode: "invalid_phone", error: "Invalid phone number" }), {
             status: 400,
             headers: { "Content-Type": "application/json" },
         });
     }
 
     if (typeof serviceType !== "string" || !SERVICES.includes(serviceType)) {
-        return new Response(JSON.stringify({ error: "Некорректный тип услуги" }), {
+        return new Response(JSON.stringify({ errorCode: "invalid_service_type", error: "Invalid service type" }), {
             status: 400,
             headers: { "Content-Type": "application/json" },
         });
@@ -72,7 +72,7 @@ export const POST: APIRoute = async ({ request }) => {
     const chatId = import.meta.env.TELEGRAM_CHAT_ID;
 
     if (!botToken || !chatId) {
-        return new Response(JSON.stringify({ error: "Telegram не настроен" }), {
+        return new Response(JSON.stringify({ errorCode: "telegram_not_configured", error: "Telegram is not configured" }), {
             status: 500,
             headers: { "Content-Type": "application/json" },
         });
@@ -101,7 +101,7 @@ export const POST: APIRoute = async ({ request }) => {
     } catch (e: unknown) {
         const msg = e instanceof Error ? e.message : String(e);
         return new Response(
-            JSON.stringify({ error: "Failed to reach Telegram API", detail: msg }),
+            JSON.stringify({ errorCode: "telegram_api_error", error: "Failed to reach Telegram API", detail: msg }),
             { status: 502, headers: { "Content-Type": "application/json" } }
         );
     }

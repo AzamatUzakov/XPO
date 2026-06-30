@@ -6,6 +6,7 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { Truck, TrainFront, Plane, Share2 } from "lucide-react";
+import { useI18n } from "./I18nProvider";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
@@ -184,11 +185,26 @@ function getMapConfig(width: number): {
 }
 
 export default function GeographyMap() {
+  const { translations } = useI18n();
+  const mapTranslations = translations.map || {};
   const [tooltip, setTooltip] = useState<string | null>(null);
   const [activeMode, setActiveMode] = useState(modes[0].key);
   const [config, setConfig] = useState(() =>
     getMapConfig(typeof window !== "undefined" ? window.innerWidth : 1400),
   );
+
+  const translatedModeLabels = mapTranslations.modes || {
+    auto: "Авто",
+    rail: "Ж/Д",
+    air: "Авиа",
+    multimodal: "Мультимодальные",
+  };
+
+  const sectionTitle = mapTranslations.title ?? "География перевозок";
+  const sectionDescription = mapTranslations.description ??
+    "Осуществляем доставку в более чем 60 стран мира. Используем автотранспорт, авиа, железную дорогу и мультимодальные решения. Обеспечиваем точную логистику, оптимальные маршруты и контроль на всех этапах перевозки.";
+  const tooltipUnknown = mapTranslations.tooltipUnknown ?? "Неизвестно";
+  const translatedCountryNames = mapTranslations.countryNames || {};
   const [zoom, setZoom] = useState(1);
   const [center, setCenter] = useState<[number, number]>([0, 20]);
 
@@ -213,7 +229,7 @@ export default function GeographyMap() {
   }, [activeMode]);
 
   function handleGeoClick(name: string | undefined, countryId: string) {
-    const displayName = countryNames[countryId] || name || "Неизвестно";
+    const displayName = translatedCountryNames[countryId] || countryNames[countryId] || name || tooltipUnknown;
     setTooltip((prev) => (prev === displayName ? null : displayName));
   }
 
@@ -230,7 +246,7 @@ export default function GeographyMap() {
               onClick={() => handleGeoClick(geo.properties.name, countryId)}
               onMouseEnter={() => {
                 if (!config.isMobile) {
-                  setTooltip(countryNames[countryId] || geo.properties.name);
+                  setTooltip(translatedCountryNames[countryId] || countryNames[countryId] || geo.properties.name);
                 }
               }}
               onMouseLeave={() => {
@@ -268,13 +284,10 @@ export default function GeographyMap() {
       {/* Заголовок */}
       <div className="max-w-3xl px-4 text-center mb-8 sm:mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5">
-          География перевозок
+          {sectionTitle}
         </h2>
         <p className="text-sm sm:text-base text-white/70 leading-relaxed">
-          Осуществляем доставку в более чем 60 стран мира. Используем
-          автотранспорт, авиа, железную дорогу и мультимодальные решения.
-          Обеспечиваем точную логистику, оптимальные маршруты и контроль на всех
-          этапах перевозки.
+          {sectionDescription}
         </p>
       </div>
 
@@ -295,13 +308,12 @@ export default function GeographyMap() {
                 }`}
             >
               <Icon size={18} className="shrink-0" />
-              {label}
+              {translatedModeLabels[key] ?? label}
             </button>
           );
         })}
       </div>
 
-      {/* Карта */}
       <div
         className="relative w-full max-w-[1400px] cursor-pointer px-4 sm:px-6 md:px-12 overflow-hidden"
         style={{ aspectRatio: config.aspect }}

@@ -10,9 +10,32 @@ import { FiMenu, FiX, FiPhone, FiMail } from "react-icons/fi";
 import ReactCountryFlag from "react-country-flag";
 import { Button } from "./ui/button";
 import SectionInner from "./SectionInner";
+import { useI18n } from "./I18nProvider";
+import { getLocalizedPath, stripLocaleFromPath } from "../lib/i18n";
 
-export default function TopNavBar() {
+export default function TopNavBar({ locale, currentPath }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { translations } = useI18n();
+
+  const currentRoute = stripLocaleFromPath(currentPath || "/");
+  const navItems = translations.header?.nav || [
+    "Услуги",
+    "География",
+    "Процесс",
+    "О компании",
+    "Контакты",
+  ];
+  const mobileItems = translations.header?.mobileMenu || navItems;
+  const languageLabel = translations.header?.language ?? "Язык";
+  const contactLabel = translations.header?.contact ?? "Контакты";
+  const langLabels = translations.header?.languages ?? { ru: "RU", en: "EN", uz: "UZ" };
+  const phone = translations.header?.contactPhone ?? "+7 (999) 123-45-67";
+  const email = translations.header?.contactEmail ?? "info@logistic.com";
+
+  const handleChangeLanguage = (selectedLocale) => {
+    const target = getLocalizedPath(currentRoute, selectedLocale);
+    window.location.href = target;
+  };
 
   return (
     <header
@@ -33,45 +56,24 @@ export default function TopNavBar() {
           className="hidden md:flex items-center justify-center shrink-0 gap-4 lg:gap-8 xl:gap-12 text-sm lg:text-base text-white font-medium"
           style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
         >
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            Услуги
-          </a>
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            География
-          </a>
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            О нас
-          </a>
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            Ценности
-          </a>
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            Партнеры
-          </a>
+          {navItems.map((item) => (
+            <a
+              key={item}
+              href="#"
+              className="hover:text-[#00A8CC] transition-colors duration-300"
+            >
+              {item}
+            </a>
+          ))}
         </nav>
 
         <div className="relative z-[101] flex-1 flex items-center justify-end gap-4 cursor-pointer">
-          <Select defaultValue="ru">
+          <Select defaultValue={locale} onValueChange={handleChangeLanguage}>
             <SelectTrigger
               className="w-fit px-3 h-10 cursor-pointer rounded-lg bg-transparent border border-slate-400 shadow-none focus:ring-0 md:border-0 md:text-xl font-heading text-white"
               style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
             >
-              <SelectValue placeholder="Язык" />
+              <SelectValue placeholder={languageLabel} />
             </SelectTrigger>
             <SelectContent
               alignItemWithTrigger={false}
@@ -90,7 +92,7 @@ export default function TopNavBar() {
                       borderRadius: "2px",
                     }}
                   />
-                  <span>RU</span>
+                  <span>{langLabels.ru}</span>
                 </div>
               </SelectItem>
               <SelectItem value="en" className="cursor-pointer">
@@ -104,7 +106,7 @@ export default function TopNavBar() {
                       borderRadius: "2px",
                     }}
                   />
-                  <span>EN</span>
+                  <span>{langLabels.en}</span>
                 </div>
               </SelectItem>
               <SelectItem value="uz" className="cursor-pointer">
@@ -118,7 +120,7 @@ export default function TopNavBar() {
                       borderRadius: "2px",
                     }}
                   />
-                  <span>UZ</span>
+                  <span>{langLabels.uz}</span>
                 </div>
               </SelectItem>
             </SelectContent>
@@ -146,12 +148,11 @@ export default function TopNavBar() {
           </div>
 
           <Button className="hidden md:block px-4 lg:px-10 cursor-pointer h-[40px] lg:h-[45px] bg-[#00A8CC] hover:bg-[#008ba8] text-white rounded-none border-none text-sm lg:text-base">
-            Контакты
+            {contactLabel}
           </Button>
         </div>
       </SectionInner>
 
-      {/* Выезжающая шторка мобильного меню */}
       <div
         className={`absolute top-full left-0 w-full md:hidden bg-[#17384e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-[90] ${isMobileMenuOpen
           ? "opacity-100 pointer-events-auto"
@@ -165,36 +166,34 @@ export default function TopNavBar() {
         <div className="overflow-hidden">
           <div className="px-6 pb-8 pt-6 flex flex-col items-center">
             <nav className="flex flex-col items-center gap-2 text-lg font-medium w-full">
-              {["О нас", "Услуги", "География", "Ценности", "Партнеры"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
-                  >
-                    {item}
-                  </a>
-                ),
-              )}
+              {mobileItems.map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
+                >
+                  {item}
+                </a>
+              ))}
             </nav>
 
             <div className="mt-6 pt-6 border-t border-white/10 flex flex-col items-center gap-4 text-white/80 w-full">
               <a
-                href="tel:+79991234567"
+                href={`tel:${phone.replace(/\s/g, "")}`}
                 className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit"
               >
                 <FiPhone className="text-xl text-[#00A8CC]" />
                 <span className="text-base tracking-wider">
-                  +7 (999) 123-45-67
+                  {phone}
                 </span>
               </a>
               <a
-                href="mailto:info@logistic.com"
+                href={`mailto:${email}`}
                 className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit"
               >
                 <FiMail className="text-xl text-[#00A8CC]" />
                 <span className="text-base tracking-wider">
-                  info@logistic.com
+                  {email}
                 </span>
               </a>
             </div>

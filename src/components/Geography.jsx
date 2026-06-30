@@ -1,22 +1,24 @@
 import { Globe } from "@/components/ui/globe";
 import AnimatedNumber from "./AnimatedNumber";
+import { useI18n } from "./I18nProvider";
 import SectionInner from "./SectionInner";
 
 export default function Geography() {
+  const { translations } = useI18n();
+  const geography = translations.geography || {};
+  const stats = geography.stats || {};
+
   return (
-    // Внешний блок — фон растянут edge-to-edge, без горизонтальных отступов
     <section className="bg-[#f7f9ff] mt-[80px] md:mt-[120px] py-24">
-      {/* Внутренний контейнер — единые X-отступы */}
       <SectionInner>
         <div className="flex flex-col md:grid md:grid-cols-2 md:items-center gap-10 md:gap-8 max-w-7xl mx-auto">
           <div>
             <h2 className="text-2xl text-[#003366] font-normal">
-              Глобальное присутствие{" "}
+              {geography.title ?? "Глобальное присутствие"}
             </h2>
             <p className="text-[16px] text-[#43474F] mt-6">
-              Мы расширяем границы возможного, открывая прямые
-              трансконтинентальные коридоры в Северную Америку (США, Канада) и по
-              всей Евразии.
+              {geography.description ??
+                "Мы расширяем границы возможного, открывая прямые трансконтинентальные коридоры в Северную Америку (США, Канада) и по всей Евразии."}
             </p>
             <div className="grid grid-cols-2 gap-4 mt-10">
               <div className="bg-white p-6 shadow-sm ">
@@ -25,7 +27,7 @@ export default function Geography() {
                     <AnimatedNumber value={50} suffix="+" />
                   </span>
                   <span className="text-[12px] mt-1 text-[#43474F]">
-                    Стран охвата
+                    {stats.countries ?? "Стран охвата"}
                   </span>
                 </p>
               </div>
@@ -36,7 +38,7 @@ export default function Geography() {
                     <AnimatedNumber value={1000} suffix="+" />
                   </span>
                   <span className="text-[12px] mt-1 text-[#43474F]">
-                    Маршрутов
+                    {stats.routes ?? "Маршрутов"}
                   </span>
                 </p>
               </div>
@@ -47,7 +49,7 @@ export default function Geography() {
                     <AnimatedNumber value={24} suffix="/7" />
                   </span>
                   <span className="text-[12px] mt-1 text-[#43474F]">
-                    Мониторинг
+                    {stats.monitoring ?? "Мониторинг"}
                   </span>
                 </p>
               </div>
@@ -57,7 +59,9 @@ export default function Geography() {
                   <span className="text-[#00A8CC] font-black text-[32px]">
                     <AnimatedNumber value={15} />
                   </span>
-                  <span className="text-[12px] mt-1 text-[#43474F]">Хабов</span>
+                  <span className="text-[12px] mt-1 text-[#43474F]">
+                    {stats.hubs ?? "Хабов"}
+                  </span>
                 </p>
               </div>
             </div>

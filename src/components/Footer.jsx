@@ -1,6 +1,19 @@
 import SectionInner from "./SectionInner";
+import { useI18n } from "./I18nProvider";
 
 export default function Footer() {
+  const { translations } = useI18n();
+  const footer = translations.footer || {};
+  const navItems = footer.nav || ["О компании", "Новости", "Проекты", "Партнеры", "Вакансии", "Контакты"];
+  const socials = footer.socials || ["Instagram", "Facebook", "Youtube"];
+  const addressLabel = footer.addressLabel ?? "Наш адрес";
+  const phoneLabel = footer.phoneLabel ?? "Телефонный номер";
+  const emailLabel = footer.emailLabel ?? "Электронная почта";
+  const address = footer.address ?? "г. Самарканд, Самаркандская область, улица Гагарина, 36";
+  const phone = footer.phone ?? "+998 95 233-83-27";
+  const email = footer.email ?? "xpotrans_group@mail.ru";
+  const copyright = footer.copyright ?? "2026 Все права защищены";
+
   return (
     <footer className="bg-white text-[#0D0D0D] mt-10">
       <SectionInner className="mx-auto max-w-[1920px] py-10 sm:py-12">
@@ -21,42 +34,15 @@ export default function Footer() {
               aria-label="Навигация по сайту"
               className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]"
             >
-              <a
-                href="#"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                О компании
-              </a>
-              <a
-                href="#"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Новости
-              </a>
-              <a
-                href="#"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Проекты
-              </a>
-              <a
-                href="#"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Партнеры
-              </a>
-              <a
-                href="#"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Вакансии
-              </a>
-              <a
-                href="#"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Контакты
-              </a>
+                {navItems.map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
+                >
+                  {item}
+                </a>
+              ))}
             </nav>
 
             {/* Соцсети */}
@@ -64,30 +50,17 @@ export default function Footer() {
               aria-label="Социальные сети"
               className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]"
             >
-              <a
-                href="https://www.instagram.com/XPOTrans_group/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Instagram
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Facebook
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
-              >
-                Youtube
-              </a>
+                {socials.map((social) => (
+                <a
+                  key={social}
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
+                >
+                  {social}
+                </a>
+              ))}
             </nav>
 
             {/* Контакты */}
@@ -97,7 +70,7 @@ export default function Footer() {
               <div className="flex flex-col gap-5 sm:gap-6 lg:gap-[24px]">
                 <div>
                   <p className="mb-2 text-[12px] leading-none text-[#0D0D0D]/40 sm:text-[13px] lg:text-[14px]">
-                    Наш адрес
+                    {addressLabel}
                   </p>
                   <a
                     href="https://maps.app.goo.gl/98xCDDPKY5ncLqcWA"
@@ -105,31 +78,31 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="block max-w-[260px] text-[15px] leading-[22px] text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:max-w-[280px] sm:text-[16px] sm:leading-[24px] lg:text-[18px] lg:leading-[27px]"
                   >
-                    г. Самарканд, Самаркандская область, улица Гагарина, 36
+                    {address}
                   </a>
                 </div>
 
                 <div>
                   <p className="mb-2 text-[12px] leading-none text-[#0D0D0D]/40 sm:text-[13px] lg:text-[14px]">
-                    Телефонный номер
+                    {phoneLabel}
                   </p>
                   <a
-                    href="tel:+998952338327"
+                    href={`tel:${phone.replace(/\s/g, "")}`}
                     className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
                   >
-                    +998 95 233-83-27
+                    {phone}
                   </a>
                 </div>
 
                 <div>
                   <p className="mb-2 text-[12px] leading-none text-[#0D0D0D]/40 sm:text-[13px] lg:text-[14px]">
-                    Электронная почта
+                    {emailLabel}
                   </p>
                   <a
-                    href="mailto:xpotrans_group@mail.ru"
+                    href={`mailto:${email}`}
                     className="block text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
                   >
-                    xpotrans_group@mail.ru
+                    {email}
                   </a>
                 </div>
               </div>
@@ -139,7 +112,7 @@ export default function Footer() {
 
         <div className="mt-10 text-center sm:mt-12 lg:mt-[60px] lg:text-left">
           <p className="text-[12px] leading-none text-[#0D0D0D]/40 sm:text-[13px] lg:text-[14px]">
-            2026 Все права защищены
+            {copyright}
           </p>
         </div>
       </SectionInner>
