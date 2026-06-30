@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import SpeedInsights from "@vercel/speed-insights/astro"
+
 const { locale = 'ru', translations = {} } = Astro.props;
 ---
 
@@ -18,5 +20,6 @@ const { locale = 'ru', translations = {} } = Astro.props;
 	</head>
 	<body class="bg-white text-gray-900 min-h-screen antialiased">
 		<slot />
+		<SpeedInsights/>
 	</body>
 </html>
