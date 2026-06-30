@@ -1,8 +1,9 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useI18n } from "./I18nProvider";
 import SectionInner from "./SectionInner";
 
-const STEPS = [
+const defaultSteps = [
   {
     num: "01",
     title: "Заявка и расчет",
@@ -22,6 +23,10 @@ const STEPS = [
 
 export default function Workflow() {
   const sectionRef = useRef(null);
+  const { translations } = useI18n();
+  const workflow = translations.workflow || {};
+  const sectionTitle = workflow.title || "ПРОЦЕСС РАБОТЫ";
+  const STEPS = workflow.steps?.length ? workflow.steps : defaultSteps;
 
   // Линия и кружки рендерятся ДВАЖДЫ в DOM — отдельный набор для мобилки
   // и отдельный для десктопа (переключаются через hidden/md:flex).
@@ -95,7 +100,7 @@ export default function Workflow() {
       <div className="mx-auto flex w-full max-w-[640px] flex-col gap-16  md:max-w-[768px] md:gap-20">
         {/* Label */}
         <h2 className="text-2xl text-[#003366] font-normal text-center  ">
-          ПРОЦЕСС РАБОТЫ
+          {sectionTitle}
         </h2>
 
         {/* Steps list */}

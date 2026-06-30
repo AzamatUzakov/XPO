@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "XPOTrans | Global Logistics",
+    "description": "Premium international logistics operator. Express delivery, customs support and global transportation routes.",
+    "ogTitle": "XPOTrans — global logistics",
+    "ogDescription": "Premium international logistics operator. Express delivery, customs support and global transportation routes."
+  },
+  "header": {
+    "nav": ["Services", "Geography", "About", "Values", "Partners"],
+    "contact": "Contact",
+    "language": "Language",
+    "languages": {"ru": "RU", "en": "EN", "uz": "UZ"},
+    "mobileMenu": ["About", "Services", "Geography", "Values", "Partners"],
+    "contactPhone": "+7 (999) 123-45-67",
+    "contactEmail": "info@logistic.com"
+  },
+  "hero": {
+    "headlinePrefix": "GLOBAL",
+    "headlineMain": "RELIABLE LOGISTICS",
+    "introShort": "A premium full-cycle operator. We keep supply chains running for world-class leaders.",
+    "introLong": "A premium full-cycle operator. We keep supply chains running for industry leaders, connecting continents with clockwork precision.",
+    "buttonTelegram": "Contact on Telegram",
+    "buttonRoutes": "Our Routes",
+    "typewriter": ["RELIABLE LOGISTICS", "FAST DELIVERY", "SMART SERVICE"]
+  },
+  "services": {
+    "title": "Logistics Solutions",
+    "subtitle": "Professional Services",
+    "cards": [
+      {
+        "alt": "Air Freight",
+        "title": "AIR FREIGHT",
+        "mobileDesc": "Urgent delivery across the globe",
+        "desktopDesc": "Express global delivery with priority cargo handling."
+      },
+      {
+        "alt": "Rail Transport",
+        "title": "RAIL TRANSPORT",
+        "mobileDesc": "Reliable shipments across the CIS and Europe",
+        "desktopDesc": "Cost-efficient transcontinental solutions along Eurasian corridors."
+      },
+      {
+        "alt": "Sea Freight",
+        "title": "SEA FREIGHT",
+        "mobileDesc": "Economical container shipping",
+        "desktopDesc": "Direct contracts with leading lines (FCL/LCL) across all ocean routes."
+      },
+      {
+        "alt": "Less than Container Load",
+        "title": "LESS THAN CONTAINER LOAD (LCL)",
+        "mobileDesc": "Cost optimization for small shipments",
+        "desktopDesc": "Cost optimization for smaller consignments with a regular departure schedule."
+      },
+      {
+        "alt": "Oversized Cargo",
+        "title": "OVERSIZED CARGO",
+        "mobileDesc": "Project logistics of any complexity",
+        "desktopDesc": "Project logistics for industrial giants with increased complexity."
+      }
+    ]
+  },
+  "geography": {
+    "title": "Global Presence",
+    "description": "We push the boundaries by opening direct transcontinental corridors to North America (USA, Canada) and across Eurasia.",
+    "stats": {
+      "countries": "Countries covered",
+      "routes": "Routes",
+      "monitoring": "Monitoring",
+      "hubs": "Hubs"
+    }
+  },
+  "workflow": {
+    "title": "WORKFLOW",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Inquiry and calculation",
+        "text": "Submit a request and our specialists will prepare a detailed commercial offer with cost and timing calculations within 2 hours."
+      },
+      {
+        "num": "02",
+        "title": "Transport selection",
+        "text": "We choose the optimal transport mode and route, taking into account your cargo specifics and safety requirements."
+      },
+      {
+        "num": "03",
+        "title": "Door-to-door delivery",
+        "text": "We handle cargo pickup, customs clearance and delivery to the final destination with full support."
+      }
+    ]
+  },
+  "about": {
+    "sectionTitle": "About the Company",
+    "brandName": "XPOTrans",
+    "description": "We are experts in complex international logistics. We remove barriers for your business.",
+    "features": [
+      {
+        "alt": "reliability",
+        "title": "Reliability",
+        "desc": "We guarantee execution in any conditions."
+      },
+      {
+        "alt": "individuality",
+        "title": "Individual Approach",
+        "desc": "We tailor processes to your specific requirements."
+      },
+      {
+        "alt": "safety",
+        "title": "Safety",
+        "desc": "Highest standards of cargo protection."
+      }
+    ],
+    "experienceNumber": "12+",
+    "experienceLabel": "Years of market experience"
+  },
+  "partners": {
+    "title": "Strategic Partners",
+    "logos": [
+      {"src": "/orion.svg", "alt": "Orion"},
+      {"src": "/agromir.png", "alt": "Agromir"},
+      {"src": "/smz.svg", "alt": "SMZ"},
+      {"src": "/uzairways.jpg", "alt": "Uzbekistan Airways"},
+      {"src": "/samauto.png", "alt": "SamAuto"},
+      {"src": "/sag-gilamlar.png", "alt": "SAG Gilamlar"},
+      {"src": "/nestle.svg", "alt": "Nestle"},
+      {"src": "/uzkimyoimpeks.jpg", "alt": "Uzkimyoimpeks"},
+      {"src": "/orientMotors.jpg", "alt": "OrientMotors"}
+    ]
+  },
+  "contact": {
+    "feedbackLabel": "Feedback",
+    "formTitle": "Request a Quote",
+    "formSubtitle": "Get a detailed offer and transport cost estimate within 2 hours.",
+    "successTitle": "Request sent!",
+    "successMessage": "Our specialist will contact you within 2 hours.",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Ivan Ivanov",
+    "phoneLabel": "Phone / Telegram",
+    "phonePlaceholder": "+998 90 123 45 67",
+    "serviceTypeLabel": "Service type",
+    "serviceOptions": [
+      "Air freight",
+      "Sea freight",
+      "Road transport",
+      "Rail transport",
+      "Multimodal transport"
+    ],
+    "submitButton": "Get a quote",
+    "submitting": "Sending...",
+    "disclaimer": "By clicking the button, you agree to the privacy policy",
+    "validation": {
+      "name": "Enter your first and last name",
+      "phonePrefix": "Enter the number with country code, e.g. +998...",
+      "phoneInvalid": "Enter a valid phone number",
+      "serverError": "An error occurred, please try again later",
+      "networkError": "No connection to the server"
+    },
+    "contactInfo": [
+      {"icon": "/phone-icon.png", "alt": "phone-icon", "label": "Phone", "value": "+998 95 233 83 27", "rounded": "rounded"},
+      {"icon": "/email-icon.png", "alt": "email-icon", "label": "Email", "value": "xpotrans_group@mail.ru", "rounded": "rounded-full"}
+    ]
+  },
+  "map": {
+    "title": "Shipping Geography",
+    "description": "We deliver to more than 60 countries around the globe. We use road, air, rail and multimodal solutions. We provide precise logistics, optimal routes and control at every stage of transport.",
+    "modes": {
+      "auto": "Auto",
+      "rail": "Rail",
+      "air": "Air",
+      "multimodal": "Multimodal"
+    },
+    "tooltipUnknown": "Unknown",
+    "countryNames": {
+      "643": "Russia",
+      "156": "China",
+      "398": "Kazakhstan",
+      "860": "Uzbekistan",
+      "417": "Kyrgyzstan",
+      "762": "Tajikistan",
+      "795": "Turkmenistan",
+      "112": "Belarus",
+      "031": "Azerbaijan",
+      "051": "Armenia",
+      "276": "Germany",
+      "250": "France",
+      "616": "Poland",
+      "380": "Italy",
+      "724": "Spain",
+      "826": "United Kingdom",
+      "804": "Ukraine",
+      "840": "USA",
+      "124": "Canada",
+      "484": "Mexico",
+      "076": "Brazil",
+      "036": "Australia",
+      "356": "India",
+      "392": "Japan",
+      "410": "South Korea",
+      "784": "UAE",
+      "792": "Turkey",
+      "528": "Netherlands"
+    }
+  },
+  "chat": {
+    "assistantLabel": "AI Assistant",
+    "placeholder": "Ask your question...",
+    "typing": "Typing...",
+    "defaultMessage": "Hello! I am your international transport assistant. How can I help?",
+    "errorPrefix": "Error:",
+    "retryMessage": "Please try again."
+  },
+  "footer": {
+    "nav": ["About", "News", "Projects", "Partners", "Careers", "Contact"],
+    "social": ["Instagram", "Facebook", "Youtube"],
+    "addressLabel": "Our address",
+    "phoneLabel": "Phone number",
+    "emailLabel": "Email",
+    "address": "Gagarin Street 36, Samarkand, Samarkand Region",
+    "phone": "+998 95 233-83-27",
+    "email": "xpotrans_group@mail.ru",
+    "copyright": "2026 All rights reserved"
+  }
+}

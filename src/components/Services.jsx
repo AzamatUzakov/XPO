@@ -1,8 +1,57 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useI18n } from "./I18nProvider";
 import SectionInner from "./SectionInner";
+
+const defaultCards = [
+  {
+    colSpan: "md:col-span-2",
+    src: "/service-1.png",
+    alt: "Авиафрахт",
+    title: "АВИАФРАХТ",
+    mobileDesc: "Срочная доставка по всему миру",
+    desktopDesc:
+      "Экспресс-доставка по всему миру с приоритетной обработкой грузов.",
+  },
+  {
+    colSpan: "md:col-span-2",
+    src: "/service-2.png",
+    alt: "Ж/Д перевозки",
+    title: "Ж/Д ПЕРЕВОЗКИ",
+    mobileDesc: "Надежные перевозки по СНГ и Европе",
+    desktopDesc:
+      "Экономичные трансконтинентальные решения через Евразийские коридоры.",
+  },
+  {
+    colSpan: "md:col-span-2",
+    src: "/service-3.png",
+    alt: "Морской фрахт",
+    title: "МОРСКОЙ ФРАХТ",
+    mobileDesc: "Экономичные контейнерные перевозки",
+    desktopDesc:
+      "Прямые контракты с крупнейшими линиями (FCL/LCL) по всем океанским путям.",
+  },
+  {
+    colSpan: "md:col-span-3",
+    src: "/service-4.png",
+    alt: "СБОРНЫЕ ГРУЗЫ",
+    title: "СБОРНЫЕ ГРУЗЫ (LCL)",
+    mobileDesc: "Оптимизация затрат для малых партий",
+    desktopDesc:
+      "Оптимизация затрат для небольших партий товаров с регулярным графиком отправок.",
+  },
+  {
+    colSpan: "md:col-span-3",
+    src: "/service-5.png",
+    alt: "Негабаритные грузы",
+    title: "НЕГАБАРИТНЫЕ ГРУЗЫ",
+    mobileDesc: "Проектная логистика любой сложности",
+    desktopDesc:
+      "Проектная логистика повышенной сложности для индустриальных гигантов.",
+  },
+];
 
 function ServiceCard({ children, index, colSpan, addTopMargin }) {
   const ref = useRef(null);
@@ -45,54 +94,18 @@ export default function Services() {
     once: true,
     margin: "-40px 0px",
   });
-
-  const cards = [
-    {
-      colSpan: "md:col-span-2",
-      src: "/service-1.png",
-      alt: "Авиафрахт",
-      title: "АВИАФРАХТ",
-      mobileDesc: "Срочная доставка по всему миру",
-      desktopDesc:
-        "Экспресс-доставка по всему миру с приоритетной обработкой грузов.",
-    },
-    {
-      colSpan: "md:col-span-2",
-      src: "/service-2.png",
-      alt: "Ж/Д перевозки",
-      title: "Ж/Д ПЕРЕВОЗКИ",
-      mobileDesc: "Надежные перевозки по СНГ и Европе",
-      desktopDesc:
-        "Экономичные трансконтинентальные решения через Евразийские коридоры.",
-    },
-    {
-      colSpan: "md:col-span-2",
-      src: "/service-3.png",
-      alt: "Морской фрахт",
-      title: "МОРСКОЙ ФРАХТ",
-      mobileDesc: "Экономичные контейнерные перевозки",
-      desktopDesc:
-        "Прямые контракты с крупнейшими линиями (FCL/LCL) по всем океанским путям.",
-    },
-    {
-      colSpan: "md:col-span-3",
-      src: "/service-4.png",
-      alt: "СБОРНЫЕ ГРУЗЫ",
-      title: "СБОРНЫЕ ГРУЗЫ (LCL)",
-      mobileDesc: "Оптимизация затрат для малых партий",
-      desktopDesc:
-        "Оптимизация затрат для небольших партий товаров с регулярным графиком отправок.",
-    },
-    {
-      colSpan: "md:col-span-3",
-      src: "/service-5.png",
-      alt: "Негабаритные грузы",
-      title: "НЕГАБАРИТНЫЕ ГРУЗЫ",
-      mobileDesc: "Проектная логистика любой сложности",
-      desktopDesc:
-        "Проектная логистика повышенной сложности для индустриальных гигантов.",
-    },
-  ];
+  const { translations } = useI18n();
+  const services = translations.services || {};
+  const cards = useMemo(
+    () =>
+      services.cards?.length
+        ? defaultCards.map((defaultCard, index) => ({
+            ...defaultCard,
+            ...services.cards[index],
+          }))
+        : defaultCards,
+    [services.cards]
+  );
 
   return (
     <section className="rounded-lg mt-[80px] pb-4 md:mt-[120px]">
@@ -105,10 +118,10 @@ export default function Services() {
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <h2 className="text-2xl text-[#003366] font-normal">
-            Логистические решения
+            {services.title ?? "Логистические решения"}
           </h2>
           <p className="text-[#00A8CC] text-[12px] md:text-[16px]">
-            Professional Services
+            {services.subtitle ?? "Professional Services"}
           </p>
         </motion.div>
 

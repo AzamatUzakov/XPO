@@ -1,13 +1,33 @@
 
-import { useState, useRef } from "react";
+import { useMemo, useState, useRef } from "react";
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
 import { motion, useInView } from "framer-motion";
+import { useI18n } from "./I18nProvider";
 import SectionInner from "./SectionInner";
 
 const NAME_RE = /^[A-Za-zА-ЯЁа-яёÀ-ÿ]+([\s-][A-Za-zА-ЯЁа-яёÀ-ÿ]+)+$/;
+const defaultServiceOptions = [
+  "Авиафрахт",
+  "Морской фрахт",
+  "Автомобильные перевозки",
+  "Железнодорожные перевозки",
+  "Мультимодальные перевозки",
+];
+const defaultContacts = [
+  { icon: "/phone-icon.png", alt: "phone-icon", label: "Телефон", value: "+998 95 233 83 27", rounded: "rounded" },
+  { icon: "/email-icon.png", alt: "email-icon", label: "Email", value: "xpotrans_group@mail.ru", rounded: "rounded-full" },
+];
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: "", phone: "", serviceType: "Авиафрахт" });
+  const { translations } = useI18n();
+  const contact = translations.contact || {};
+  const serviceOptions = useMemo(
+    () => (contact.serviceOptions?.length ? contact.serviceOptions : defaultServiceOptions),
+    [contact.serviceOptions]
+  );
+  const contacts = useMemo(() => contact.contactInfo || defaultContacts, [contact.contactInfo]);
+
+  const [form, setForm] = useState({ name: "", phone: "", serviceType: serviceOptions[0] ?? defaultServiceOptions[0] });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle");
   const [serverError, setServerError] = useState("");
@@ -29,12 +49,13 @@ export default function ContactForm() {
 
   function validate() {
     const e = {};
-    if (!NAME_RE.test(form.name.trim())) e.name = "Введите имя и фамилию";
+    const validation = contact.validation || {};
+    if (!NAME_RE.test(form.name.trim())) e.name = validation.name ?? "Введите имя и фамилию";
     const phone = form.phone.trim();
     if (!phone.startsWith("+")) {
-      e.phone = "Укажите номер с кодом страны, например +998...";
+      e.phone = validation.phonePrefix ?? "Укажите номер с кодом страны, например +998...";
     } else if (!isValidPhoneNumber(phone)) {
-      e.phone = "Введите корректный номер телефона";
+      e.phone = validation.phoneInvalid ?? "Введите корректный номер телефона";
     }
     return e;
   }
@@ -55,19 +76,33 @@ export default function ContactForm() {
         body: JSON.stringify({ name: form.name.trim(), phone: normalizedPhone, serviceType: form.serviceType }),
       });
       const data = await res.json();
-      if (!res.ok) { setServerError(data.error || "Произошла ошибка, попробуйте позже"); setStatus("error"); return; }
+      if (!res.ok) {
+        const serverMessage = data.errorCode
+          ? {
+              invalid_json: contact.validation?.serverError,
+              invalid_name: contact.validation?.name,
+              invalid_phone_prefix: contact.validation?.phonePrefix,
+              invalid_phone: contact.validation?.phoneInvalid,
+              invalid_service_type: contact.validation?.serverError,
+              telegram_not_configured: contact.validation?.serverError,
+              telegram_api_error: contact.validation?.serverError,
+            }[data.errorCode]
+          : null;
+        setServerError(
+          serverMessage || data.error || (contact.validation?.serverError ?? "Произошла ошибка, попробуйте позже")
+        );
+        setStatus("error");
+        return;
+      }
       setStatus("success");
-      setForm({ name: "", phone: "", serviceType: "Авиафрахт" });
+      setForm({ name: "", phone: "", serviceType: serviceOptions[0] ?? defaultServiceOptions[0] });
     } catch {
-      setServerError("Нет соединения с сервером");
+      setServerError(contact.validation?.networkError ?? "Нет соединения с сервером");
       setStatus("error");
     }
   }
 
-  const contacts = [
-    { icon: "/phone-icon.png", alt: "phone-icon", label: "Телефон", value: "+998 95 233 83 27", rounded: "rounded" },
-    { icon: "/email-icon.png", alt: "email-icon", label: "Email", value: "xpotrans_group@mail.ru", rounded: "rounded-full" },
-  ];
+
 
   return (
     <SectionInner>
@@ -82,7 +117,7 @@ export default function ContactForm() {
               animate={leftInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              Обратная связь
+              {contact.feedbackLabel ?? "Обратная связь"}
             </motion.p>
 
             <motion.div
@@ -99,7 +134,7 @@ export default function ContactForm() {
               animate={leftInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, ease: "easeOut", delay: 0.15 }}
             >
-              Запросить расчет
+              {contact.formTitle ?? "Запросить расчет"}
             </motion.p>
 
             <motion.p
@@ -108,7 +143,7 @@ export default function ContactForm() {
               animate={leftInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, ease: "easeOut", delay: 0.22 }}
             >
-              Получите детальное предложение и расчет стоимости перевозки в течение 2 часов.
+              {contact.formSubtitle ?? "Получите детальное предложение и расчет стоимости перевозки в течение 2 часов."}
             </motion.p>
 
             <motion.div
@@ -150,9 +185,11 @@ export default function ContactForm() {
           >
             <div className="bg-[#F4F7FC] shadow-xl p-[16px] sm:p-[24px] lg:p-[48px] w-full max-w-[500px] mb-[48px] lg:mb-0 mx-auto lg:mx-0 lg:sticky lg:top-[120px]">
               <div className="lg:hidden mb-[16px]">
-                <p className="text-[20px] font-medium leading-[24px] uppercase text-[#001E40] mb-[6px]">Запросить расчет</p>
+                <p className="text-[20px] font-medium leading-[24px] uppercase text-[#001E40] mb-[6px]">
+                  {contact.formTitle ?? "Запросить расчет"}
+                </p>
                 <p className="font-normal text-[12px] leading-[18px] text-[#43474F]">
-                  Получите детальное предложение и расчет стоимости перевозки в течение 2 часов.
+                  {contact.formSubtitle ?? "Получите детальное предложение и расчет стоимости перевозки в течение 2 часов."}
                 </p>
               </div>
 
@@ -163,15 +200,21 @@ export default function ContactForm() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <p className="text-[16px] lg:text-[18px] font-medium text-[#001E40] mb-[8px]">Заявка отправлена!</p>
-                  <p className="text-[14px] text-[#43474F]">Наш специалист свяжется с вами в течение 2 часов.</p>
+                  <p className="text-[16px] lg:text-[18px] font-medium text-[#001E40] mb-[8px]">
+                    {contact.successTitle ?? "Заявка отправлена!"}
+                  </p>
+                  <p className="text-[14px] text-[#43474F]">
+                    {contact.successMessage ?? "Наш специалист свяжется с вами в течение 2 часов."}
+                  </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="mt-[12px] lg:mt-0 flex flex-col gap-[12px] lg:gap-[32px] mb-[8px] lg:mb-[25px]" noValidate>
                   <div className="flex flex-col gap-[4px] lg:gap-[0px]">
-                    <label htmlFor="name" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">Ваше имя</label>
+                    <label htmlFor="name" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">
+                      {contact.nameLabel ?? "Ваше имя"}
+                    </label>
                     <input
-                      id="name" name="name" type="text" placeholder="Иван Иванов"
+                      id="name" name="name" type="text" placeholder={contact.namePlaceholder ?? "Иван Иванов"}
                       value={form.name} onChange={handleNameChange} maxLength={60} aria-invalid={!!errors.name}
                       className={`w-full h-[44px] lg:h-[46px] bg-white border border-[#E2E8F0] px-[16px] text-[14px] text-[#001E40] placeholder:text-[#9098A8] outline-none focus:ring-2 transition rounded-xl lg:rounded-xl ${errors.name ? "ring-2 ring-red-400" : "focus:ring-[#001E40]/20"}`}
                     />
@@ -179,9 +222,11 @@ export default function ContactForm() {
                   </div>
 
                   <div className="flex flex-col gap-[4px] lg:gap-[0px]">
-                    <label htmlFor="phone" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">Телефон / Telegram</label>
+                    <label htmlFor="phone" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">
+                      {contact.phoneLabel ?? "Телефон / Telegram"}
+                    </label>
                     <input
-                      id="phone" name="phone" type="tel" inputMode="tel" placeholder="+998 90 123 45 67"
+                      id="phone" name="phone" type="tel" inputMode="tel" placeholder={contact.phonePlaceholder ?? "+998 90 123 45 67"}
                       value={form.phone} onChange={handlePhoneChange} maxLength={20} aria-invalid={!!errors.phone}
                       className={`w-full h-[44px] lg:h-[46px] bg-white border border-[#E2E8F0] px-[16px] text-[14px] text-[#001E40] placeholder:text-[#9098A8] outline-none focus:ring-2 transition rounded-xl lg:rounded-xl ${errors.phone ? "ring-2 ring-red-400" : "focus:ring-[#001E40]/20"}`}
                     />
@@ -189,18 +234,20 @@ export default function ContactForm() {
                   </div>
 
                   <div className="flex flex-col gap-[4px] lg:gap-[0px]">
-                    <label htmlFor="serviceType" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">Тип услуги</label>
+                    <label htmlFor="serviceType" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">
+                      {contact.serviceTypeLabel ?? "Тип услуги"}
+                    </label>
                     <div className="relative">
                       <select
                         id="serviceType" name="serviceType" value={form.serviceType}
                         onChange={(e) => setForm((f) => ({ ...f, serviceType: e.target.value }))}
                         className="w-full h-[44px] lg:h-[46px] appearance-none bg-white border border-[#E2E8F0] px-[16px] pr-[48px] text-[14px] font-medium text-[#001D3D] outline-none focus:ring-2 focus:ring-[#001E40]/20 cursor-pointer transition rounded-xl lg:rounded-xl"
                       >
-                        <option value="Авиафрахт">Авиафрахт</option>
-                        <option value="Морской фрахт">Морской фрахт</option>
-                        <option value="Автомобильные перевозки">Автомобильные перевозки</option>
-                        <option value="Железнодорожные перевозки">Железнодорожные перевозки</option>
-                        <option value="Мультимодальные перевозки">Мультимодальные перевозки</option>
+                        {serviceOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
                       </select>
                       <svg className="pointer-events-none absolute right-[20px] top-1/2 -translate-y-1/2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#001E40" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M6 9l6 6 6-6" />
@@ -218,14 +265,14 @@ export default function ContactForm() {
                     transition={{ duration: 0.15 }}
                     className="flex items-center justify-center gap-[8px] w-full h-[46px] lg:h-[52px] bg-[#001E40] text-white font-medium text-[14px] lg:font-normal lg:text-[12px] leading-[20px] lg:leading-[16px] lg:tracking-[0.12em] uppercase disabled:opacity-60 disabled:cursor-not-allowed rounded-xl lg:rounded-xl mt-[8px] lg:mt-[8px]"
                   >
-                    {status === "submitting" ? "Отправка..." : "Получить расчет"}
+                    {status === "submitting" ? contact.submitting ?? "Отправка..." : contact.submitButton ?? "Получить расчет"}
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
                   </motion.button>
 
                   <p className="text-center text-[9px] uppercase tracking-wide text-[#9098A8] leading-[14px]">
-                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                    {contact.disclaimer ?? "Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности"}
                   </p>
                 </form>
               )}
@@ -234,10 +281,7 @@ export default function ContactForm() {
 
           {/* Контакты мобилка */}
           <div className="lg:hidden flex flex-col gap-[20px]">
-            {[
-              { icon: "/phone-icon.png", alt: "phone-icon", label: "Телефон", value: "+998 95 233 83 27" },
-              { icon: "/email-icon.png", alt: "email-icon", label: "Email", value: "xpotrans_group@mail.ru" },
-            ].map((c, i) => (
+            {contacts.map((c, i) => (
               <motion.div
                 key={c.alt}
                 className={`flex items-center gap-[12px] ${i === 1 ? "mb-[80px]" : ""}`}
