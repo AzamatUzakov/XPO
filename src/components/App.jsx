@@ -13,6 +13,8 @@ import ContactForm from "./ContactForm";
 import Footer from "./Footer";
 import GeographyMap from "./GeographyMap";
 import AI_Chat from "./AI_Chat";
+import CrmPromo from "./CrmPromo";
+import Advantages from "./Advantages";
 
 export default function App({ locale, translations, currentPath }) {
   useEffect(() => {
@@ -63,6 +65,7 @@ export default function App({ locale, translations, currentPath }) {
         <Services />
         <Geography />
         <Workflow />
+        <Advantages />
         <div className="flex flex-col">
           <AboutUs />
         </div>
@@ -70,6 +73,7 @@ export default function App({ locale, translations, currentPath }) {
         <ContactForm />
         <GeographyMap />
         <AI_Chat />
+        <CrmPromo />
       </main>
       <Footer />
     </div>
