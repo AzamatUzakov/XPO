@@ -12,6 +12,7 @@ import ContactForm from "./ContactForm";
 import Footer from "./Footer";
 import GeographyMap from "./GeographyMap";
 import AI_Chat from "./AI_Chat";
+import CrmPromo from "./CrmPromo";
 
 export default function App() {
   useEffect(() => {
@@ -68,6 +69,7 @@ export default function App() {
         <ContactForm />
         <GeographyMap />
         <AI_Chat />
+        <CrmPromo />
       </main>
       <Footer />
     </div>
