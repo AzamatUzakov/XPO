@@ -13,6 +13,7 @@ import Footer from "./Footer";
 import GeographyMap from "./GeographyMap";
 import AI_Chat from "./AI_Chat";
 import CrmPromo from "./CrmPromo";
+import Advantages from "./Advantages";
 
 export default function App() {
   useEffect(() => {
@@ -62,6 +63,7 @@ export default function App() {
         <Services />
         <Geography />
         <Workflow />
+        <Advantages />
         <div className="flex flex-col">
           <AboutUs />
         </div>

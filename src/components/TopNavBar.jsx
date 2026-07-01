@@ -16,10 +16,11 @@ export default function TopNavBar() {
 
   return (
     <header
-      className={`relative z-[100] transition-all duration-300 ${isMobileMenuOpen
-        ? "bg-[#17384e]/95 backdrop-blur-md border-b border-transparent"
-        : "bg-transparent border-b border-white/20"
-        }`}
+      className={`relative z-[100] transition-all duration-300 ${
+        isMobileMenuOpen
+          ? "bg-[#17384e]/95 backdrop-blur-md border-b border-transparent"
+          : "bg-transparent border-b border-white/20"
+      }`}
     >
       <SectionInner className="flex items-center justify-between py-3">
         <div className="relative z-[101] flex-1">
@@ -39,12 +40,7 @@ export default function TopNavBar() {
           >
             Услуги
           </a>
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            География
-          </a>
+         
           <a
             href="#"
             className="hover:text-[#00A8CC] transition-colors duration-300"
@@ -57,11 +53,18 @@ export default function TopNavBar() {
           >
             Ценности
           </a>
+        
           <a
             href="#"
             className="hover:text-[#00A8CC] transition-colors duration-300"
           >
-            Партнеры
+            Вакансии
+          </a>
+          <a
+            href="#"
+            className="hover:text-[#00A8CC] transition-colors duration-300"
+          >
+            FAQ
           </a>
         </nav>
 
@@ -131,16 +134,18 @@ export default function TopNavBar() {
               aria-label="Toggle mobile menu"
             >
               <FiMenu
-                className={`absolute transition-all duration-300 ease-in-out ${isMobileMenuOpen
-                  ? "opacity-0 rotate-90 scale-50"
-                  : "opacity-100 rotate-0 scale-100"
-                  }`}
+                className={`absolute transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen
+                    ? "opacity-0 rotate-90 scale-50"
+                    : "opacity-100 rotate-0 scale-100"
+                }`}
               />
               <FiX
-                className={`absolute text-3xl transition-all duration-300 ease-in-out ${isMobileMenuOpen
-                  ? "opacity-100 rotate-0 scale-100"
-                  : "opacity-0 -rotate-90 scale-50"
-                  }`}
+                className={`absolute text-3xl transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen
+                    ? "opacity-100 rotate-0 scale-100"
+                    : "opacity-0 -rotate-90 scale-50"
+                }`}
               />
             </button>
           </div>
@@ -153,10 +158,11 @@ export default function TopNavBar() {
 
       {/* Выезжающая шторка мобильного меню */}
       <div
-        className={`absolute top-full left-0 w-full md:hidden bg-[#17384e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-[90] ${isMobileMenuOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
-          }`}
+        className={`absolute top-full left-0 w-full md:hidden bg-[#17384e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-[90] ${
+          isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
         style={{
           display: "grid",
           gridTemplateRows: isMobileMenuOpen ? "1fr" : "0fr",
