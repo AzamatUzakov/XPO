@@ -46,7 +46,8 @@ export default function App({ locale, translations, currentPath }) {
   return (
     <I18nProvider locale={locale} translations={translations}>
       <div className="flex flex-col min-h-screen bg-white">
-        <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900  shadow-xl">
+        {/* Шапка и фоновое видео */}
+        <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900 shadow-xl">
           <video
             autoPlay
             loop
@@ -63,38 +64,28 @@ export default function App({ locale, translations, currentPath }) {
             <HeroSection />
           </div>
         </div>
+
+        {/* Главный контент страницы (теперь один общий) */}
         <main className="py-0 flex flex-col">
           <Services />
           <Geography />
           <Workflow />
+          <Advantages />
           <ProjectsAndMedia />
+          
           <div className="flex flex-col">
             <AboutUs />
           </div>
+          
           <Marquee />
           <ContactForm />
           <GeographyMap />
           <AI_Chat />
           <FAQSection />
+          <CrmPromo />
         </main>
         <Footer />
       </div>
-      <main className="py-0 flex flex-col">
-        <Services />
-        <Geography />
-        <Workflow />
-        <Advantages />
-        <div className="flex flex-col">
-          <AboutUs />
-        </div>
-        <Marquee />
-        <ContactForm />
-        <GeographyMap />
-        <AI_Chat />
-        <CrmPromo />
-      </main>
-      <Footer />
-    </div>
     </I18nProvider>
   );
 }
