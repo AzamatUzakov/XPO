@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+import { I18nProvider } from "./I18nProvider";
 import TopNavBar from "./TopNavBar";
 import HeroSection from "./HeroSection";
 import Services from "./Services";
@@ -15,7 +16,7 @@ import AI_Chat from "./AI_Chat";
 import CrmPromo from "./CrmPromo";
 import Advantages from "./Advantages";
 
-export default function App() {
+export default function App({ locale, translations, currentPath }) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -41,8 +42,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900  shadow-xl">
+    <I18nProvider locale={locale} translations={translations}>
+      <div className="flex flex-col min-h-screen bg-white">
+        <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900  shadow-xl">
         <video
           autoPlay
           loop
@@ -55,7 +57,7 @@ export default function App() {
         <div className="absolute inset-0 bg-black/60"></div>
 
         <div className="relative z-10 flex flex-col flex-grow w-full">
-          <TopNavBar />
+          <TopNavBar locale={locale} currentPath={currentPath} />
           <HeroSection />
         </div>
       </div>
@@ -75,5 +77,6 @@ export default function App() {
       </main>
       <Footer />
     </div>
+    </I18nProvider>
   );
 }

@@ -1,4 +1,5 @@
 import SectionInner from "./SectionInner";
+import { useI18n } from "./I18nProvider";
 
 const LOGOS = [
   { src: "/orion.svg", alt: "Orion" },
@@ -13,6 +14,9 @@ const LOGOS = [
 ];
 
 export default function LogoMarquee() {
+  const { translations } = useI18n();
+  const partners = translations.partners || {};
+  const marquee = translations.marquee || {};
   const doubledLogos = [...LOGOS, ...LOGOS];
 
   return (
@@ -21,7 +25,7 @@ export default function LogoMarquee() {
       <SectionInner>
         <div className="mb-[52px] sm:mb-[50px] md:mb-[49px] lg:mb-[48px] xl:mb-[48px] 2xl:mb-[48px]">
           <h2 className="text-2xl text-[#003366] font-normal">
-            Стратегические партнеры
+            {marquee.title ?? partners.title ?? "Стратегические партнеры"}
           </h2>
         </div>
       </SectionInner>

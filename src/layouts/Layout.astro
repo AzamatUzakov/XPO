@@ -2,15 +2,21 @@
 import '../styles/global.css';
 import SpeedInsights from "@vercel/speed-insights/astro"
 
+const { locale = 'ru', translations = {} } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>Landing Page</title>
+		<title>{translations.meta?.title ?? 'Landing Page'}</title>
+		<meta name="description" content={translations.meta?.description ?? ''} />
+		<meta property="og:title" content={translations.meta?.ogTitle ?? ''} />
+		<meta property="og:description" content={translations.meta?.ogDescription ?? ''} />
+		<meta property="og:url" content={Astro.url.href} />
+		<link rel="canonical" href={Astro.url.href} />
 	</head>
 	<body class="bg-white text-gray-900 min-h-screen antialiased">
 		<slot />

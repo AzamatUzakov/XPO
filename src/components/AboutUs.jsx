@@ -1,9 +1,47 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import SectionInner from "./SectionInner";
+import { useI18n } from "./I18nProvider";
+
+const defaultFeatures = [
+  {
+    src: "/reliability.png",
+    alt: "reliability",
+    title: "Надежность",
+    desc: "Гарантируем исполнение в любых условиях.",
+  },
+  {
+    src: "/individuality.png",
+    alt: "individuality",
+    title: "Индивидуальность",
+    desc: "Адаптируем процессы под ваши требования.",
+  },
+  {
+    src: "/safety.png",
+    alt: "safety",
+    title: "Безопасность",
+    desc: "Высшие стандарты защиты грузов.",
+  },
+];
 
 export default function AboutUs() {
+  const { translations } = useI18n();
+  const about = translations.about || {};
+  const sectionTitle = about.sectionTitle ?? "О Компании";
+  const brandName = about.brandName ?? "XPOTrans";
+  const experienceNumber = about.experienceNumber ?? "12+";
+  const experienceLabel = about.experienceLabel ?? "Лет опыта на рынке";
+  const features = useMemo(
+    () =>
+      (about.features || defaultFeatures).map((feature, index) => ({
+        ...defaultFeatures[index],
+        ...feature,
+      })),
+    [about.features]
+  );
+
   // Вынесли настройки viewport в общую константу
   // amount: 0.2 означает, что анимация начнется, когда 20% самой картинки зайдет в экран
   const viewportSettings = { once: true, amount: 0.2, margin: "0px 0px -50px 0px" };
@@ -22,27 +60,6 @@ export default function AboutUs() {
     transition: { duration: 0.45, ease: "easeOut", delay },
   });
 
-  const features = [
-    {
-      src: "/reliability.png",
-      alt: "reliability",
-      title: "Надежность",
-      desc: "Гарантируем исполнение в любых условиях.",
-    },
-    {
-      src: "/individuality.png",
-      alt: "individuality",
-      title: "Индивидуальность",
-      desc: "Адаптируем processes под ваши требования.",
-    },
-    {
-      src: "/safety.png",
-      alt: "safety",
-      title: "Безопасность",
-      desc: "Высшие стандарты защиты грузов.",
-    },
-  ];
-
   return (
     <div className="w-full bg-[#001E40] text-white">
       <SectionInner className="min-h-full md:min-h-[100dvh] py-12 sm:py-16 md:py-0 flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-12">
@@ -51,21 +68,20 @@ export default function AboutUs() {
           {/* Заголовок */}
           <motion.div {...fadeUp(0)}>
             <p className="text-[26px] sm:text-[28px] md:text-[32px] leading-tight tracking-normal font-black uppercase text-white">
-              О Компании
+              {sectionTitle}
             </p>
             <p className="text-[26px] sm:text-[28px] md:text-[32px] leading-tight tracking-normal font-black uppercase text-[#00A8CC] mb-4">
-              XPOTrans
+              {brandName}
             </p>
             <p className="text-[15px] sm:text-[16px] leading-[24px] sm:leading-[26px] tracking-normal font-normal text-white mb-8">
-              Мы являемся экспертами в области сложной международной логистики.
-              Устраняем барьеры для бизнеса.
+              {about.description ?? "Мы являемся экспертами в области сложной международной логистики. Устраняем барьеры для бизнеса."}
             </p>
           </motion.div>
 
           {/* Фичи — каждая чуть позже */}
           {features.map((f, i) => (
             <motion.div
-              key={f.alt}
+              key={f.title}
               {...fadeLeft(0.2 + i * 0.12)}
               className={`flex items-start gap-4 border-l border-white/20 pl-[24px] ${i < features.length - 1 ? "mb-[24px]" : ""}`}
             >
@@ -107,10 +123,10 @@ export default function AboutUs() {
               transition={{ duration: 0.4, ease: "easeOut", delay: 0.55 }}
             >
               <p className="text-white text-[32px] sm:text-[40px] md:text-[50px] lg:text-[56px] font-black leading-none mb-1">
-                12+
+                {experienceNumber}
               </p>
               <p className="text-white text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] font-bold uppercase leading-tight tracking-tight px-1">
-                Лет опыта на рынке
+                {experienceLabel}
               </p>
             </motion.div>
           </div>
