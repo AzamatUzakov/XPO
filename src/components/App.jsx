@@ -13,6 +13,8 @@ import ContactForm from "./ContactForm";
 import Footer from "./Footer";
 import GeographyMap from "./GeographyMap";
 import AI_Chat from "./AI_Chat";
+import ProjectsAndMedia from "./ProjectsAndMedia";
+import FAQSection from "./Faq";
 
 export default function App({ locale, translations, currentPath }) {
   useEffect(() => {
@@ -43,36 +45,38 @@ export default function App({ locale, translations, currentPath }) {
     <I18nProvider locale={locale} translations={translations}>
       <div className="flex flex-col min-h-screen bg-white">
         <div className="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900  shadow-xl">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video/hero_video.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/60"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/video/hero_video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative z-10 flex flex-col flex-grow w-full">
-          <TopNavBar locale={locale} currentPath={currentPath} />
-          <HeroSection />
+          <div className="relative z-10 flex flex-col flex-grow w-full">
+            <TopNavBar locale={locale} currentPath={currentPath} />
+            <HeroSection />
+          </div>
         </div>
+        <main className="py-0 flex flex-col">
+          <Services />
+          <Geography />
+          <Workflow />
+          <ProjectsAndMedia />
+          <div className="flex flex-col">
+            <AboutUs />
+          </div>
+          <Marquee />
+          <ContactForm />
+          <GeographyMap />
+          <AI_Chat />
+          <FAQSection />
+        </main>
+        <Footer />
       </div>
-      <main className="py-0 flex flex-col">
-        <Services />
-        <Geography />
-        <Workflow />
-        <div className="flex flex-col">
-          <AboutUs />
-        </div>
-        <Marquee />
-        <ContactForm />
-        <GeographyMap />
-        <AI_Chat />
-      </main>
-      <Footer />
-    </div>
     </I18nProvider>
   );
 }
