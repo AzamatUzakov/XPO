@@ -15,6 +15,8 @@ import GeographyMap from "./GeographyMap";
 import AI_Chat from "./AI_Chat";
 import ProjectsAndMedia from "./ProjectsAndMedia";
 import FAQSection from "./Faq";
+import CrmPromo from "./CrmPromo";
+import Advantages from "./Advantages";
 
 export default function App({ locale, translations, currentPath }) {
   useEffect(() => {
@@ -77,6 +79,22 @@ export default function App({ locale, translations, currentPath }) {
         </main>
         <Footer />
       </div>
+      <main className="py-0 flex flex-col">
+        <Services />
+        <Geography />
+        <Workflow />
+        <Advantages />
+        <div className="flex flex-col">
+          <AboutUs />
+        </div>
+        <Marquee />
+        <ContactForm />
+        <GeographyMap />
+        <AI_Chat />
+        <CrmPromo />
+      </main>
+      <Footer />
+    </div>
     </I18nProvider>
   );
 }
