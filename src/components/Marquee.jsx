@@ -1,5 +1,7 @@
+import { motion, useReducedMotion } from "framer-motion";
 import SectionInner from "./SectionInner";
 import { useI18n } from "./I18nProvider";
+import { fadeUp, defaultViewport } from "../lib/animations";
 
 const LOGOS = [
   { src: "/orion.svg", alt: "Orion" },
@@ -18,15 +20,22 @@ export default function LogoMarquee() {
   const partners = translations.partners || {};
   const marquee = translations.marquee || {};
   const doubledLogos = [...LOGOS, ...LOGOS];
+  const shouldReduce = useReducedMotion();
 
   return (
     <section id="partners" className="mt-[64px] md:mt-[96px]">
       {/* Заголовок с отступами */}
       <SectionInner>
         <div className="mb-[52px] sm:mb-[50px] md:mb-[49px] lg:mb-[48px] xl:mb-[48px] 2xl:mb-[48px]">
-          <h2 className="text-2xl text-[#003366] font-normal">
+          <motion.h2
+            className="text-2xl text-[#003366] font-normal"
+            variants={fadeUp}
+            initial={shouldReduce ? false : "hidden"}
+            whileInView="visible"
+            viewport={defaultViewport}
+          >
             {marquee.title ?? partners.title ?? "Стратегические партнеры"}
-          </h2>
+          </motion.h2>
         </div>
       </SectionInner>
 

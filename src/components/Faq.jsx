@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import SectionInner from './SectionInner';
+import { fadeUp, defaultViewport } from '../lib/animations';
 
 const faqData = [
   {
@@ -46,9 +47,17 @@ const faqData = [
   }
 ];
 
-function AccordionItem({ item, isOpen, onToggle }) {
+function AccordionItem({ item, isOpen, onToggle, index }) {
+  const shouldReduce = useReducedMotion();
+
   return (
-    <div className="border-b border-gray-200 last:border-b-0">
+    <motion.div
+      className="border-b border-gray-200 last:border-b-0"
+      initial={shouldReduce ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.06 }}
+    >
       <button
         type="button"
         onClick={onToggle}
@@ -80,12 +89,13 @@ function AccordionItem({ item, isOpen, onToggle }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
 
 export default function FAQSection() {
   const [openId, setOpenId] = useState(faqData[0].id);
+  const shouldReduce = useReducedMotion();
 
   const handleToggle = (id) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -96,23 +106,31 @@ export default function FAQSection() {
       <SectionInner>
         <div className="w-full flex justify-center">
           <div className="w-full max-w-[720px]">
-            <div className="mb-12 text-center">
+            {/* Заголовок — fadeUp при входе в viewport */}
+            <motion.div
+              className="mb-12 text-center"
+              variants={fadeUp}
+              initial={shouldReduce ? false : "hidden"}
+              whileInView="visible"
+              viewport={defaultViewport}
+            >
               <span className="text-[#2BB3C0] font-bold uppercase tracking-widest text-sm block mb-1">
                 Вопросы и ответы
               </span>
               <h2 className="text-2xl md:text-3xl font-semibold text-[#1B3A6B]">
                 Часто задаваемые вопросы
               </h2>
-            </div>
+            </motion.div>
 
+            {/* Аккордеон-элементы — stagger по индексу */}
             <div className="w-full cursor-pointer">
-              {faqData.map((item) => (
+              {faqData.map((item, index) => (
                 <AccordionItem
                   key={item.id}
-          
                   item={item}
                   isOpen={openId === item.id}
                   onToggle={() => handleToggle(item.id)}
+                  index={index}
                 />
               ))}
             </div>
