@@ -3,13 +3,48 @@ import { useI18n } from "./I18nProvider";
 
 export default function Footer() {
   const { translations } = useI18n();
+
+  const handleScroll = (e, item) => {
+    e.preventDefault();
+    const map = {
+      "О компании": "about",
+      Проекты: "projects",
+      Партнеры: "partners",
+      Вакансии: "contacts",
+      Контакты: "contacts",
+      "Ответы на вопросы ": "faq",
+      "Ответы на вопросы": "faq",
+      "Карта перевозок": "geography",
+    };
+    const id = map[item];
+    if (id) {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerOffset = 80;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
   const footer = translations.footer || {};
-  const navItems = footer.nav || ["О компании", "Новости", "Проекты", "Партнеры", "Вакансии", "Контакты"];
+  const navItems = footer.nav || [
+    "О компании",
+    "Проекты",
+    "Партнеры",
+    "Вакансии",
+    "Контакты",
+  ];
   const socials = footer.socials || ["Instagram", "Facebook", "Youtube"];
   const addressLabel = footer.addressLabel ?? "Наш адрес";
   const phoneLabel = footer.phoneLabel ?? "Телефонный номер";
   const emailLabel = footer.emailLabel ?? "Электронная почта";
-  const address = footer.address ?? "г. Самарканд, Самаркандская область, улица Гагарина, 36";
+  const address =
+    footer.address ?? "г. Самарканд, Самаркандская область, улица Гагарина, 36";
   const phone = footer.phone ?? "+998 95 233-83-27";
   const email = footer.email ?? "xpotrans_group@mail.ru";
   const copyright = footer.copyright ?? "2026 Все права защищены";
@@ -23,7 +58,7 @@ export default function Footer() {
             <img
               src="/header-logo.svg"
               alt="XPOTrans"
-              className="h-[100px] w-auto  md:h-[110px] lg:h-[130px] xl:h-[150px]"
+              className="h-[100px] ml-[-14px] w-auto  md:h-[110px] lg:h-[130px] xl:h-[150px]"
             />
           </div>
 
@@ -34,10 +69,11 @@ export default function Footer() {
               aria-label="Навигация по сайту"
               className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]"
             >
-                {navItems.map((item) => (
+              {navItems.map((item) => (
                 <a
                   key={item}
-                  href="#"
+                  href={`#${item}`}
+                  onClick={(e) => handleScroll(e, item)}
                   className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]"
                 >
                   {item}
@@ -50,7 +86,7 @@ export default function Footer() {
               aria-label="Социальные сети"
               className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]"
             >
-                {socials.map((social) => (
+              {socials.map((social) => (
                 <a
                   key={social}
                   href="#"

@@ -61,7 +61,7 @@ export default function AboutUs() {
   });
 
   return (
-    <div className="w-full bg-[#001E40] text-white">
+    <div id="about" className="w-full bg-[#001E40] text-white">
       <SectionInner className="min-h-full md:min-h-[100dvh] py-12 sm:py-16 md:py-0 flex flex-col md:flex-row md:justify-between md:items-center gap-10 md:gap-12">
         {/* Левая колонка */}
         <div className="md:max-w-[50%]">

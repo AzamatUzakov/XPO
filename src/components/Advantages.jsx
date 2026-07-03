@@ -31,7 +31,7 @@ function AnimatedLine() {
 
 export default function Advantages() {
   return (
-    <section className="w-full py-12 md:py-20 lg:py-24 overflow-hidden">
+    <section id="values" className="w-full py-12 md:py-20 lg:py-24 overflow-hidden">
       <SectionInner>
         <motion.div
           initial={{ opacity: 0, y: -20 }}

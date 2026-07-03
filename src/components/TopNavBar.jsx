@@ -14,6 +14,33 @@ import SectionInner from "./SectionInner";
 export default function TopNavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const handleScroll = (e, item) => {
+    e.preventDefault();
+    const map = {
+      "О нас": "about",
+      "Услуги": "services",
+      "Ценности": "values",
+      "Вакансии": "contacts",
+      "FAQ": "faq",
+      "Контакты": "contacts",
+    };
+    const id = map[item];
+    if (id) {
+      const el = document.getElementById(id);
+      if (el) {
+        // Offset for fixed header if needed
+        const headerOffset = 80;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`relative z-[100] transition-all duration-300 ${
@@ -34,38 +61,16 @@ export default function TopNavBar() {
           className="hidden md:flex items-center justify-center shrink-0 gap-4 lg:gap-8 xl:gap-12 text-sm lg:text-base text-white font-medium"
           style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
         >
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            Услуги
-          </a>
-         
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            О нас
-          </a>
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            Ценности
-          </a>
-        
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            Вакансии
-          </a>
-          <a
-            href="#"
-            className="hover:text-[#00A8CC] transition-colors duration-300"
-          >
-            FAQ
-          </a>
+          {["Услуги", "О нас", "Ценности", "Вакансии", "FAQ"].map((item) => (
+            <a
+              key={item}
+              href={`#${item}`}
+              onClick={(e) => handleScroll(e, item)}
+              className="hover:text-[#00A8CC] transition-colors duration-300"
+            >
+              {item}
+            </a>
+          ))}
         </nav>
 
         <div className="relative z-[101] flex-1 flex items-center justify-end gap-4 cursor-pointer">
@@ -150,7 +155,10 @@ export default function TopNavBar() {
             </button>
           </div>
 
-          <Button className="hidden md:block px-4 lg:px-10 cursor-pointer h-[40px] lg:h-[45px] bg-[#00A8CC] hover:bg-[#008ba8] text-white rounded-none border-none text-sm lg:text-base">
+          <Button 
+            onClick={(e) => handleScroll(e, "Контакты")}
+            className="hidden md:block px-4 lg:px-10 cursor-pointer h-[40px] lg:h-[45px] bg-[#00A8CC] hover:bg-[#008ba8] text-white rounded-none border-none text-sm lg:text-base"
+          >
             Контакты
           </Button>
         </div>
@@ -158,7 +166,7 @@ export default function TopNavBar() {
 
       {/* Выезжающая шторка мобильного меню */}
       <div
-        className={`absolute top-full left-0 w-full md:hidden bg-[#17384e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-[90] ${
+        className={`absolute  top-full left-0 w-full md:hidden bg-[#17384e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-[90] ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -171,11 +179,12 @@ export default function TopNavBar() {
         <div className="overflow-hidden">
           <div className="px-6 pb-8 pt-6 flex flex-col items-center">
             <nav className="flex flex-col items-center gap-2 text-lg font-medium w-full">
-              {["О нас", "Услуги", "География", "Ценности", "Партнеры"].map(
+              {["О нас", "Услуги",  "Ценности", "Вакансии", "FAQ"].map(
                 (item) => (
                   <a
                     key={item}
-                    href="#"
+                    href={`#${item}`}
+                    onClick={(e) => handleScroll(e, item)}
                     className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
                   >
                     {item}

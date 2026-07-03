@@ -1,4 +1,3 @@
-
 import { useMemo, useState, useRef } from "react";
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
 import { motion, useInView } from "framer-motion";
@@ -105,7 +104,8 @@ export default function ContactForm() {
 
 
   return (
-    <SectionInner>
+    <div id="contacts">
+      <SectionInner>
       <div className="w-full flex justify-center lg:mb-[110px]">
         <div className="w-full max-w-[1040px] lg:flex lg:justify-between lg:items-center lg:gap-[60px]">
 
@@ -185,10 +185,10 @@ export default function ContactForm() {
           >
             <div className="bg-[#F4F7FC] shadow-xl p-[16px] sm:p-[24px] lg:p-[48px] w-full max-w-[500px] mb-[48px] lg:mb-0 mx-auto lg:mx-0 lg:sticky lg:top-[120px]">
               <div className="lg:hidden mb-[16px]">
-                <p className="text-[20px] font-medium leading-[24px] uppercase text-[#001E40] mb-[6px]">
+                <p className="text-[20px] font-medium leading-[26px] uppercase text-[#001E40] mb-[8px]">
                   {contact.formTitle ?? "Запросить расчет"}
                 </p>
-                <p className="font-normal text-[12px] leading-[18px] text-[#43474F]">
+                <p className="font-normal text-[14px] leading-[21px] text-[#43474F]">
                   {contact.formSubtitle ?? "Получите детальное предложение и расчет стоимости перевозки в течение 2 часов."}
                 </p>
               </div>
@@ -200,7 +200,7 @@ export default function ContactForm() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
-                  <p className="text-[16px] lg:text-[18px] font-medium text-[#001E40] mb-[8px]">
+                  <p className="text-[17px] lg:text-[18px] font-medium text-[#001E40] mb-[8px]">
                     {contact.successTitle ?? "Заявка отправлена!"}
                   </p>
                   <p className="text-[14px] text-[#43474F]">
@@ -208,40 +208,40 @@ export default function ContactForm() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="mt-[12px] lg:mt-0 flex flex-col gap-[12px] lg:gap-[32px] mb-[8px] lg:mb-[25px]" noValidate>
-                  <div className="flex flex-col gap-[4px] lg:gap-[0px]">
-                    <label htmlFor="name" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">
+                <form onSubmit={handleSubmit} className="mt-[12px] lg:mt-0 flex flex-col gap-[14px] lg:gap-[32px] mb-[8px] lg:mb-[25px]" noValidate>
+                  <div className="flex flex-col gap-[6px] lg:gap-[0px]">
+                    <label htmlFor="name" className="font-medium text-[12px] lg:text-[10px] leading-[16px] lg:leading-[15px] uppercase text-[#003B73]">
                       {contact.nameLabel ?? "Ваше имя"}
                     </label>
                     <input
                       id="name" name="name" type="text" placeholder={contact.namePlaceholder ?? "Иван Иванов"}
                       value={form.name} onChange={handleNameChange} maxLength={60} aria-invalid={!!errors.name}
-                      className={`w-full h-[44px] lg:h-[46px] bg-white border border-[#E2E8F0] px-[16px] text-[14px] text-[#001E40] placeholder:text-[#9098A8] outline-none focus:ring-2 transition rounded-xl lg:rounded-xl ${errors.name ? "ring-2 ring-red-400" : "focus:ring-[#001E40]/20"}`}
+                      className={`w-full h-[46px] lg:h-[46px] bg-white border border-[#E2E8F0] px-[16px] text-[15px] lg:text-[14px] text-[#001E40] placeholder:text-[#9098A8] outline-none focus:ring-2 transition rounded-xl lg:rounded-xl ${errors.name ? "ring-2 ring-red-400" : "focus:ring-[#001E40]/20"}`}
                     />
-                    {errors.name && <p className="text-red-500 text-[11px] mt-[2px]">{errors.name}</p>}
+                    {errors.name && <p className="text-red-500 text-[12px] lg:text-[11px] mt-[3px]">{errors.name}</p>}
                   </div>
 
-                  <div className="flex flex-col gap-[4px] lg:gap-[0px]">
-                    <label htmlFor="phone" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">
+                  <div className="flex flex-col gap-[6px] lg:gap-[0px]">
+                    <label htmlFor="phone" className="font-medium text-[12px] lg:text-[10px] leading-[16px] lg:leading-[15px] uppercase text-[#003B73]">
                       {contact.phoneLabel ?? "Телефон / Telegram"}
                     </label>
                     <input
                       id="phone" name="phone" type="tel" inputMode="tel" placeholder={contact.phonePlaceholder ?? "+998 90 123 45 67"}
                       value={form.phone} onChange={handlePhoneChange} maxLength={20} aria-invalid={!!errors.phone}
-                      className={`w-full h-[44px] lg:h-[46px] bg-white border border-[#E2E8F0] px-[16px] text-[14px] text-[#001E40] placeholder:text-[#9098A8] outline-none focus:ring-2 transition rounded-xl lg:rounded-xl ${errors.phone ? "ring-2 ring-red-400" : "focus:ring-[#001E40]/20"}`}
+                      className={`w-full h-[46px] lg:h-[46px] bg-white border border-[#E2E8F0] px-[16px] text-[15px] lg:text-[14px] text-[#001E40] placeholder:text-[#9098A8] outline-none focus:ring-2 transition rounded-xl lg:rounded-xl ${errors.phone ? "ring-2 ring-red-400" : "focus:ring-[#001E40]/20"}`}
                     />
-                    {errors.phone && <p className="text-red-500 text-[11px] mt-[2px]">{errors.phone}</p>}
+                    {errors.phone && <p className="text-red-500 text-[12px] lg:text-[11px] mt-[3px]">{errors.phone}</p>}
                   </div>
 
-                  <div className="flex flex-col gap-[4px] lg:gap-[0px]">
-                    <label htmlFor="serviceType" className="font-medium text-[10px] leading-[14px] lg:leading-[15px] uppercase text-[#003B73]">
+                  <div className="flex flex-col gap-[6px] lg:gap-[0px]">
+                    <label htmlFor="serviceType" className="font-medium text-[12px] lg:text-[10px] leading-[16px] lg:leading-[15px] uppercase text-[#003B73]">
                       {contact.serviceTypeLabel ?? "Тип услуги"}
                     </label>
                     <div className="relative">
                       <select
                         id="serviceType" name="serviceType" value={form.serviceType}
                         onChange={(e) => setForm((f) => ({ ...f, serviceType: e.target.value }))}
-                        className="w-full h-[44px] lg:h-[46px] appearance-none bg-white border border-[#E2E8F0] px-[16px] pr-[48px] text-[14px] font-medium text-[#001D3D] outline-none focus:ring-2 focus:ring-[#001E40]/20 cursor-pointer transition rounded-xl lg:rounded-xl"
+                        className="w-full h-[46px] lg:h-[46px] appearance-none bg-white border border-[#E2E8F0] px-[16px] pr-[48px] text-[15px] lg:text-[14px] font-medium text-[#001D3D] outline-none focus:ring-2 focus:ring-[#001E40]/20 cursor-pointer transition rounded-xl lg:rounded-xl"
                       >
                         {serviceOptions.map((option) => (
                           <option key={option} value={option}>
@@ -255,7 +255,7 @@ export default function ContactForm() {
                     </div>
                   </div>
 
-                  {serverError && <p className="text-red-500 text-[12px] text-center">{serverError}</p>}
+                  {serverError && <p className="text-red-500 text-[13px] lg:text-[12px] text-center">{serverError}</p>}
 
                   <motion.button
                     type="submit"
@@ -263,7 +263,7 @@ export default function ContactForm() {
                     whileHover={{ backgroundColor: "#00264D" }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.15 }}
-                    className="flex items-center justify-center gap-[8px] w-full h-[46px] lg:h-[52px] bg-[#001E40] text-white font-medium text-[14px] lg:font-normal lg:text-[12px] leading-[20px] lg:leading-[16px] lg:tracking-[0.12em] uppercase disabled:opacity-60 disabled:cursor-not-allowed rounded-xl lg:rounded-xl mt-[8px] lg:mt-[8px]"
+                    className="flex items-center justify-center gap-[8px] w-full h-[48px] lg:h-[52px] bg-[#001E40] text-white font-medium text-[15px] lg:font-normal lg:text-[12px] leading-[20px] lg:leading-[16px] lg:tracking-[0.12em] uppercase disabled:opacity-60 disabled:cursor-not-allowed rounded-xl lg:rounded-xl mt-[8px] lg:mt-[8px]"
                   >
                     {status === "submitting" ? contact.submitting ?? "Отправка..." : contact.submitButton ?? "Получить расчет"}
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -271,7 +271,7 @@ export default function ContactForm() {
                     </svg>
                   </motion.button>
 
-                  <p className="text-center text-[9px] uppercase tracking-wide text-[#9098A8] leading-[14px]">
+                  <p className="text-center text-[11px] lg:text-[9px] uppercase tracking-wide text-[#9098A8] leading-[16px] lg:leading-[14px]">
                     {contact.disclaimer ?? "Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности"}
                   </p>
                 </form>
@@ -293,8 +293,8 @@ export default function ContactForm() {
                   <img src={c.icon} alt={c.alt} className="w-[18px] h-[18px]" />
                 </div>
                 <div>
-                  <p className="font-medium text-[10px] text-[#003B73] mb-[2px]">{c.label}</p>
-                  <p className="font-bold text-[14px] leading-none text-[#003366]">{c.value}</p>
+                  <p className="font-medium text-[11px] text-[#003B73] mb-[2px]">{c.label}</p>
+                  <p className="font-bold text-[15px] leading-none text-[#003366]">{c.value}</p>
                 </div>
               </motion.div>
             ))}
@@ -303,5 +303,6 @@ export default function ContactForm() {
         </div>
       </div>
     </SectionInner>
+    </div>
   );
 }

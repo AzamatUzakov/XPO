@@ -121,7 +121,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="rounded-lg mt-[80px] pb-4 md:mt-[120px]">
+    <section id="services" className="rounded-lg mt-[80px] pb-4 md:mt-[120px]">
       <SectionInner>
         <motion.div
           ref={headerRef}
