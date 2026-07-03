@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { RiTelegram2Fill } from "react-icons/ri";
 import { Button } from "./ui/button";
 import { TbRouteSquare } from "react-icons/tb";
@@ -5,15 +6,41 @@ import { useI18n } from "./I18nProvider";
 import TypewriterText from "./TypewriterText";
 import SectionInner from "./SectionInner";
 
+// Hero-специфичные variants: stagger-контейнер
+const heroContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.18,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const heroItem = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export default function HeroSection() {
   const { translations } = useI18n();
   const hero = translations.hero || {};
+  const shouldReduce = useReducedMotion();
 
   return (
     <section className="mt-[60px]">
       <SectionInner>
-        <div>
-          <h1 className=" font-black">
+        <motion.div
+          variants={heroContainer}
+          initial={shouldReduce ? false : "hidden"}
+          animate="visible"
+        >
+          {/* Заголовок */}
+          <motion.h1 variants={heroItem} className="font-black">
             <span className="text-white text-4xl md:text-[44px] lg:text-[64px]">
               {hero.headlinePrefix ?? "ГЛОБАЛЬНАЯ"}
             </span>{" "}
@@ -26,9 +53,13 @@ export default function HeroSection() {
                 <TypewriterText />
               </div>
             </div>
-          </h1>
+          </motion.h1>
 
-          <div className="mt-6 border-l-[3px] border-[#00A8CC] pl-4">
+          {/* Подзаголовок */}
+          <motion.div
+            variants={heroItem}
+            className="mt-6 border-l-[3px] border-[#00A8CC] pl-4"
+          >
             <p className="text-[16px] text-white font-normal leading-[26px]">
               <span className="md:hidden">
                 {hero.introShort ??
@@ -39,9 +70,13 @@ export default function HeroSection() {
                   "Статус премиального оператора полного цикла. Мы обеспечиваем бесперебойные цепочки поставок для мировых лидеров индустрии, объединяя континенты с точностью часового механизма."}
               </span>
             </p>
-          </div>
+          </motion.div>
 
-          <div className="mb-[40px] flex flex-col w-full mt-9 md:flex-row md:items-stretch gap-3 md:gap-4">
+          {/* CTA-кнопки */}
+          <motion.div
+            variants={heroItem}
+            className="mb-[40px] flex flex-col w-full mt-9 md:flex-row md:items-stretch gap-3 md:gap-4"
+          >
             <Button className="w-full md:w-auto py-7 cursor-pointer border border-[#00A8CC] rounded-none text-[13px] bg-[#00A8CC] hover:bg-[#008ba8] hover:border-[#008ba8] transition-colors md:h-[66px] md:px-[40px] flex items-center justify-center">
               <RiTelegram2Fill className="mr-2 text-xl" />
               {hero.buttonTelegram ?? "Связаться в Telegram"}
@@ -50,8 +85,8 @@ export default function HeroSection() {
               <TbRouteSquare className="mr-2 text-xl" />
               {hero.buttonRoutes ?? "Наши Маршруты"}
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </SectionInner>
     </section>
   );

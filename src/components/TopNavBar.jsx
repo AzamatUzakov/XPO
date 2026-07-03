@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   Select,
   SelectContent,
@@ -13,6 +14,7 @@ import SectionInner from "./SectionInner";
 
 export default function TopNavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const shouldReduce = useReducedMotion();
 
   const handleScroll = (e, item) => {
     e.preventDefault();
@@ -164,58 +166,64 @@ export default function TopNavBar() {
         </div>
       </SectionInner>
 
-      {/* Выезжающая шторка мобильного меню */}
-      <div
-        className={`absolute  top-full left-0 w-full md:hidden bg-[#17384e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-[90] ${
-          isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-        style={{
-          display: "grid",
-          gridTemplateRows: isMobileMenuOpen ? "1fr" : "0fr",
-        }}
-      >
-        <div className="overflow-hidden">
-          <div className="px-6 pb-8 pt-6 flex flex-col items-center">
-            <nav className="flex flex-col items-center gap-2 text-lg font-medium w-full">
-              {["О нас", "Услуги",  "Ценности", "Вакансии", "FAQ"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href={`#${item}`}
-                    onClick={(e) => handleScroll(e, item)}
-                    className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
-                  >
-                    {item}
-                  </a>
-                ),
-              )}
-            </nav>
+      {/* Мобильное меню — AnimatePresence для плавного раскрытия/закрытия */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="absolute top-full left-0 w-full md:hidden bg-[#17384e]/95 backdrop-blur-md border-b border-white/10 shadow-2xl z-[90] overflow-hidden"
+            initial={shouldReduce ? false : { height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="px-6 pb-8 pt-6 flex flex-col items-center">
+              <nav className="flex flex-col items-center gap-2 text-lg font-medium w-full">
+                {["О нас", "Услуги",  "Ценности", "Вакансии", "FAQ"].map(
+                  (item, index) => (
+                    <motion.a
+                      key={item}
+                      href={`#${item}`}
+                      onClick={(e) => handleScroll(e, item)}
+                      className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
+                      initial={shouldReduce ? false : { opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25, delay: index * 0.05 }}
+                    >
+                      {item}
+                    </motion.a>
+                  ),
+                )}
+              </nav>
 
-            <div className="mt-6 pt-6 border-t border-white/10 flex flex-col items-center gap-4 text-white/80 w-full">
-              <a
-                href="tel:+79991234567"
-                className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit"
+              <motion.div
+                className="mt-6 pt-6 border-t border-white/10 flex flex-col items-center gap-4 text-white/80 w-full"
+                initial={shouldReduce ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
               >
-                <FiPhone className="text-xl text-[#00A8CC]" />
-                <span className="text-base tracking-wider">
-                  +7 (999) 123-45-67
-                </span>
-              </a>
-              <a
-                href="mailto:info@logistic.com"
-                className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit"
-              >
-                <FiMail className="text-xl text-[#00A8CC]" />
-                <span className="text-base tracking-wider">
-                  info@logistic.com
-                </span>
-              </a>
+                <a
+                  href="tel:+79991234567"
+                  className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit"
+                >
+                  <FiPhone className="text-xl text-[#00A8CC]" />
+                  <span className="text-base tracking-wider">
+                    +7 (999) 123-45-67
+                  </span>
+                </a>
+                <a
+                  href="mailto:info@logistic.com"
+                  className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit"
+                >
+                  <FiMail className="text-xl text-[#00A8CC]" />
+                  <span className="text-base tracking-wider">
+                    info@logistic.com
+                  </span>
+                </a>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

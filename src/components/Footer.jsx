@@ -1,8 +1,11 @@
+import { motion, useReducedMotion } from "framer-motion";
 import SectionInner from "./SectionInner";
 import { useI18n } from "./I18nProvider";
+import { simpleFade, defaultViewport } from "../lib/animations";
 
 export default function Footer() {
   const { translations } = useI18n();
+  const shouldReduce = useReducedMotion();
 
   const handleScroll = (e, item) => {
     e.preventDefault();
@@ -50,7 +53,13 @@ export default function Footer() {
   const copyright = footer.copyright ?? "2026 Все права защищены";
 
   return (
-    <footer className="bg-white text-[#0D0D0D] mt-10">
+    <motion.footer
+      className="bg-white text-[#0D0D0D] mt-10"
+      variants={simpleFade}
+      initial={shouldReduce ? false : "hidden"}
+      whileInView="visible"
+      viewport={defaultViewport}
+    >
       <SectionInner className="mx-auto max-w-[1920px] py-10 sm:py-12">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:flex-wrap lg:gap-y-10">
           {/* Logo */}
@@ -152,6 +161,6 @@ export default function Footer() {
           </p>
         </div>
       </SectionInner>
-    </footer>
+    </motion.footer>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   ComposableMap,
   Geographies,
@@ -187,6 +188,7 @@ function getMapConfig(width: number): {
 export default function GeographyMap() {
   const { translations } = useI18n();
   const mapTranslations = translations.map || {};
+  const shouldReduce = useReducedMotion();
   const [tooltip, setTooltip] = useState<string | null>(null);
   const [activeMode, setActiveMode] = useState(modes[0].key);
   const [config, setConfig] = useState(() =>
@@ -281,25 +283,47 @@ export default function GeographyMap() {
 
   return (
     <section id="geography" className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
-      {/* Заголовок */}
-      <div className="max-w-3xl px-4 text-center mb-8 sm:mb-10">
+      {/* Заголовок — fadeUp */}
+      <motion.div
+        className="max-w-3xl px-4 text-center mb-8 sm:mb-10"
+        initial={shouldReduce ? false : { opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5">
           {sectionTitle}
         </h2>
         <p className="text-sm sm:text-base text-white/70 leading-relaxed">
           {sectionDescription}
         </p>
-      </div>
+      </motion.div>
 
       {/* Переключатели режимов */}
-      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 px-4 mb-12 sm:mb-16">
+      {/* Переключатели режимов — stagger */}
+      <motion.div
+        className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 px-4 mb-12 sm:mb-16"
+        initial={shouldReduce ? false : "hidden"}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
+        }}
+      >
         {modes.map(({ key, label, icon: Icon }) => {
           const isActive = key === activeMode;
           return (
-            <button
+            <motion.button
               key={key}
               type="button"
               onClick={() => setActiveMode(key)}
+              variants={{
+                hidden: { opacity: 0, y: 12 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+              }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
               className={`flex items-center gap-2 rounded-xl px-5 py-3 text-sm sm:text-base font-medium border transition-colors duration-200 cursor-pointer
                 ${
                   isActive
@@ -309,14 +333,18 @@ export default function GeographyMap() {
             >
               <Icon size={18} className="shrink-0" />
               {translatedModeLabels[key] ?? label}
-            </button>
+            </motion.button>
           );
         })}
-      </div>
+      </motion.div>
 
-      <div
+      <motion.div
         className="relative w-full max-w-[1400px] cursor-pointer px-4 sm:px-6 md:px-12 overflow-hidden"
         style={{ aspectRatio: config.aspect }}
+        initial={shouldReduce ? false : { opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
       >
         <ComposableMap
           projectionConfig={{ rotate: config.rotate, scale: config.scale }}
@@ -346,7 +374,7 @@ export default function GeographyMap() {
             {tooltip}
           </div>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 }
