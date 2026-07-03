@@ -52,7 +52,7 @@ function AccordionItem({ item, isOpen, onToggle }) {
       <button
         type="button"
         onClick={onToggle}
-        className="w-full py-6 flex items-center justify-between gap-4 text-left group"
+        className="w-full cursor-pointer py-6 flex items-center justify-between gap-4 text-left group"
       >
         <span className="text-base md:text-lg font-semibold text-[#1B3A6B] group-hover:text-[#00A8CC] transition-colors duration-200">
           {item.question}
@@ -92,7 +92,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="relative w-full mt-8 md:mt-16 mb-20 md:mb-[120px]">
+    <section id="faq" className="relative w-full mt-20 md:mt-30 mb-20 md:mb-[120px]">
       <SectionInner>
         <div className="w-full flex justify-center">
           <div className="w-full max-w-[720px]">
@@ -105,10 +105,11 @@ export default function FAQSection() {
               </h2>
             </div>
 
-            <div className="w-full">
+            <div className="w-full cursor-pointer">
               {faqData.map((item) => (
                 <AccordionItem
                   key={item.id}
+          
                   item={item}
                   isOpen={openId === item.id}
                   onToggle={() => handleToggle(item.id)}

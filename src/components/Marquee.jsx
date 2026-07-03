@@ -20,7 +20,7 @@ export default function LogoMarquee() {
   const doubledLogos = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="mt-[64px] md:mt-[96px]">
+    <section id="partners" className="mt-[64px] md:mt-[96px]">
       {/* Заголовок с отступами */}
       <SectionInner>
         <div className="mb-[52px] sm:mb-[50px] md:mb-[49px] lg:mb-[48px] xl:mb-[48px] 2xl:mb-[48px]">

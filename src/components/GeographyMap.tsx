@@ -280,7 +280,7 @@ export default function GeographyMap() {
   );
 
   return (
-    <section className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
+    <section id="geography" className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
       {/* Заголовок */}
       <div className="max-w-3xl px-4 text-center mb-8 sm:mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5">
