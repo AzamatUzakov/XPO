@@ -1,5 +1,5 @@
 ---
-import globalCss from "../styles/global.css?inline";
+import "../styles/global.css";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
 const { locale = "ru", translations = {} } = Astro.props;
@@ -38,7 +38,14 @@ const { locale = "ru", translations = {} } = Astro.props;
 			type="font/woff2"
 			crossorigin="anonymous"
 		/>
-		<style is:global set:html={globalCss}></style>
+		<!-- Preload hero video for faster background playback start -->
+		<link
+			rel="preload"
+			href="/video/hero_video-Second.mp4"
+			as="video"
+			type="video/mp4"
+			fetchpriority="high"
+		/>
 	</head>
 	<body class="bg-white text-gray-900 min-h-screen antialiased">
 		<slot />

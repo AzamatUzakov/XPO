@@ -51,25 +51,10 @@ function ServicesInner() {
         <hr className="border-t-2 mt-6 border-[#C3C6D1]" />
 
         <div className="mt-10 md:grid md:grid-cols-6 md:gap-4 lg:gap-6">
-          {cards.map((card, i) => {
-            const imageBase = (card.src || defaultCards[i]?.src || "/service-1.png").replace(/\.(png|jpg|jpeg)$/i, "");
-            const imageSrc = `${imageBase}.webp`;
-            const imageSrcSet = `${imageBase}-768.webp 768w, ${imageBase}-1536.webp 1536w`;
-
-            return (
-              <ServiceCard key={`${card.title}-${i}`} index={i} colSpan={card.colSpan} addTopMargin={i > 0}>
-                <img
-                  className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-                  src={imageSrc}
-                  srcSet={imageSrcSet}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  alt={card.alt || "service"}
-                  width={386}
-                  height={217}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none" />
+          {cards.map((card, i) => (
+            <ServiceCard key={`${card.title}-${i}`} index={i} colSpan={card.colSpan} addTopMargin={i > 0}>
+              <img className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105" src={(card.src || defaultCards[i]?.src || "/service-1.png").replace(/\.(png|jpg|jpeg)$/i, ".webp")} alt={card.alt || "service"} width={386} height={217} loading={i === 0 ? "eager" : "lazy"} decoding="async" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-full p-4 md:p-6 pb-5 md:pb-7 z-10 text-white">
                 <h3 className="text-[18px] md:text-[20px] lg:text-[26px] font-normal">{card.title}</h3>
                 <div className="grid grid-rows-[1fr] opacity-100 md:grid-rows-[0fr] md:opacity-0 md:group-hover:grid-rows-[1fr] md:group-hover:opacity-100 transition-all duration-500">
@@ -81,10 +66,9 @@ function ServicesInner() {
                   </div>
                 </div>
               </div>
-                <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20" />
-              </ServiceCard>
-            );
-          })}
+              <div className="absolute bottom-0 left-0 h-[4px] bg-[#00A8CC] w-full md:w-0 transition-all duration-500 ease-out md:group-hover:w-full z-20" />
+            </ServiceCard>
+          ))}
         </div>
       </SectionInner>
     </section>
