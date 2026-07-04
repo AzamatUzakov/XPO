@@ -86,10 +86,12 @@ function TopNavBarInner({ locale }) {
         <div className="relative z-[101] flex-1">
           <img
             className="w-[80px] md:w-[90px] lg:w-[100px]"
-            src="/header-logo.webp"
+            src="/header-logo-140.webp"
+            srcSet="/header-logo-140.webp 140w, /header-logo-280.webp 280w"
+            sizes="(max-width: 640px) 80px, 100px"
             alt="header-logo"
-            width={200}
-            height={60}
+            width={140}
+            height={42}
             fetchpriority="high"
             decoding="async"
           />
