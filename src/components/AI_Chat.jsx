@@ -1,8 +1,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useI18n } from "./I18nProvider";
+import { withI18n } from "./I18nProvider";
 
-export default function AI_Chat() {
+function AI_Chat() {
   const { translations } = useI18n();
   const chat = translations.chat || {};
   const welcomeMessage = chat.welcome ?? chat.defaultMessage ?? "Здравствуйте! Я помощник по международным перевозкам. Чем могу помочь?";
@@ -282,3 +283,5 @@ export default function AI_Chat() {
     </div>
   );
 }
+
+export default withI18n(AI_Chat);

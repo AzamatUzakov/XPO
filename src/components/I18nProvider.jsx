@@ -43,3 +43,13 @@ export function I18nProvider({ locale, translations, children }) {
 export function useI18n() {
   return useContext(I18nContext);
 }
+
+export function withI18n(Component) {
+  return function WrappedComponent({ locale, translations, ...props }) {
+    return (
+      <I18nProvider locale={locale} translations={translations}>
+        <Component {...props} />
+      </I18nProvider>
+    );
+  };
+}

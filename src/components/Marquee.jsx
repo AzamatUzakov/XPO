@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import SectionInner from "./SectionInner";
 import { useI18n } from "./I18nProvider";
 import { fadeUp, defaultViewport } from "../lib/animations";
+import { withI18n } from "./I18nProvider";
 
 const LOGOS = [
   { src: "/orion.svg", alt: "Orion" },
@@ -15,7 +16,7 @@ const LOGOS = [
   { src: "/orientMotors.webp", alt: "OrientMotors" },
 ];
 
-export default function LogoMarquee() {
+function LogoMarquee() {
   const { translations } = useI18n();
   const partners = translations.partners || {};
   const marquee = translations.marquee || {};
@@ -93,3 +94,5 @@ export default function LogoMarquee() {
     </section>
   );
 }
+
+export default withI18n(LogoMarquee);

@@ -8,6 +8,7 @@ import {
 } from "react-simple-maps";
 import { Truck, TrainFront, Plane, Share2 } from "lucide-react";
 import { useI18n } from "./I18nProvider";
+import { withI18n } from "./I18nProvider";
 
 const geoUrl = "/data/countries-110m.json";
 
@@ -185,7 +186,7 @@ function getMapConfig(width: number): {
   };
 }
 
-export default function GeographyMap() {
+function GeographyMap() {
   const { translations } = useI18n();
   const mapTranslations = translations.map || {};
   const shouldReduce = useReducedMotion();
@@ -378,3 +379,5 @@ export default function GeographyMap() {
     </section>
   );
 }
+
+export default withI18n(GeographyMap);

@@ -2,8 +2,9 @@ import { motion, useReducedMotion } from "framer-motion";
 import SectionInner from "./SectionInner";
 import { useI18n } from "./I18nProvider";
 import { simpleFade, defaultViewport } from "../lib/animations";
+import { withI18n } from "./I18nProvider";
 
-export default function Footer() {
+function Footer() {
   const { translations } = useI18n();
   const shouldReduce = useReducedMotion();
 
@@ -164,3 +165,5 @@ export default function Footer() {
     </motion.footer>
   );
 }
+
+export default withI18n(Footer);

@@ -5,6 +5,7 @@ import { TbRouteSquare } from "react-icons/tb";
 import { useI18n } from "./I18nProvider";
 import TypewriterText from "./TypewriterText";
 import SectionInner from "./SectionInner";
+import { withI18n } from "./I18nProvider";
 
 // Hero-специфичные variants: stagger-контейнер
 const heroContainer = {
@@ -26,7 +27,7 @@ const heroItem = {
   },
 };
 
-export default function HeroSection() {
+function HeroSection() {
   const { translations } = useI18n();
   const hero = translations.hero || {};
   const shouldReduce = useReducedMotion();
@@ -91,3 +92,5 @@ export default function HeroSection() {
     </section>
   );
 }
+
+export default withI18n(HeroSection);

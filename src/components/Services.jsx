@@ -48,7 +48,7 @@ export default function Services() {
   const cards = [
     {
       colSpan: "md:col-span-2",
-      src: "/service-1.png",
+      src: "/service-1.webp",
       alt: "Авиафрахт",
       title: "АВИАФРАХТ",
       mobileDesc: "Срочная доставка по всему миру",
@@ -57,7 +57,7 @@ export default function Services() {
     },
     {
       colSpan: "md:col-span-2",
-      src: "/service-2.png",
+      src: "/service-2.webp",
       alt: "Ж/Д перевозки",
       title: "Ж/Д ПЕРЕВОЗКИ",
       mobileDesc: "Надежные перевозки по СНГ и Европе",
@@ -66,7 +66,7 @@ export default function Services() {
     },
     {
       colSpan: "md:col-span-2",
-      src: "/service-3.png",
+      src: "/service-3.webp",
       alt: "Морской фрахт",
       title: "МОРСКОЙ ФРАХТ",
       mobileDesc: "Экономичные контейнерные перевозки",
@@ -75,7 +75,7 @@ export default function Services() {
     },
     {
       colSpan: "md:col-span-3",
-      src: "/service-4.png",
+      src: "/service-4.webp",
       alt: "СБОРНЫЕ ГРУЗЫ",
       title: "СБОРНЫЕ ГРУЗЫ (LCL)",
       mobileDesc: "Оптимизация затрат для малых партий",
@@ -84,7 +84,7 @@ export default function Services() {
     },
     {
       colSpan: "md:col-span-3",
-      src: "/service-5.png",
+      src: "/service-5.webp",
       alt: "Негабаритные грузы",
       title: "НЕГАБАРИТНЫЕ ГРУЗЫ",
       mobileDesc: "Проектная логистика любой сложности",
@@ -93,7 +93,7 @@ export default function Services() {
     },
     {
       colSpan: "md:col-span-2",
-      src: "/service-8.png",
+      src: "/service-8.webp",
       alt: "ОПАСНЫЕ ГРУЗЫ",
       title: "ОПАСНЫЕ ГРУЗЫ",
       mobileDesc: "Безопасная перевозка опасных веществ",
@@ -102,7 +102,7 @@ export default function Services() {
     },
     {
       colSpan: "md:col-span-2",
-      src: "/service-7.png",
+      src: "/service-7.webp",
       alt: "Таможеня",
       title: "ТАМОЖНЯ",
       mobileDesc: "Декларирование и сертификация грузов",
@@ -111,7 +111,7 @@ export default function Services() {
     },
     {
       colSpan: "md:col-span-2",
-      src: "/service-6.png",
+      src: "/service-6.webp",
       alt: "Складская логистика",
       title: "СКЛАДЫ",
       mobileDesc: "Хранение и обработка грузов на складах",
@@ -150,7 +150,7 @@ export default function Services() {
             >
               <img
                 className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-                src={card.src.replace(/\.(png|jpg|jpeg)$/i, '.webp')}
+                src={card.src}
                 alt={card.alt}
                 width={800}
                 height={600}

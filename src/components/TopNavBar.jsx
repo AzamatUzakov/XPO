@@ -11,8 +11,9 @@ import { FiMenu, FiX, FiPhone, FiMail } from "react-icons/fi";
 import ReactCountryFlag from "react-country-flag";
 import { Button } from "./ui/button";
 import SectionInner from "./SectionInner";
+import { withI18n } from "./I18nProvider";
 
-export default function TopNavBar() {
+function TopNavBar({ locale, currentPath }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const shouldReduce = useReducedMotion();
 
@@ -80,7 +81,16 @@ export default function TopNavBar() {
         </nav>
 
         <div className="relative z-[101] flex-1 flex items-center justify-end gap-4 cursor-pointer">
-          <Select defaultValue="ru">
+          <Select
+            value={locale || "ru"}
+            onValueChange={(val) => {
+              if (val === "ru") {
+                window.location.href = "/";
+              } else {
+                window.location.href = `/${val}`;
+              }
+            }}
+          >
             <SelectTrigger
               className="w-fit px-3 h-10 cursor-pointer rounded-lg bg-transparent border border-slate-400 shadow-none focus:ring-0 md:border-0 md:text-xl font-heading text-white"
               style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
@@ -231,3 +241,5 @@ export default function TopNavBar() {
     </header>
   );
 }
+
+export default withI18n(TopNavBar);

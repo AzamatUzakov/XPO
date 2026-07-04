@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import SectionInner from "./SectionInner";
 import { useI18n } from "./I18nProvider";
+import { withI18n } from "./I18nProvider";
 
 const defaultFeatures = [
   {
@@ -26,7 +27,7 @@ const defaultFeatures = [
   },
 ];
 
-export default function AboutUs() {
+function AboutUs() {
   const { translations } = useI18n();
   const about = translations.about || {};
   const sectionTitle = about.sectionTitle ?? "О Компании";
@@ -139,3 +140,5 @@ export default function AboutUs() {
     </div>
   );
 }
+
+export default withI18n(AboutUs);

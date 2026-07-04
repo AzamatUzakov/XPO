@@ -3,6 +3,7 @@ import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
 import { motion, useInView } from "framer-motion";
 import { useI18n } from "./I18nProvider";
 import SectionInner from "./SectionInner";
+import { withI18n } from "./I18nProvider";
 
 const NAME_RE = /^[A-Za-zА-ЯЁа-яёÀ-ÿ]+([\s-][A-Za-zА-ЯЁа-яёÀ-ÿ]+)+$/;
 const defaultServiceOptions = [
@@ -17,7 +18,7 @@ const defaultContacts = [
   { icon: "/email-icon.png", alt: "email-icon", label: "Email", value: "xpotrans_group@mail.ru", rounded: "rounded-full" },
 ];
 
-export default function ContactForm() {
+function ContactForm() {
   const { translations } = useI18n();
   const contact = translations.contact || {};
   const serviceOptions = useMemo(
@@ -306,3 +307,5 @@ export default function ContactForm() {
     </div>
   );
 }
+
+export default withI18n(ContactForm);

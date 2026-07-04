@@ -2,6 +2,7 @@ import { useRef, useState, useLayoutEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useI18n } from "./I18nProvider";
 import SectionInner from "./SectionInner";
+import { withI18n } from "./I18nProvider";
 
 const defaultSteps = [
   {
@@ -21,7 +22,7 @@ const defaultSteps = [
   },
 ];
 
-export default function Workflow() {
+function Workflow() {
   const sectionRef = useRef(null);
   const { translations } = useI18n();
   const workflow = translations.workflow || {};
@@ -216,6 +217,8 @@ export default function Workflow() {
     </section>
   );
 }
+
+export default withI18n(Workflow);
 
 function Circle({ circleRef, num, lineProgress, threshold }) {
   // threshold — реальная измеренная доля высоты линии, на которой стоит этот кружок.

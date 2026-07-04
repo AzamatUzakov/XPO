@@ -3,6 +3,7 @@ import { Globe } from "@/components/ui/globe";
 import AnimatedNumber from "./AnimatedNumber";
 import { useI18n } from "./I18nProvider";
 import SectionInner from "./SectionInner";
+import { withI18n } from "./I18nProvider";
 import {
   fadeUp,
   fadeScale,
@@ -21,7 +22,7 @@ const statsContainer = {
   },
 };
 
-export default function Geography() {
+function Geography() {
   const { translations } = useI18n();
   const geography = translations.geography || {};
   const stats = geography.stats || {};
@@ -124,3 +125,5 @@ export default function Geography() {
     </section>
   );
 }
+
+export default withI18n(Geography);
