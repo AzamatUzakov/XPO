@@ -56,6 +56,24 @@
         "title": "OVERSIZED CARGO",
         "mobileDesc": "Project logistics of any complexity",
         "desktopDesc": "Project logistics for industrial giants with increased complexity."
+      },
+      {
+        "alt": "Hazardous Cargo",
+        "title": "HAZARDOUS CARGO",
+        "mobileDesc": "Safe transportation of hazardous goods",
+        "desktopDesc": "Safe transport of dangerous chemicals and hazardous materials with license."
+      },
+      {
+        "alt": "Customs",
+        "title": "CUSTOMS",
+        "mobileDesc": "Declaration and certification",
+        "desktopDesc": "Brokerage, customs clearance and product certification."
+      },
+      {
+        "alt": "Warehousing",
+        "title": "WAREHOUSING",
+        "mobileDesc": "Storage and handling",
+        "desktopDesc": "Storage, consolidation and handling at modern warehouses."
       }
     ]
   },

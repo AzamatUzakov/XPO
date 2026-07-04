@@ -1,4 +1,3 @@
-
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import SectionInner from "./SectionInner";
@@ -34,7 +33,10 @@ function ServicesInner() {
   const headerInView = useInView(headerRef, { once: true, margin: "-40px 0px" });
   const { translations } = useI18n();
   const services = translations.services || {};
-  const cards = (services.cards?.length ? services.cards : defaultCards).map((card, index) => ({ ...defaultCards[index], ...card }));
+
+  const cardsSource = services.cards?.length ? services.cards : [];
+  const cards = defaultCards.map((card, index) => ({ ...card, ...cardsSource[index] }));
+
   const headerTitle = services.title || "Logistics Solutions";
   const headerSubtitle = services.subtitle || "Professional Services";
 

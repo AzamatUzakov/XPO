@@ -56,6 +56,24 @@
         "title": "OʻLCHAMDAN KATTAROQ YUKLAR",
         "mobileDesc": "Har qanday murakkablikdagi loyiha logistika",
         "desktopDesc": "Sanoat gigantlari uchun yuqori murakkablikdagi loyiha logistika."
+      },
+      {
+        "alt": "Xavfli yuklar",
+        "title": "XAVFLI YUKLAR",
+        "mobileDesc": "Xavfli moddalarni xavfsiz tashish",
+        "desktopDesc": "Litsenziya asosida kimyoviy va xavfli moddalarni xavfsiz tashish."
+      },
+      {
+        "alt": "Bojxona",
+        "title": "BOJXONA",
+        "mobileDesc": "Yuklarni deklaratsiya qilish va sertifikatlashtirish",
+        "desktopDesc": "Brokerlik xizmatlari, mahsulotlarni deklaratsiya qilish va sertifikatlashtirish."
+      },
+      {
+        "alt": "Omborlar",
+        "title": "OMBORLAR",
+        "mobileDesc": "Omborlarda yuklarni saqlash va qayta ishlash",
+        "desktopDesc": "Zamonaviy omborlarda yuklarni saqlash, konsolidatsiya qilish va qayta ishlash."
       }
     ]
   },
