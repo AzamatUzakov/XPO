@@ -1,6 +1,7 @@
 ---
+export const prerender = true;
 import Layout from '../layouts/Layout.astro';
-import App from '../components/App.jsx';
+import MainPage from '../components/MainPage.astro';
 import { translations } from '../lib/i18n';
 
 const locale = 'ru';
@@ -9,5 +10,5 @@ const currentPath = Astro.url.pathname;
 ---
 
 <Layout locale={locale} translations={t} currentPath={currentPath}>
-  <App client:load locale={locale} translations={t} currentPath={currentPath} />
+  <MainPage locale={locale} translations={t} currentPath={currentPath} />
 </Layout>

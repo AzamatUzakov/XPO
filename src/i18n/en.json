@@ -127,6 +127,19 @@
       {"src": "/orientMotors.jpg", "alt": "OrientMotors"}
     ]
   },
+  "crmPromo": {
+    "eyebrow": "In development",
+    "title": "Track your cargo in real time",
+    "description": "A client cabinet with online cargo status, documents, shipment history and instant notifications in one place.",
+    "features": ["Cargo tracking", "Documents online", "Notifications"],
+    "placeholder": "Your phone",
+    "button": "Early access",
+    "loading": "Sending...",
+    "successButton": "Request accepted!",
+    "successMessage": "Thanks! We will inform you first about the launch.",
+    "errorMessage": "We could not submit the request. Please try again.",
+    "imageAlt": "CRM interface"
+  },
   "contact": {
     "feedbackLabel": "Feedback",
     "formTitle": "Request a Quote",
@@ -208,6 +221,164 @@
     "defaultMessage": "Hello! I am your international transport assistant. How can I help?",
     "errorPrefix": "Error:",
     "retryMessage": "Please try again."
+  },
+  "advantages": {
+    "title": "Our advantages",
+    "items": [
+      "24/7 service",
+      "Fast cost calculation",
+      "Safe transportation",
+      "Cargo insurance",
+      "Online tracking",
+      "International partner network"
+    ]
+  },
+  "faq": {
+    "eyebrow": "Questions and answers",
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "How is the transport cost calculated?",
+        "answer": "The cost depends on the transport mode, cargo weight and volume, route, urgency and delivery terms (Incoterms). We prepare an individual estimate taking into account all costs: delivery, customs clearance, insurance — without hidden fees."
+      },
+      {
+        "question": "How long does cargo delivery take?",
+        "answer": "Delivery times depend on the transport mode: air freight from 18 to 48 hours, road transport 5–12 days, rail 14–25 days, sea freight from 25 to 40 days. We specify the exact term in the commercial offer after route calculation."
+      },
+      {
+        "question": "What documents are required to process cargo?",
+        "answer": "The basic package includes invoice, packing list, contract (for foreign trade) and transport documents (CMR, AWB, bill of lading depending on the transport mode). Some cargo categories may require compliance certificates. We help prepare a full document package."
+      },
+      {
+        "question": "Do you handle customs clearance?",
+        "answer": "Yes, full customs clearance is included in our services: cargo declaration, calculation and payment of duties and taxes, interaction with customs authorities at every stage."
+      },
+      {
+        "question": "Can I track the cargo in transit?",
+        "answer": "Yes, for each shipment we provide regular status reports and access to tracking at key stages: loading, transit, arrival, customs clearance and delivery to the recipient."
+      },
+      {
+        "question": "Do you insure cargo?",
+        "answer": "Yes, we offer cargo insurance for all transport modes. Insurance cost is calculated individually based on declared value and cargo nature."
+      },
+      {
+        "question": "Is there a minimum cargo volume?",
+        "answer": "There is no minimum volume — we work with full container and air shipments (FCL/FTL) as well as consolidated cargo (LCL/LTL) for smaller batches."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "Payment is available by bank transfer for legal entities, and also by individual terms for regular clients, including partial prepayment and payment upon delivery."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Gallery and projects",
+    "title": "Our experience in detail",
+    "buttons": {
+      "prev": "Previous slide",
+      "next": "Next slide",
+      "show": "Show documents and photos",
+      "hide": "Hide media gallery"
+    },
+    "galleryTitle": "Flight photo report and documents:",
+    "items": [
+      {
+        "type": "Air freight",
+        "route": "Beijing — Tashkent",
+        "cargo": "Electronics",
+        "specs": [
+          { "label": "Payload", "value": "14.5 t" },
+          { "label": "Term", "value": "36 hours" },
+          { "label": "Transport", "value": "Boeing 747-F" }
+        ],
+        "gallery": [
+          { "title": "Loading in Beijing" },
+          { "title": "Customs warehouse" },
+          { "title": "Air Waybill documents" },
+          { "title": "Unloading in Tashkent" }
+        ]
+      },
+      {
+        "type": "Rail transport",
+        "route": "Shanghai — Warsaw",
+        "cargo": "Auto parts",
+        "specs": [
+          { "label": "Rolling stock", "value": "42 wagons" },
+          { "label": "Term", "value": "18 days" },
+          { "label": "Payload", "value": "840 tons" }
+        ],
+        "gallery": [
+          { "title": "Train formation" },
+          { "title": "Sealing the rolling stock" },
+          { "title": "Transit through Kazakhstan" },
+          { "title": "SMGS documents" }
+        ]
+      },
+      {
+        "type": "Sea freight",
+        "route": "Ningbo — Saint Petersburg",
+        "cargo": "Consolidated (LCL)",
+        "specs": [
+          { "label": "Containers", "value": "12 × 40ft" },
+          { "label": "Status", "value": "Completed" },
+          { "label": "Term", "value": "32 days" }
+        ],
+        "gallery": [
+          { "title": "Vessel loading" },
+          { "title": "Port terminal" },
+          { "title": "Bill of lading" },
+          { "title": "Breakbulk warehouse" }
+        ]
+      },
+      {
+        "type": "Road transport",
+        "route": "Istanbul — Tashkent",
+        "cargo": "Textiles",
+        "specs": [
+          { "label": "Trailers", "value": "6 × Curtain" },
+          { "label": "Term", "value": "9 days" },
+          { "label": "Payload", "value": "132 t" }
+        ],
+        "gallery": [
+          { "title": "Loading at the warehouse" },
+          { "title": "Border post" },
+          { "title": "CMR consignment note" },
+          { "title": "Unloading in Tashkent" }
+        ]
+      },
+      {
+        "type": "Multimodal",
+        "route": "Guangzhou — Almaty",
+        "cargo": "Household appliances",
+        "specs": [
+          { "label": "Containers", "value": "8 × 20ft" },
+          { "label": "Term", "value": "24 days" },
+          { "label": "Transport", "value": "Sea + Rail" }
+        ],
+        "gallery": [
+          { "title": "Loading port" },
+          { "title": "Rail transfer" },
+          { "title": "Compliance certificate" },
+          { "title": "Final delivery" }
+        ]
+      },
+      {
+        "type": "Air freight",
+        "route": "Dubai — Samarkand",
+        "cargo": "Pharma products",
+        "specs": [
+          { "label": "Payload", "value": "3.2 t" },
+          { "label": "Term", "value": "18 hours" },
+          { "label": "Mode", "value": "Temp-control" }
+        ],
+        "gallery": [
+          { "title": "Temperature containers" },
+          { "title": "Board loading" },
+          { "title": "Ministry of Health permit" },
+          { "title": "Warehouse acceptance" }
+        ]
+      }
+    ]
   },
   "footer": {
     "nav": ["About", "News", "Projects", "Partners", "Careers", "Contact"],

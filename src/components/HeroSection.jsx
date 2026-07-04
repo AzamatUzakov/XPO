@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { RiTelegram2Fill } from "react-icons/ri";
 import { Button } from "./ui/button";
 import { TbRouteSquare } from "react-icons/tb";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 import TypewriterText from "./TypewriterText";
 import SectionInner from "./SectionInner";
 
@@ -26,7 +26,7 @@ const heroItem = {
   },
 };
 
-export default function HeroSection() {
+function HeroSectionInner() {
   const { translations } = useI18n();
   const hero = translations.hero || {};
   const shouldReduce = useReducedMotion();
@@ -77,7 +77,7 @@ export default function HeroSection() {
             variants={heroItem}
             className="mb-[40px] flex flex-col w-full mt-9 md:flex-row md:items-stretch gap-3 md:gap-4"
           >
-            <Button className="w-full md:w-auto py-7 cursor-pointer border border-[#00A8CC] rounded-none text-[13px] bg-[#00A8CC] hover:bg-[#008ba8] hover:border-[#008ba8] transition-colors md:h-[66px] md:px-[40px] flex items-center justify-center">
+            <Button className="w-full md:w-auto py-7 cursor-pointer border border-[#007A99] rounded-none text-[13px] bg-[#007A99] hover:bg-[#005F77] hover:border-[#005F77] text-white transition-colors md:h-[66px] md:px-[40px] flex items-center justify-center">
               <RiTelegram2Fill className="mr-2 text-xl" />
               {hero.buttonTelegram ?? "Связаться в Telegram"}
             </Button>
@@ -89,5 +89,13 @@ export default function HeroSection() {
         </motion.div>
       </SectionInner>
     </section>
+  );
+}
+
+export default function HeroSection({ locale = "ru", translations = {} }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <HeroSectionInner />
+    </I18nProvider>
   );
 }

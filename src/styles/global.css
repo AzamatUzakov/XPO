@@ -3,6 +3,12 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+/* Prevent FOUT — show fallback font immediately while Geist loads */
+@font-face {
+  font-family: 'Geist Variable';
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

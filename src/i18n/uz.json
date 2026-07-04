@@ -127,6 +127,19 @@
       {"src": "/orientMotors.jpg", "alt": "OrientMotors"}
     ]
   },
+  "crmPromo": {
+    "eyebrow": "Rivojlanmoqda",
+    "title": "Yukingizni real vaqt rejimida kuzatib boring",
+    "description": "Mijozlar kabinasi: yuk holati onlayn, hujjatlar, jo‘natmalar tarixi va bir joyda tezkor bildirishnomalar.",
+    "features": ["Yuklarni kuzatish", "Hujjatlar onlayn", "Bildirishnomalar"],
+    "placeholder": "Telefon raqamingiz",
+    "button": "Erta kirish",
+    "loading": "Yuborilmoqda...",
+    "successButton": "So‘rov qabul qilindi!",
+    "successMessage": "Rahmat! Ishga tushirilishi haqida birinchi bo‘lib sizga xabar beramiz.",
+    "errorMessage": "So‘rovni yuborib bo‘lmadi. Iltimos qayta urinib ko‘ring.",
+    "imageAlt": "CRM interfeysi"
+  },
   "contact": {
     "feedbackLabel": "Aloqa",
     "formTitle": "Taklif soʻrashi",
@@ -208,6 +221,164 @@
     "defaultMessage": "Salom! Men xalqaro transport bo‘yicha yordamchingizman. Qanday yordam bera olaman?",
     "errorPrefix": "Xatolik:",
     "retryMessage": "Iltimos qayta urinib ko‘ring."
+  },
+  "advantages": {
+    "title": "Bizning afzalliklarimiz",
+    "items": [
+      "24/7 xizmat",
+      "Tez narx hisoblash",
+      "Xavfsiz tashish",
+      "Yuk sugʻurtasi",
+      "Onlayn kuzatish",
+      "Xalqaro hamkorlar tarmogʻi"
+    ]
+  },
+  "faq": {
+    "eyebrow": "Savollar va javoblar",
+    "title": "Tez-tez beriladigan savollar",
+    "items": [
+      {
+        "question": "Yuk tashish narxi qanday hisoblanadi?",
+        "answer": "Narx transport turi, yuk ogʻirligi va hajmi, marshrut, shoshilinchlik va yetkazib berish shartlariga (Incoterms) bogʻliq. Biz barcha xarajatlarni hisobga olib, yashirin toʻlovlarsiz individual taklif tayyorlaymiz: yetkazib berish, bojxona rasmiylashtirish, sugʻurta."
+      },
+      {
+        "question": "Yuk yetkazib berish necha vaqt davom etadi?",
+        "answer": "Muddat transport turiga bogʻliq: havo yuk tashish 18 dan 48 soatgacha, avtomobil transporti 5–12 kun, temir yoʻl 14–25 kun, dengiz yuk tashish 25 dan 40 kungacha. Aniq muddatni marshrut hisoblashdan keyin tijorat taklifida ko‘rsatamiz."
+      },
+      {
+        "question": "Yukni rasmiylashtirish uchun qanday hujjatlar kerak?",
+        "answer": "Asosiy to‘plamga hisob-faktura, qadoqlash ro‘yxati, shartnoma (xorijiy savdo holatida) va transport hujjatlari (CMR, AWB, konsignatsiya) kiradi. Baʼzi yuk toifalari uchun muvofiqlik sertifikatlari talab qilinishi mumkin. Biz toʻliq hujjat to‘plamini tayyorlashda yordam beramiz."
+      },
+      {
+        "question": "Siz bojxona rasmiylashtirish bilan shugʻullanadimi?",
+        "answer": "Ha, toʻliq bojxona rasmiylashtirish xizmatlarimizga kiradi: yuk deklaratsiyasi, boj va soliqlarni hisoblash va toʻlash, har bir bosqichda bojxona organlari bilan hamkorlik."
+      },
+      {
+        "question": "Yukni yo‘lda kuzatib borish mumkinmi?",
+        "answer": "Ha, har bir jo‘natma uchun biz muntazam holat hisobotlarini va asosiy bosqichlarda kuzatish imkoniyatini taqdim etamiz: yuklash, tranzit, yetib kelish, bojxona rasmiylashtirish va oluvchiga etkazib berish."
+      },
+      {
+        "question": "Siz yuklarni sug‘urtalayapsizmi?",
+        "answer": "Ha, barcha transport turlari uchun yuk sug‘urta xizmatini taklif etamiz. Sug‘urta narxi eʼlon qilingan qiymat va yuk tabiati asosida individual hisoblanadi."
+      },
+      {
+        "question": "Yuk tashish uchun minimal hajm bormi?",
+        "answer": "Minimal hajm yo‘q — biz to‘liq konteyner va havo jo‘natmalari (FCL/FTL) bilan birga kichik partiyalar uchun konsolidatsiyalangan yuklar (LCL/LTL) bilan ham ishlaymiz."
+      },
+      {
+        "question": "Qaysi to‘lov usullarini qabul qilasiz?",
+        "answer": "To‘lov yuridik shaxslar uchun bank oʻtkazmasi orqali, shuningdek doimiy mijozlar uchun individual shartlar asosida, jumladan qisman avans va yetkazib berilgandan keyin to‘lov orqali amalga oshirilishi mumkin."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Galereya va loyihalar",
+    "title": "Bizning tajribamiz tafsilotlarda",
+    "buttons": {
+      "prev": "Oldingi slayd",
+      "next": "Keyingi slayd",
+      "show": "Hujjatlar va fotosuratlarni ko‘rsatish",
+      "hide": "Media galereyani yashirish"
+    },
+    "galleryTitle": "Parvoz fotosuratlari va hujjatlar:",
+    "items": [
+      {
+        "type": "Havo yuk tashish",
+        "route": "Pekin — Toshkent",
+        "cargo": "Elektronika",
+        "specs": [
+          { "label": "Yuklama", "value": "14.5 t" },
+          { "label": "Muddat", "value": "36 soat" },
+          { "label": "Transport", "value": "Boeing 747-F" }
+        ],
+        "gallery": [
+          { "title": "Pekinda yuklash" },
+          { "title": "Bojxona ombori" },
+          { "title": "Air Waybill hujjatlari" },
+          { "title": "Toshkentda tushirish" }
+        ]
+      },
+      {
+        "type": "Temir yoʻl tashish",
+        "route": "Shanxay — Varshava",
+        "cargo": "Avto ehtiyot qismlari",
+        "specs": [
+          { "label": "Vagonlar", "value": "42 vagon" },
+          { "label": "Muddat", "value": "18 kun" },
+          { "label": "Yuklama", "value": "840 tonna" }
+        ],
+        "gallery": [
+          { "title": "Vagonlar yig‘ilishi" },
+          { "title": "Transport vositasini muhrlash" },
+          { "title": "Qozog‘iston orqali tranzit" },
+          { "title": "SMGS hujjatlari" }
+        ]
+      },
+      {
+        "type": "Dengiz yuk tashish",
+        "route": "Ninbo — Sankt-Peterburg",
+        "cargo": "Konsolidatsiyalangan (LCL)",
+        "specs": [
+          { "label": "Konteynerlar", "value": "12 × 40ft" },
+          { "label": "Holat", "value": "Bajarildi" },
+          { "label": "Muddat", "value": "32 kun" }
+        ],
+        "gallery": [
+          { "title": "Kema yuklash" },
+          { "title": "Port terminali" },
+          { "title": "Konnosament B/L" },
+          { "title": "Ajratish ombori" }
+        ]
+      },
+      {
+        "type": "Avtomobil transporti",
+        "route": "Istanbul — Toshkent",
+        "cargo": "To‘qimachilik",
+        "specs": [
+          { "label": "Yuk mashinalari", "value": "6 × Tente" },
+          { "label": "Muddat", "value": "9 kun" },
+          { "label": "Yuklama", "value": "132 t" }
+        ],
+        "gallery": [
+          { "title": "Omborda yuklash" },
+          { "title": "Chegara posti" },
+          { "title": "CMR yuk xatnomasi" },
+          { "title": "Toshkentda tushirish" }
+        ]
+      },
+      {
+        "type": "Multimodal",
+        "route": "Guanchjou — Olmaota",
+        "cargo": "Maishiy texnika",
+        "specs": [
+          { "label": "Konteynerlar", "value": "8 × 20ft" },
+          { "label": "Muddat", "value": "24 kun" },
+          { "label": "Transport", "value": "Dengiz + Temir yoʻl" }
+        ],
+        "gallery": [
+          { "title": "Yuklash porti" },
+          { "title": "Temir yo‘lga uzatish" },
+          { "title": "Muvofiqlik sertifikati" },
+          { "title": "Oxirgi yetkazib berish" }
+        ]
+      },
+      {
+        "type": "Havo yuk tashish",
+        "route": "Dubay — Samarqand",
+        "cargo": "Farmatsevtika mahsulotlari",
+        "specs": [
+          { "label": "Yuklama", "value": "3.2 t" },
+          { "label": "Muddat", "value": "18 soat" },
+          { "label": "Rejim", "value": "Temp-control" }
+        ],
+        "gallery": [
+          { "title": "Temperaturali konteynerlar" },
+          { "title": "Samolyotga yuklash" },
+          { "title": "Sog‘liqni saqlash vazirligi ruxsati" },
+          { "title": "Omborda qabul qilish" }
+        ]
+      }
+    ]
   },
   "footer": {
     "nav": ["Biz haqimizda", "Yangiliklar", "Loyihalar", "Hamkorlar", "Karyera", "Aloqa"],

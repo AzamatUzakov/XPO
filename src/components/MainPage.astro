@@ -1,0 +1,66 @@
+---
+import LenisInit from './LenisInit.jsx';
+import TopNavBar from './TopNavBar.jsx';
+import HeroSection from './HeroSection.jsx';
+import Services from './Services.jsx';
+import Geography from './Geography.jsx';
+import Workflow from './Workflow.jsx';
+import Advantages from './Advantages.jsx';
+import ProjectsAndMedia from './ProjectsAndMedia.jsx';
+import AboutUs from './AboutUs.jsx';
+import LogoMarquee from './Marquee.jsx';
+import ContactForm from './ContactForm.jsx';
+import GeographyMap from './GeographyMap.tsx';
+import AI_Chat from './AI_Chat.jsx';
+import FAQSection from './Faq.jsx';
+import CrmPromo from './CrmPromo.jsx';
+import Footer from './Footer.jsx';
+
+const { locale, translations, currentPath } = Astro.props;
+---
+
+<LenisInit client:load />
+
+<div class="flex flex-col min-h-screen bg-white">
+  {/* Шапка и фоновое видео */}
+  <div class="relative flex flex-col md:min-h-[95vh] min-h-[100%] w-full overflow-hidden bg-slate-900 shadow-xl">
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="none"
+      poster="/video/hero_poster.jpg"
+      class="absolute inset-0 w-full h-full object-cover"
+    >
+      <source src="/video/hero_video.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <div class="relative z-10 flex flex-col flex-grow w-full">
+      <TopNavBar client:load locale={locale} translations={translations} currentPath={currentPath} />
+      <HeroSection client:load locale={locale} translations={translations} />
+    </div>
+  </div>
+
+  {/* Главный контент страницы */}
+  <main class="py-0 flex flex-col">
+    <Services client:visible locale={locale} translations={translations} />
+    <Geography client:visible locale={locale} translations={translations} />
+    <Workflow client:visible locale={locale} translations={translations} />
+    <Advantages client:visible locale={locale} translations={translations} />
+    <ProjectsAndMedia client:visible locale={locale} translations={translations} />
+    
+    <div class="flex flex-col">
+      <AboutUs client:visible locale={locale} translations={translations} />
+    </div>
+    
+    <LogoMarquee client:visible locale={locale} translations={translations} />
+    <ContactForm client:visible locale={locale} translations={translations} />
+    <GeographyMap client:visible locale={locale} translations={translations} />
+    <AI_Chat client:visible locale={locale} translations={translations} />
+    <FAQSection client:visible locale={locale} translations={translations} />
+    <CrmPromo client:visible locale={locale} translations={translations} />
+  </main>
+  <Footer client:visible locale={locale} translations={translations} />
+</div>

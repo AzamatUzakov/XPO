@@ -17,6 +17,9 @@ const { locale = 'ru', translations = {} } = Astro.props;
 		<meta property="og:description" content={translations.meta?.ogDescription ?? ''} />
 		<meta property="og:url" content={Astro.url.href} />
 		<link rel="canonical" href={Astro.url.href} />
+		<!-- Preload critical font subsets to eliminate FOUT -->
+		<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+		<link rel="preload" href="/fonts/geist-cyrillic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 	</head>
 	<body class="bg-white text-gray-900 min-h-screen antialiased">
 		<slot />

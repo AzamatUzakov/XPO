@@ -7,7 +7,7 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { Truck, TrainFront, Plane, Share2 } from "lucide-react";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 
 const geoUrl = "/data/countries-110m.json";
 
@@ -185,7 +185,7 @@ function getMapConfig(width: number): {
   };
 }
 
-export default function GeographyMap() {
+function GeographyMapInner() {
   const { translations } = useI18n();
   const mapTranslations = translations.map || {};
   const shouldReduce = useReducedMotion();
@@ -376,5 +376,13 @@ export default function GeographyMap() {
         )}
       </motion.div>
     </section>
+  );
+}
+
+export default function GeographyMap({ locale = "ru", translations = {} }: { locale?: string; translations?: any }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <GeographyMapInner />
+    </I18nProvider>
   );
 }
