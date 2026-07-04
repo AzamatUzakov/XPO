@@ -9,7 +9,7 @@ import {
 import { Truck, TrainFront, Plane, Share2 } from "lucide-react";
 import { useI18n } from "./I18nProvider";
 
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const geoUrl = "/data/countries-110m.json";
 
 const countryNames: Record<string, string> = {
   "643": "Россия",

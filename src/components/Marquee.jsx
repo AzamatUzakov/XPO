@@ -5,14 +5,14 @@ import { fadeUp, defaultViewport } from "../lib/animations";
 
 const LOGOS = [
   { src: "/orion.svg", alt: "Orion" },
-  { src: "/agromir.png", alt: "Agromir" },
+  { src: "/agromir.webp", alt: "Agromir" },
   { src: "/smz.svg", alt: "SMZ" },
-  { src: "/uzairways.jpg", alt: "Uzbekistan Airways" },
-  { src: "/samauto.png", alt: "SamAuto" },
-  { src: "/sag-gilamlar.png", alt: "SAG Gilamlar" },
+  { src: "/uzairways.webp", alt: "Uzbekistan Airways" },
+  { src: "/samauto.webp", alt: "SamAuto" },
+  { src: "/sag-gilamlar.webp", alt: "SAG Gilamlar" },
   { src: "/nestle.svg", alt: "Nestle" },
-  { src: "/uzkimyoimpeks.jpg", alt: "Uzkimyoimpeks" },
-  { src: "/orientMotors.jpg", alt: "OrientMotors" },
+  { src: "/uzkimyoimpeks.webp", alt: "Uzkimyoimpeks" },
+  { src: "/orientMotors.webp", alt: "OrientMotors" },
 ];
 
 export default function LogoMarquee() {
@@ -62,6 +62,8 @@ export default function LogoMarquee() {
                   src={logo.src}
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -80,6 +82,8 @@ export default function LogoMarquee() {
                   src={logo.src}
                   alt={logo.alt}
                   className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}

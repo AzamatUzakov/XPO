@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 import { I18nProvider } from "./I18nProvider";
 import TopNavBar from "./TopNavBar";
 import HeroSection from "./HeroSection";
@@ -53,6 +52,8 @@ export default function App({ locale, translations, currentPath }) {
             loop
             muted
             playsInline
+            preload="none"
+            poster="/video/hero_poster.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/video/hero_video.mp4" type="video/mp4" />

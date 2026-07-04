@@ -150,8 +150,12 @@ export default function Services() {
             >
               <img
                 className="w-full h-auto block transition-transform duration-700 md:group-hover:scale-105"
-                src={card.src}
+                src={card.src.replace(/\.(png|jpg|jpeg)$/i, '.webp')}
                 alt={card.alt}
+                width={800}
+                height={600}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#001a33]/90 via-black/20 to-transparent pointer-events-none" />
 

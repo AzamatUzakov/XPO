@@ -108,9 +108,13 @@ export default function AboutUs() {
         >
           <div className="relative w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[480px]">
             <img
-              src="/about-logo.png"
+              src="/about-logo.webp"
               alt="about-logo"
               className="w-full h-full object-cover"
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-[#001E40]/40 pointer-events-none" />
 

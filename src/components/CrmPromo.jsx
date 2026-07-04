@@ -199,9 +199,13 @@ export default function CrmPromo() {
               className="rounded-2xl border border-border/60 shadow-2xl shadow-black/5 overflow-hidden relative flex items-center justify-center max-w-full max-h-full"
             >
               <img
-                src="/CRM-1.png"
+                src="/CRM-1.webp"
                 alt="Интерфейс CRM"
                 className="max-w-full max-h-full w-auto h-auto object-contain"
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
           </div>
