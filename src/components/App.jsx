@@ -52,11 +52,11 @@ export default function App({ locale, translations, currentPath }) {
             loop
             muted
             playsInline
-            preload="none"
+            preload="auto"
             poster="/video/hero_poster.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/video/hero_video-Second.mp4" type="video/mp4" />
+            <source src="/video/hero_video-Second.mp4" type="video/mp4" fetchpriority="high" />
           </video>
           <div className="absolute inset-0 bg-black/60"></div>
 
