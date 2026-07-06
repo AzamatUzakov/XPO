@@ -92,7 +92,7 @@ const GLOBE_CONFIG: COBEOptions = {
 }
 
 export function Globe({
-  className,
+  className,  
   config = GLOBE_CONFIG,
 }: {
   className?: string

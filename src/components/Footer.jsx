@@ -30,6 +30,10 @@ function FooterInner() {
     "О компании": "about",
     Проекты: "projects",
     Партнеры: "partners",
+    "Партнёры": "partners",
+    Новости: "projects",
+    News: "projects",
+    Yangiliklar: "projects",
     Вакансии: "contacts",
     Контакты: "contacts",
     FAQ: "faq",
@@ -45,6 +49,10 @@ function FooterInner() {
     Careers: "contacts",
     Contact: "contacts",
   };
+
+  const CAREERS_URL = "https://forms.gle/PZwomw7qRmhTo7Q96";
+  const CAREERS_KEYS = ["Вакансии", "Careers", "Karyera", "Vakansiyalar"];
+
 
   const handleScroll = (e, item) => {
     e.preventDefault();
@@ -65,16 +73,29 @@ function FooterInner() {
       <SectionInner className="mx-auto max-w-[1920px] py-10 sm:py-12">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:flex-wrap lg:gap-y-10">
           <div>
-            <img src="/header-logo.webp" alt="XPOTrans" className="h-[100px] ml-[-14px] w-auto md:h-[110px] lg:h-[130px] xl:h-[150px]" width={200} height={150} loading="lazy" decoding="async" />
-          </div>
+<img
+  src="/header-logo.webp"
+  alt="XPOTrans"
+  className="h-[100px] w-auto ml-[-14px] object-contain md:h-[110px] lg:h-[130px] xl:h-[150px]"
+  width={200}
+  height={150}
+  loading="lazy"
+  decoding="async"
+/>          </div>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 md:gap-x-16 lg:contents">
             <nav aria-label="Navigation" className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]">
-              {navItems.map((item) => (
-                <a key={item} href={scrollTargets[item] ? `#${scrollTargets[item]}` : "#"} onClick={(e) => handleScroll(e, item)} className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]">
-                  {item}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                CAREERS_KEYS.includes(item) ? (
+                  <a key={item} href={CAREERS_URL} target="_blank" rel="noopener noreferrer" className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]">
+                    {item}
+                  </a>
+                ) : (
+                  <a key={item} href={scrollTargets[item] ? `#${scrollTargets[item]}` : "#"} onClick={(e) => handleScroll(e, item)} className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]">
+                    {item}
+                  </a>
+                )
+              )}
             </nav>
 
             <nav aria-label="Social links" className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]">

@@ -282,7 +282,7 @@ function GeographyMapInner() {
   );
 
   return (
-    <section id="geography" className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
+    <section id="geography-map" className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
       {/* Заголовок — fadeUp */}
       <motion.div
         className="max-w-3xl px-4 text-center mb-8 sm:mb-10"

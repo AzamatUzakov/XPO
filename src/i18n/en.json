@@ -1,85 +1,85 @@
 {
   "meta": {
-    "title": "XPOTrans | Global Logistics",
-    "description": "Premium international logistics operator. Express delivery, customs support and global transportation routes.",
-    "ogTitle": "XPOTrans — global logistics",
-    "ogDescription": "Premium international logistics operator. Express delivery, customs support and global transportation routes."
+    "title": "XPOTrans — International Freight Forwarding from Uzbekistan | Full-Cycle Logistics",
+    "description": "XPOTrans — trusted international freight forwarder. Air, sea, rail and road transport. Full customs clearance. Delivery to 60+ countries. Quote within 2 hours.",
+    "ogTitle": "XPOTrans — International Freight Forwarding & Logistics from Uzbekistan",
+    "ogDescription": "International cargo delivery by air, sea, rail and road. Customs clearance included. 60+ countries covered. Request a quote in 2 hours."
   },
   "header": {
-    "nav": ["Services", "Geography", "About", "Values", "Partners"],
-    "contact": "Contact",
+    "nav": ["Services", "Geography", "About", "Partners", "Careers"],
+    "contact": "Contact Us",
     "language": "Language",
     "languages": {"ru": "RU", "en": "EN", "uz": "UZ"},
-    "mobileMenu": ["About", "Services", "Geography", "Values", "Partners"],
+    "mobileMenu": ["About", "Services", "Geography", "Partners", "Careers"],
     "contactPhone": "+7 (999) 123-45-67",
     "contactEmail": "info@logistic.com"
   },
   "hero": {
-    "headlinePrefix": "GLOBAL",
-    "headlineMain": "RELIABLE LOGISTICS",
-    "introShort": "A premium full-cycle operator. We keep supply chains running for world-class leaders.",
-    "introLong": "A premium full-cycle operator. We keep supply chains running for industry leaders, connecting continents with clockwork precision.",
-    "buttonTelegram": "Contact on Telegram",
-    "buttonRoutes": "Our Routes",
-    "typewriter": ["RELIABLE LOGISTICS", "FAST DELIVERY", "SMART SERVICE"]
+    "headlinePrefix": "INTERNATIONAL",
+    "headlineMain": "FREIGHT WITHOUT LIMITS",
+    "introShort": "Full-cycle international freight operator. We deliver cargo to 60+ countries — on time, every time.",
+    "introLong": "Full-cycle international freight operator. Air, sea freight, rail and road — with end-to-end customs clearance and full shipment control at every stage.",
+    "buttonTelegram": "Get a Quote on Telegram",
+    "buttonRoutes": "Delivery Routes",
+    "typewriter": ["FREIGHT WITHOUT LIMITS", "DELIVERY TO 60+ COUNTRIES", "END-TO-END CUSTOMS"]
   },
   "services": {
-    "title": "Logistics Solutions",
-    "subtitle": "Professional Services",
+    "title": "Freight Services",
+    "subtitle": "Comprehensive Logistics Solutions",
     "cards": [
       {
         "alt": "Air Freight",
         "title": "AIR FREIGHT",
-        "mobileDesc": "Urgent delivery across the globe",
-        "desktopDesc": "Express global delivery with priority cargo handling."
+        "mobileDesc": "Express air cargo delivery worldwide",
+        "desktopDesc": "Priority air freight with guaranteed transit times and full customs handling."
       },
       {
         "alt": "Rail Transport",
         "title": "RAIL TRANSPORT",
-        "mobileDesc": "Reliable shipments across the CIS and Europe",
-        "desktopDesc": "Cost-efficient transcontinental solutions along Eurasian corridors."
+        "mobileDesc": "Rail cargo across CIS and Europe",
+        "desktopDesc": "Cost-efficient container rail shipments via Eurasian corridors — a reliable alternative to air freight."
       },
       {
         "alt": "Sea Freight",
         "title": "SEA FREIGHT",
-        "mobileDesc": "Economical container shipping",
-        "desktopDesc": "Direct contracts with leading lines (FCL/LCL) across all ocean routes."
+        "mobileDesc": "Container shipping FCL/LCL worldwide",
+        "desktopDesc": "Direct contracts with major shipping lines. Full and consolidated container shipments on all ocean routes."
       },
       {
         "alt": "Less than Container Load",
-        "title": "LESS THAN CONTAINER LOAD (LCL)",
-        "mobileDesc": "Cost optimization for small shipments",
-        "desktopDesc": "Cost optimization for smaller consignments with a regular departure schedule."
+        "title": "LCL (GROUPAGE CARGO)",
+        "mobileDesc": "Economical delivery for small shipments",
+        "desktopDesc": "Regular LCL consolidation departures — the optimal solution for small batches without paying for a full container."
       },
       {
         "alt": "Oversized Cargo",
         "title": "OVERSIZED CARGO",
         "mobileDesc": "Project logistics of any complexity",
-        "desktopDesc": "Project logistics for industrial giants with increased complexity."
+        "desktopDesc": "Project cargo transport for heavy-lift and oversized loads: heavy machinery, industrial equipment, steel structures."
       },
       {
         "alt": "Hazardous Cargo",
         "title": "HAZARDOUS CARGO",
-        "mobileDesc": "Safe transportation of hazardous goods",
-        "desktopDesc": "Safe transport of dangerous chemicals and hazardous materials with license."
+        "mobileDesc": "Licensed hazardous goods transport",
+        "desktopDesc": "Licensed transport of hazardous goods across all ADR/IATA classes with a full set of required permits and documentation."
       },
       {
-        "alt": "Customs",
-        "title": "CUSTOMS",
-        "mobileDesc": "Declaration and certification",
-        "desktopDesc": "Brokerage, customs clearance and product certification."
+        "alt": "Customs Clearance",
+        "title": "CUSTOMS CLEARANCE",
+        "mobileDesc": "End-to-end customs brokerage",
+        "desktopDesc": "Full import and export customs clearance: declaration, certification, duties and direct liaison with customs authorities."
       },
       {
         "alt": "Warehousing",
         "title": "WAREHOUSING",
-        "mobileDesc": "Storage and handling",
-        "desktopDesc": "Storage, consolidation and handling at modern warehouses."
+        "mobileDesc": "Bonded storage and cargo handling",
+        "desktopDesc": "Consolidation, bonded storage and cargo handling at modern warehouses located at key transit hubs."
       }
     ]
   },
   "geography": {
-    "title": "Global Presence",
-    "description": "We push the boundaries by opening direct transcontinental corridors to North America (USA, Canada) and across Eurasia.",
+    "title": "Shipping Geography",
+    "description": "We handle international freight to 60+ countries: China, Europe, USA, Canada, CIS and the Middle East. Direct routes and multimodal solutions across Eurasia.",
     "stats": {
       "countries": "Countries covered",
       "routes": "Routes",
@@ -88,51 +88,51 @@
     }
   },
   "workflow": {
-    "title": "WORKFLOW",
+    "title": "HOW WE WORK",
     "steps": [
       {
         "num": "01",
-        "title": "Inquiry and calculation",
-        "text": "Submit a request and our specialists will prepare a detailed commercial offer with cost and timing calculations within 2 hours."
+        "title": "Inquiry & Quote",
+        "text": "Submit a request — within 2 hours you will receive a detailed commercial offer with cost, transit time and route calculation."
       },
       {
         "num": "02",
-        "title": "Transport selection",
-        "text": "We choose the optimal transport mode and route, taking into account your cargo specifics and safety requirements."
+        "title": "Route Planning",
+        "text": "We select the optimal transport mode and route based on your cargo type, required lead time, budget and safety requirements."
       },
       {
         "num": "03",
-        "title": "Door-to-door delivery",
-        "text": "We handle cargo pickup, customs clearance and delivery to the final destination with full support."
+        "title": "End-to-End Delivery",
+        "text": "We pick up the cargo, handle customs clearance and deliver to the consignee's door — with full control at every stage."
       }
     ]
   },
   "about": {
     "sectionTitle": "About the Company",
     "brandName": "XPOTrans",
-    "description": "We are experts in complex international logistics. We remove barriers for your business.",
+    "description": "Specialised in international freight forwarding and logistics from Uzbekistan. For over 12 years we have helped businesses build efficient supply chains — without delays or hidden costs.",
     "features": [
       {
         "alt": "reliability",
         "title": "Reliability",
-        "desc": "We guarantee execution in any conditions."
+        "desc": "We honour our commitments under any circumstances, including force majeure."
       },
       {
         "alt": "individuality",
         "title": "Individual Approach",
-        "desc": "We tailor processes to your specific requirements."
+        "desc": "We design logistics schemes tailored to your specific cargo and business requirements."
       },
       {
         "alt": "safety",
-        "title": "Safety",
-        "desc": "Highest standards of cargo protection."
+        "title": "Cargo Safety",
+        "desc": "Insurance, GPS monitoring and strict control at every stage of transit."
       }
     ],
     "experienceNumber": "12+",
-    "experienceLabel": "Years of market experience"
+    "experienceLabel": "Years in international logistics"
   },
   "partners": {
-    "title": "Strategic Partners",
+    "title": "Partners & Clients",
     "logos": [
       {"src": "/orion.svg", "alt": "Orion"},
       {"src": "/agromir.png", "alt": "Agromir"},
@@ -146,29 +146,29 @@
     ]
   },
   "crmPromo": {
-    "eyebrow": "In development",
-    "title": "Track your cargo in real time",
-    "description": "A client cabinet with online cargo status, documents, shipment history and instant notifications in one place.",
-    "features": ["Cargo tracking", "Documents online", "Notifications"],
-    "placeholder": "Your phone",
-    "button": "Early access",
+    "eyebrow": "Launching soon",
+    "title": "Track your shipment in real time",
+    "description": "Client portal: live shipment tracking, transport documents, shipment history and instant notifications — all in one place.",
+    "features": ["Live cargo tracking", "Documents & invoices", "Push notifications"],
+    "placeholder": "Your phone number",
+    "button": "Request early access",
     "loading": "Sending...",
-    "successButton": "Request accepted!",
-    "successMessage": "Thanks! We will inform you first about the launch.",
-    "errorMessage": "We could not submit the request. Please try again.",
-    "imageAlt": "CRM interface"
+    "successButton": "Request received!",
+    "successMessage": "Thank you! You will be among the first to get access.",
+    "errorMessage": "Could not submit the request. Please try again.",
+    "imageAlt": "XPOTrans client portal"
   },
   "contact": {
-    "feedbackLabel": "Feedback",
-    "formTitle": "Request a Quote",
-    "formSubtitle": "Get a detailed offer and transport cost estimate within 2 hours.",
+    "feedbackLabel": "Contact Us",
+    "formTitle": "Request a Freight Quote",
+    "formSubtitle": "Fill in the form — our specialist will contact you and prepare a commercial offer within 2 hours.",
     "successTitle": "Request sent!",
-    "successMessage": "Our specialist will contact you within 2 hours.",
-    "nameLabel": "Your name",
-    "namePlaceholder": "Ivan Ivanov",
+    "successMessage": "Our manager will get in touch within 2 working hours.",
+    "nameLabel": "Full name",
+    "namePlaceholder": "John Smith",
     "phoneLabel": "Phone / Telegram",
     "phonePlaceholder": "+998 90 123 45 67",
-    "serviceTypeLabel": "Service type",
+    "serviceTypeLabel": "Transport mode",
     "serviceOptions": [
       "Air freight",
       "Sea freight",
@@ -176,14 +176,14 @@
       "Rail transport",
       "Multimodal transport"
     ],
-    "submitButton": "Get a quote",
+    "submitButton": "Request a Quote",
     "submitting": "Sending...",
-    "disclaimer": "By clicking the button, you agree to the privacy policy",
+    "disclaimer": "By clicking the button, you agree to our privacy policy",
     "validation": {
-      "name": "Enter your first and last name",
+      "name": "Please enter your full name",
       "phonePrefix": "Enter the number with country code, e.g. +998...",
-      "phoneInvalid": "Enter a valid phone number",
-      "serverError": "An error occurred, please try again later",
+      "phoneInvalid": "Please enter a valid phone number",
+      "serverError": "Server error — please try again later",
       "networkError": "No connection to the server"
     },
     "contactInfo": [
@@ -192,10 +192,10 @@
     ]
   },
   "map": {
-    "title": "Shipping Geography",
-    "description": "We deliver to more than 60 countries around the globe. We use road, air, rail and multimodal solutions. We provide precise logistics, optimal routes and control at every stage of transport.",
+    "title": "International Freight Routes",
+    "description": "We deliver cargo to 60+ countries: China, Europe, USA, CIS, Middle East. Air, sea, rail, road and multimodal solutions — we find the optimal route for every shipment.",
     "modes": {
-      "auto": "Auto",
+      "auto": "Road",
       "rail": "Rail",
       "air": "Air",
       "multimodal": "Multimodal"
@@ -233,72 +233,72 @@
     }
   },
   "chat": {
-    "assistantLabel": "AI Assistant",
-    "placeholder": "Ask your question...",
+    "assistantLabel": "XPOTrans AI Assistant",
+    "placeholder": "Ask about your shipment...",
     "typing": "Typing...",
-    "defaultMessage": "Hello! I am your international transport assistant. How can I help?",
+    "defaultMessage": "Hello! I can help you calculate freight costs, choose the best route, or answer questions about customs clearance. How can I assist you?",
     "errorPrefix": "Error:",
     "retryMessage": "Please try again."
   },
   "advantages": {
-    "title": "Our advantages",
+    "title": "Why Choose XPOTrans",
     "items": [
-      "24/7 service",
-      "Fast cost calculation",
-      "Safe transportation",
-      "Cargo insurance",
-      "Online tracking",
-      "International partner network"
+      "Available 24/7, 365 days a year",
+      "Freight quote within 2 hours",
+      "Every shipment is insured",
+      "End-to-end customs clearance",
+      "Online tracking at all stages",
+      "Partner network in 60+ countries"
     ]
   },
   "faq": {
-    "eyebrow": "Questions and answers",
-    "title": "Frequently asked questions",
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
     "items": [
       {
-        "question": "How is the transport cost calculated?",
-        "answer": "The cost depends on the transport mode, cargo weight and volume, route, urgency and delivery terms (Incoterms). We prepare an individual estimate taking into account all costs: delivery, customs clearance, insurance — without hidden fees."
+        "question": "How is the international freight cost calculated?",
+        "answer": "The cost depends on transport mode, cargo weight and volume, route, urgency and Incoterms. We prepare an individual quote covering all costs — delivery, customs clearance, insurance — with no hidden fees."
       },
       {
-        "question": "How long does cargo delivery take?",
-        "answer": "Delivery times depend on the transport mode: air freight from 18 to 48 hours, road transport 5–12 days, rail 14–25 days, sea freight from 25 to 40 days. We specify the exact term in the commercial offer after route calculation."
+        "question": "How long does international cargo delivery take?",
+        "answer": "Transit times depend on the transport mode: air freight 18–48 hours, road transport 5–12 days, rail 14–25 days, sea freight 25–40 days. Exact transit times are confirmed in the commercial offer after route calculation."
       },
       {
-        "question": "What documents are required to process cargo?",
-        "answer": "The basic package includes invoice, packing list, contract (for foreign trade) and transport documents (CMR, AWB, bill of lading depending on the transport mode). Some cargo categories may require compliance certificates. We help prepare a full document package."
+        "question": "What documents are required for customs clearance?",
+        "answer": "The standard package includes a commercial invoice, packing list, contract (for international trade) and transport documents (CMR, AWB or bill of lading depending on mode). Some cargo categories require compliance certificates. We help prepare the full document set."
       },
       {
-        "question": "Do you handle customs clearance?",
-        "answer": "Yes, full customs clearance is included in our services: cargo declaration, calculation and payment of duties and taxes, interaction with customs authorities at every stage."
+        "question": "Do you provide customs clearance services?",
+        "answer": "Yes. Customs clearance is a core competency of XPOTrans: cargo declaration, calculation and payment of duties, and direct liaison with customs authorities at every stage of transit."
       },
       {
-        "question": "Can I track the cargo in transit?",
-        "answer": "Yes, for each shipment we provide regular status reports and access to tracking at key stages: loading, transit, arrival, customs clearance and delivery to the recipient."
+        "question": "Can I track my shipment in real time?",
+        "answer": "Yes. For every shipment we provide regular status updates and tracking access at key milestones: loading, transit, arrival, customs clearance and delivery to the consignee."
       },
       {
-        "question": "Do you insure cargo?",
-        "answer": "Yes, we offer cargo insurance for all transport modes. Insurance cost is calculated individually based on declared value and cargo nature."
+        "question": "Do you offer cargo insurance?",
+        "answer": "Yes. We offer cargo insurance for all transport modes. The premium is calculated individually based on the declared value and nature of the goods."
       },
       {
         "question": "Is there a minimum cargo volume?",
-        "answer": "There is no minimum volume — we work with full container and air shipments (FCL/FTL) as well as consolidated cargo (LCL/LTL) for smaller batches."
+        "answer": "No. We handle full container and full truck loads (FCL/FTL) as well as consolidated groupage cargo (LCL/LTL) for smaller shipments — with no minimum volume restrictions."
       },
       {
-        "question": "What payment methods do you accept?",
-        "answer": "Payment is available by bank transfer for legal entities, and also by individual terms for regular clients, including partial prepayment and payment upon delivery."
+        "question": "What payment options are available?",
+        "answer": "Payment is made by bank transfer for legal entities. Regular clients can benefit from individual payment terms, including partial prepayment or payment on delivery."
       }
     ]
   },
   "projects": {
-    "eyebrow": "Gallery and projects",
-    "title": "Our experience in detail",
+    "eyebrow": "Completed Shipments",
+    "title": "Our Experience in Real Projects",
     "buttons": {
       "prev": "Previous slide",
       "next": "Next slide",
       "show": "Show documents and photos",
       "hide": "Hide media gallery"
     },
-    "galleryTitle": "Flight photo report and documents:",
+    "galleryTitle": "Shipment photo report and documents:",
     "items": [
       {
         "type": "Air freight",
@@ -306,8 +306,8 @@
         "cargo": "Electronics",
         "specs": [
           { "label": "Payload", "value": "14.5 t" },
-          { "label": "Term", "value": "36 hours" },
-          { "label": "Transport", "value": "Boeing 747-F" }
+          { "label": "Transit", "value": "36 hours" },
+          { "label": "Aircraft", "value": "Boeing 747-F" }
         ],
         "gallery": [
           { "title": "Loading in Beijing" },
@@ -322,8 +322,8 @@
         "cargo": "Auto parts",
         "specs": [
           { "label": "Rolling stock", "value": "42 wagons" },
-          { "label": "Term", "value": "18 days" },
-          { "label": "Payload", "value": "840 tons" }
+          { "label": "Transit", "value": "18 days" },
+          { "label": "Payload", "value": "840 t" }
         ],
         "gallery": [
           { "title": "Train formation" },
@@ -339,7 +339,7 @@
         "specs": [
           { "label": "Containers", "value": "12 × 40ft" },
           { "label": "Status", "value": "Completed" },
-          { "label": "Term", "value": "32 days" }
+          { "label": "Transit", "value": "32 days" }
         ],
         "gallery": [
           { "title": "Vessel loading" },
@@ -354,12 +354,12 @@
         "cargo": "Textiles",
         "specs": [
           { "label": "Trailers", "value": "6 × Curtain" },
-          { "label": "Term", "value": "9 days" },
+          { "label": "Transit", "value": "9 days" },
           { "label": "Payload", "value": "132 t" }
         ],
         "gallery": [
-          { "title": "Loading at the warehouse" },
-          { "title": "Border post" },
+          { "title": "Loading at warehouse" },
+          { "title": "Border crossing" },
           { "title": "CMR consignment note" },
           { "title": "Unloading in Tashkent" }
         ]
@@ -367,11 +367,11 @@
       {
         "type": "Multimodal",
         "route": "Guangzhou — Almaty",
-        "cargo": "Household appliances",
+        "cargo": "Home appliances",
         "specs": [
           { "label": "Containers", "value": "8 × 20ft" },
-          { "label": "Term", "value": "24 days" },
-          { "label": "Transport", "value": "Sea + Rail" }
+          { "label": "Transit", "value": "24 days" },
+          { "label": "Mode", "value": "Sea + Rail" }
         ],
         "gallery": [
           { "title": "Loading port" },
@@ -386,12 +386,12 @@
         "cargo": "Pharma products",
         "specs": [
           { "label": "Payload", "value": "3.2 t" },
-          { "label": "Term", "value": "18 hours" },
+          { "label": "Transit", "value": "18 hours" },
           { "label": "Mode", "value": "Temp-control" }
         ],
         "gallery": [
           { "title": "Temperature containers" },
-          { "title": "Board loading" },
+          { "title": "Aircraft loading" },
           { "title": "Ministry of Health permit" },
           { "title": "Warehouse acceptance" }
         ]
@@ -402,7 +402,7 @@
     "nav": ["About", "News", "Projects", "Partners", "Careers", "Contact"],
     "social": ["Instagram", "Facebook", "Youtube"],
     "addressLabel": "Our address",
-    "phoneLabel": "Phone number",
+    "phoneLabel": "Phone",
     "emailLabel": "Email",
     "address": "Gagarin Street 36, Samarkand, Samarkand Region",
     "phone": "+998 95 233-83-27",

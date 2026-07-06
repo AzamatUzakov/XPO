@@ -36,6 +36,7 @@ function TopNavBarInner({ locale }) {
     geography: "geography",
     partners: "partners",
     "О нас": "about",
+    "О компании": "about",
     "Услуги": "services",
     "Ценности": "workflow",
     "Вакансии": "contacts",
@@ -57,7 +58,13 @@ function TopNavBarInner({ locale }) {
     Kontaktlar: "contacts",
     Geografiya: "geography",
     Hamkorlar: "partners",
+    "Связаться": "contacts",
+    "Bog'lanish": "contacts",
+    "Contact Us": "contacts",
   };
+
+  const CAREERS_URL = "https://forms.gle/PZwomw7qRmhTo7Q96";
+  const CAREERS_KEYS = ["Вакансии", "Careers", "Vakansiyalar"];
 
   const handleScroll = (e, item) => {
     e.preventDefault();
@@ -98,16 +105,28 @@ function TopNavBarInner({ locale }) {
           className="hidden md:flex items-center justify-center shrink-0 gap-4 lg:gap-8 xl:gap-12 text-sm lg:text-base text-white font-medium"
           style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
         >
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href={scrollTargets[item] ? `#${scrollTargets[item]}` : "#"}
-              onClick={(e) => handleScroll(e, item)}
-              className="hover:text-[#00A8CC] transition-colors duration-300"
-            >
-              {item}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            CAREERS_KEYS.includes(item) ? (
+              <a
+                key={item}
+                href={CAREERS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#00A8CC] transition-colors duration-300"
+              >
+                {item}
+              </a>
+            ) : (
+              <a
+                key={item}
+                href={scrollTargets[item] ? `#${scrollTargets[item]}` : "#"}
+                onClick={(e) => handleScroll(e, item)}
+                className="hover:text-[#00A8CC] transition-colors duration-300"
+              >
+                {item}
+              </a>
+            )
+          )}
         </nav>
 
         <div className="relative z-[101] flex-1 flex items-center justify-end gap-4 cursor-pointer">
@@ -181,19 +200,34 @@ function TopNavBarInner({ locale }) {
           >
             <div className="px-6 pb-8 pt-6 flex flex-col items-center">
               <nav className="flex flex-col items-center gap-2 text-lg font-medium w-full">
-                {mobileItems.map((item, index) => (
-                  <motion.a
-                    key={item}
-                    href={scrollTargets[item] ? `#${scrollTargets[item]}` : "#"}
-                    onClick={(e) => handleScroll(e, item)}
-                    className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
-                    initial={shouldReduce ? false : { opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25, delay: index * 0.05 }}
-                  >
-                    {item}
-                  </motion.a>
-                ))}
+                {mobileItems.map((item, index) =>
+                  CAREERS_KEYS.includes(item) ? (
+                    <motion.a
+                      key={item}
+                      href={CAREERS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
+                      initial={shouldReduce ? false : { opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25, delay: index * 0.05 }}
+                    >
+                      {item}
+                    </motion.a>
+                  ) : (
+                    <motion.a
+                      key={item}
+                      href={scrollTargets[item] ? `#${scrollTargets[item]}` : "#"}
+                      onClick={(e) => handleScroll(e, item)}
+                      className="w-full text-center py-3 hover:bg-white/10 hover:text-white transition-all text-white/90"
+                      initial={shouldReduce ? false : { opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25, delay: index * 0.05 }}
+                    >
+                      {item}
+                    </motion.a>
+                  )
+                )}
               </nav>
 
               <motion.div className="mt-6 pt-6 border-t border-white/10 flex flex-col items-center gap-4 text-white/80 w-full" initial={shouldReduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.2 }}>

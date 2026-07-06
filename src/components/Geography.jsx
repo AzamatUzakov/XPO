@@ -28,7 +28,7 @@ function GeographyInner() {
   const shouldReduce = useReducedMotion();
 
   return (
-    <section className="bg-[#f7f9ff] mt-[80px] md:mt-[120px] py-24">
+    <section id="geography" className="bg-[#f7f9ff] mt-[80px] md:mt-[120px] py-24">
       <SectionInner>
         <div className="flex flex-col md:grid md:grid-cols-2 md:items-center gap-10 md:gap-8 max-w-7xl mx-auto">
           <div>
