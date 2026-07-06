@@ -7,9 +7,9 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { Truck, TrainFront, Plane, Share2 } from "lucide-react";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const geoUrl = "/data/countries-110m.json";
 
 const countryNames: Record<string, string> = {
   "643": "Россия",
@@ -185,7 +185,7 @@ function getMapConfig(width: number): {
   };
 }
 
-export default function GeographyMap() {
+function GeographyMapInner() {
   const { translations } = useI18n();
   const mapTranslations = translations.map || {};
   const shouldReduce = useReducedMotion();
@@ -282,7 +282,7 @@ export default function GeographyMap() {
   );
 
   return (
-    <section id="geography" className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
+    <section id="geography-map" className="relative left-1/2 -translate-x-1/2 w-screen bg-[#001E40] text-white overflow-hidden flex flex-col items-center py-12 sm:py-16 md:py-20">
       {/* Заголовок — fadeUp */}
       <motion.div
         className="max-w-3xl px-4 text-center mb-8 sm:mb-10"
@@ -376,5 +376,13 @@ export default function GeographyMap() {
         )}
       </motion.div>
     </section>
+  );
+}
+
+export default function GeographyMap({ locale = "ru", translations = {} }: { locale?: string; translations?: any }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <GeographyMapInner />
+    </I18nProvider>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import createGlobe, { type COBEOptions } from "cobe"
-import { useMotionValue, useSpring } from "motion/react"
+import { useMotionValue, useSpring } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
@@ -92,7 +92,7 @@ const GLOBE_CONFIG: COBEOptions = {
 }
 
 export function Globe({
-  className,
+  className,  
   config = GLOBE_CONFIG,
 }: {
   className?: string

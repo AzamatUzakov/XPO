@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Globe } from "@/components/ui/globe";
 import AnimatedNumber from "./AnimatedNumber";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 import SectionInner from "./SectionInner";
 import {
   fadeUp,
@@ -21,14 +21,14 @@ const statsContainer = {
   },
 };
 
-export default function Geography() {
+function GeographyInner() {
   const { translations } = useI18n();
   const geography = translations.geography || {};
   const stats = geography.stats || {};
   const shouldReduce = useReducedMotion();
 
   return (
-    <section className="bg-[#f7f9ff] mt-[80px] md:mt-[120px] py-24">
+    <section id="geography" className="bg-[#f7f9ff] mt-[80px] md:mt-[120px] py-24">
       <SectionInner>
         <div className="flex flex-col md:grid md:grid-cols-2 md:items-center gap-10 md:gap-8 max-w-7xl mx-auto">
           <div>
@@ -122,5 +122,13 @@ export default function Geography() {
         </div>
       </SectionInner>
     </section>
+  );
+}
+
+export default function Geography({ locale = "ru", translations = {} }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <GeographyInner />
+    </I18nProvider>
   );
 }

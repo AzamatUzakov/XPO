@@ -1,6 +1,6 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 import SectionInner from "./SectionInner";
 
 const defaultSteps = [
@@ -21,7 +21,7 @@ const defaultSteps = [
   },
 ];
 
-export default function Workflow() {
+function WorkflowInner() {
   const sectionRef = useRef(null);
   const { translations } = useI18n();
   const workflow = translations.workflow || {};
@@ -95,7 +95,7 @@ export default function Workflow() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full my-20 md:my-[120px]">
+    <section id="workflow" ref={sectionRef} className="relative w-full my-20 md:my-[120px]">
       <SectionInner>
       <div className="mx-auto flex w-full max-w-[640px] flex-col gap-16  md:max-w-[768px] md:gap-20">
         {/* Label */}
@@ -214,6 +214,14 @@ export default function Workflow() {
       </div>
       </SectionInner>
     </section>
+  );
+}
+
+export default function Workflow({ locale = "ru", translations = {} }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <WorkflowInner />
+    </I18nProvider>
   );
 }
 

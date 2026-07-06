@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import SectionInner from "./SectionInner";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 
 const defaultFeatures = [
   {
@@ -26,7 +26,7 @@ const defaultFeatures = [
   },
 ];
 
-export default function AboutUs() {
+function AboutUsInner() {
   const { translations } = useI18n();
   const about = translations.about || {};
   const sectionTitle = about.sectionTitle ?? "О Компании";
@@ -108,9 +108,13 @@ export default function AboutUs() {
         >
           <div className="relative w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[480px]">
             <img
-              src="/about-logo.png"
+              src="/about-logo.webp"
               alt="about-logo"
               className="w-full h-full object-cover"
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-[#001E40]/40 pointer-events-none" />
 
@@ -133,5 +137,13 @@ export default function AboutUs() {
         </motion.div>
       </SectionInner>
     </div>
+  );
+}
+
+export default function AboutUs({ locale = "ru", translations = {} }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <AboutUsInner />
+    </I18nProvider>
   );
 }

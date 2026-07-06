@@ -1,120 +1,138 @@
 {
   "meta": {
-    "title": "XPOTrans | Global logistika",
-    "description": "Xalqaro logistikaning premium operatori. Tez etkazib berish, bojxona qoʻllab-quvvatlashi va global marshrutlar.",
-    "ogTitle": "XPOTrans — global logistika",
-    "ogDescription": "Xalqaro logistikaning premium operatori. Tez etkazib berish, bojxona qoʻllab-quvvatlashi va global marshrutlar."
+    "title": "XPOTrans — O'zbekistondan xalqaro yuk tashish | To'liq siklli logistika",
+    "description": "XPOTrans — ishonchli xalqaro yuk ekspeditori. Havo, dengiz, temir yo'l va avtomobil transporti. Bojxona rasmiylashtiruvi. 60+ mamlakatga yetkazib berish. 2 soat ichida narx hisob-kitobi.",
+    "ogTitle": "XPOTrans — O'zbekistondan xalqaro yuk tashish va logistika",
+    "ogDescription": "Havo, dengiz, temir yo'l va avtomobil orqali xalqaro yuk yetkazib berish. Bojxona rasmiylashtirish. 60+ mamlakat. 2 soat ichida narx so'rov."
   },
   "header": {
-    "nav": ["Xizmatlar", "Geografiya", "Biz haqimizda", "Qadriyatlar", "Hamkorlar"],
-    "contact": "Aloqa",
+    "nav": ["Xizmatlar", "Geografiya", "Biz haqimizda", "Hamkorlar", "Vakansiyalar"],
+    "contact": "Bog'lanish",
     "language": "Til",
     "languages": {"ru": "RU", "en": "EN", "uz": "UZ"},
-    "mobileMenu": ["Biz haqimizda", "Xizmatlar", "Geografiya", "Qadriyatlar", "Hamkorlar"],
+    "mobileMenu": ["Biz haqimizda", "Xizmatlar", "Geografiya", "Hamkorlar", "Vakansiyalar"],
     "contactPhone": "+7 (999) 123-45-67",
     "contactEmail": "info@logistic.com"
   },
   "hero": {
-    "headlinePrefix": "GLOBAL",
-    "headlineMain": "ISHONCHLI LOGISTIKA",
-    "introShort": "Toʻliq siklli premium operator. Biz yetkazib berish zanjirlarini yetakchi kompaniyalar uchun uzluksiz saqlaymiz.",
-    "introLong": "Toʻliq siklli premium operator. Biz yetakchi sanoat kompaniyalari uchun yetkazib berish zanjirlarini saqlaymiz, qitʼalarni soat mexanizmi aniqligi bilan bogʻlaymiz.",
-    "buttonTelegram": "Telegram orqali aloqa",
-    "buttonRoutes": "Marshrutlarimiz",
-    "typewriter": ["ISHONCHLI LOGISTIKA", "TEZ YETKAZIB BERISH", "AQILLI XIZMAT"]
+    "headlinePrefix": "XALQARO",
+    "headlineMain": "CHEGARASIZ YUK TASHISH",
+    "introShort": "To'liq siklli xalqaro yuk tashish operatori. 60+ mamlakatga o'z vaqtida yetkazib beramiz.",
+    "introLong": "To'liq siklli xalqaro yuk tashish operatori. Havo, dengiz, temir yo'l va avtomobil — bojxona rasmiylashtirish va har bir bosqichda to'liq nazorat bilan.",
+    "buttonTelegram": "Telegram orqali narx so'rash",
+    "buttonRoutes": "Yetkazib berish marshrutlari",
+    "typewriter": ["CHEGARASIZ YUK TASHISH", "60+ MAMLAKATGA YETKAZIB BERISH", "BOJXONA UNDER KEY"]
   },
   "services": {
-    "title": "Logistika yechimlari",
-    "subtitle": "Professional xizmatlar",
+    "title": "Yuk tashish xizmatlari",
+    "subtitle": "Keng qamrovli logistika yechimlari",
     "cards": [
       {
         "alt": "Havo yuk tashish",
-        "title": "HАВО YUK TASHISH",
-        "mobileDesc": "Dunyodagi har bir yoʻnalishda tez yetkazib berish",
-        "desktopDesc": "Yuklarga ustuvor xizmat koʻrsatish bilan global ekspress yetkazib berish."
+        "title": "HАVO YUK TASHISH",
+        "mobileDesc": "Butun dunyo bo'ylab tezkor havo yetkazib berish",
+        "desktopDesc": "To'liq bojxona xizmati bilan kafolatlangan muddatda ustuvor havo yuk tashish."
       },
       {
-        "alt": "Temir yoʻl transporti",
-        "title": "TEMIR YOʻL TRANSPORTI",
-        "mobileDesc": "MDH va Yevropa boʻylab ishonchli yetkazib berish",
-        "desktopDesc": "Yevrosiyo koridorlari orqali iqtisodiy interkontinental yechimlar."
+        "alt": "Temir yo'l transporti",
+        "title": "TEMIR YO'L TRANSPORTI",
+        "mobileDesc": "MDH va Yevropa bo'ylab temir yo'l yuk tashish",
+        "desktopDesc": "Yevrosiyo koridorlari orqali iqtisadiy konteyner tashuvlari — havo transportiga ishonchli muqobil."
       },
       {
         "alt": "Dengiz yuk tashish",
         "title": "DENGIZ YUK TASHISH",
-        "mobileDesc": "Arzon konteyner yetkazib berish",
-        "desktopDesc": "Dunyo okean yoʻllari boʻylab yetakchi liniyalar bilan toʻgʻridan-toʻgʻri shartnomalar (FCL/LCL)."
+        "mobileDesc": "Dengiz konteyner tashish FCL/LCL",
+        "desktopDesc": "Yetakchi dengiz yo'l kompaniyalari bilan to'g'ridan-to'g'ri shartnomalar. Barcha dengiz yo'nalishlarda to'liq va konsolidatsiyalangan konteynerlar."
       },
       {
         "alt": "Qisman konteyner",
-        "title": "QISM KONTEYNERLAR (LCL)",
-        "mobileDesc": "Kichik partiyalar uchun xarajatlarni optimallashtirish",
-        "desktopDesc": "Muntazam joʻnatish jadvali bilan kichik yuklar uchun xarajatlarni optimallashtirish."
+        "title": "LCL (SBORLI YUKLAR)",
+        "mobileDesc": "Kichik partiyalar uchun tejamkor yetkazib berish",
+        "desktopDesc": "Muntazam LCL konsolidatsiya jo'natmalari — to'liq konteyner uchun to'lamasdan kichik partiyalar uchun optimal yechim."
       },
       {
-        "alt": "Oʻlchamdan kattaroq yuk",
-        "title": "OʻLCHAMDAN KATTAROQ YUKLAR",
-        "mobileDesc": "Har qanday murakkablikdagi loyiha logistika",
-        "desktopDesc": "Sanoat gigantlari uchun yuqori murakkablikdagi loyiha logistika."
+        "alt": "O'lchamdan kattaroq yuk",
+        "title": "O'LCHAMDAN KATTAROQ YUKLAR",
+        "mobileDesc": "Har qanday murakkablikdagi loyiha logistikasi",
+        "desktopDesc": "Og'ir va katta o'lchamli yuklarni loyiha tashish: og'ir texnika, sanoat uskunalari, po'lat konstruktsiyalar."
+      },
+      {
+        "alt": "Xavfli yuklar",
+        "title": "XAVFLI YUKLAR",
+        "mobileDesc": "Litsenziyalangan xavfli yuk tashish",
+        "desktopDesc": "Barcha ADR/IATA sinflari bo'yicha xavfli yuklarni litsenziyalangan tashish — to'liq ruxsatnoma to'plami bilan."
+      },
+      {
+        "alt": "Bojxona rasmiylashtirish",
+        "title": "BOJXONA",
+        "mobileDesc": "Kalit ostida bojxona rasmiylashtiruvi",
+        "desktopDesc": "Import va eksportni to'liq bojxona rasmiylashtirish: deklaratsiya, sertifikatlashtirish va bojxona organlari bilan bevosita hamkorlik."
+      },
+      {
+        "alt": "Omborxona",
+        "title": "OMBORLAR",
+        "mobileDesc": "Mas'uliyatli saqlash va yuk qayta ishlash",
+        "desktopDesc": "Asosiy tranzit tugunlarda zamonaviy omborlarda konsolidatsiya, mas'uliyatli saqlash va yuk qayta ishlash."
       }
     ]
   },
   "geography": {
-    "title": "Global mavjudlik",
-    "description": "Biz imkoniyat chegaralarini kengaytiramiz va Shimoliy Amerikaga (AQSh, Kanada) hamda Yevrosiyoda toʻgʻridan-toʻgʻri transkontinental koridorlarni ochamiz.",
+    "title": "Yuk tashish geografiyasi",
+    "description": "60+ mamlakatga xalqaro yuk tashishni amalga oshiramiz: Xitoy, Yevropa, AQSh, Kanada, MDH va Yaqin Sharq. Butun Yevrosiyo bo'ylab to'g'ridan-to'g'ri marshrutlar va multimodal yechimlar.",
     "stats": {
       "countries": "Qamrab olingan mamlakatlar",
       "routes": "Marshrutlar",
       "monitoring": "Monitoring",
-      "hubs": "Gublar"
+      "hubs": "Tranzit tugunlar"
     }
   },
   "workflow": {
-    "title": "ISH JARAYONI",
+    "title": "BIZ QANDAY ISHLAYMIZ",
     "steps": [
       {
         "num": "01",
-        "title": "Soʻrov va hisoblash",
-        "text": "Soʻrov qoldiring va mutaxassislarimiz 2 soat ichida xarajat va muddatlarni hisoblab batafsil tijorat taklifini tayyorlaydi."
+        "title": "So'rov va narx hisob-kitobi",
+        "text": "So'rov qoldiring — 2 soat ichida xarajat, muddatlar va marshrut hisob-kitobi bilan batafsil tijorat taklifini olasiz."
       },
       {
         "num": "02",
-        "title": "Transport tanlovi",
-        "text": "Biz yukingizning xususiyatlari va xavfsizlik talablari asosida eng yaxshi transport turi va marshrutni tanlaymiz."
+        "title": "Marshrut rejalashtirish",
+        "text": "Yuk turi, kerakli yetkazib berish muddati, byudjet va xavfsizlik talablari asosida optimal transport turi va marshrutni tanlaymiz."
       },
       {
         "num": "03",
-        "title": "Eshikdan eshikka yetkazib berish",
-        "text": "Yukni olib ketish, bojxona rasmiylashtiruvi va yakuniy manzilga yetkazib berishni toʻliq qoʻllab-quvvatlash bilan amalga oshiramiz."
+        "title": "Kalit ostida yetkazib berish",
+        "text": "Yukni olib ketamiz, bojxona rasmiylashtiruvini amalga oshiramiz va oluvchining eshigigacha yetkazib beramiz — har bir bosqichda to'liq nazorat bilan."
       }
     ]
   },
   "about": {
     "sectionTitle": "Kompaniya haqida",
     "brandName": "XPOTrans",
-    "description": "Biz murakkab xalqaro logistika sohasida ekspertmiz. Biz biznesingiz uchun toʻsiqlarni yoʻq qilamiz.",
+    "description": "O'zbekistondan xalqaro yuk tashish va logistikaga ixtisoslashamiz. 12 yildan ortiq davomida biznesga samarali ta'minot zanjirlarini qurishda yordam beramiz — kechikishlarsiz va yashirin xarajatlarsiz.",
     "features": [
       {
         "alt": "reliability",
         "title": "Ishonchlilik",
-        "desc": "Har qanday sharoitda bajarishni kafolatlaymiz."
+        "desc": "Har qanday sharoit va force majeure holatida majburiyatlarni bajaramiz."
       },
       {
         "alt": "individuality",
         "title": "Individual yondashuv",
-        "desc": "Jarayonlarni talablaringizga moslashtiramiz."
+        "desc": "Yukingiz va biznesingizning o'ziga xos xususiyatlariga moslashtirilgan logistika sxemalarini ishlab chiqamiz."
       },
       {
         "alt": "safety",
-        "title": "Xavfsizlik",
-        "desc": "Yukni himoya qilish bo‘yicha eng yuqori standartlar."
+        "title": "Yuk xavfsizligi",
+        "desc": "Sug'urta, GPS-monitoring va tranzitning har bir bosqichida qat'iy nazorat."
       }
     ],
     "experienceNumber": "12+",
-    "experienceLabel": "Bozor tajribasi yillari"
+    "experienceLabel": "Yil xalqaro logistika bozorida"
   },
   "partners": {
-    "title": "Strategik hamkorlar",
+    "title": "Hamkorlar va mijozlar",
     "logos": [
       {"src": "/orion.svg", "alt": "Orion"},
       {"src": "/agromir.png", "alt": "Agromir"},
@@ -127,33 +145,46 @@
       {"src": "/orientMotors.jpg", "alt": "OrientMotors"}
     ]
   },
+  "crmPromo": {
+    "eyebrow": "Tez orada ishga tushadi",
+    "title": "Yukingizni real vaqt rejimida kuzating",
+    "description": "Mijozlar shaxsiy kabineti: jonli yuk kuzatuvi, transport hujjatlari, jo'natmalar tarixi va tezkor bildirishnomalar — barchasi bir joyda.",
+    "features": ["Jonli yuk kuzatuvi", "Hujjatlar va fakturalar", "Push-bildirishnomalar"],
+    "placeholder": "Telefon raqamingiz",
+    "button": "Erta kirish so'rash",
+    "loading": "Yuborilmoqda...",
+    "successButton": "So'rov qabul qilindi!",
+    "successMessage": "Rahmat! Kirish olganlar orasida birinchilardan bo'lasiz.",
+    "errorMessage": "So'rovni yuborib bo'lmadi. Iltimos qayta urinib ko'ring.",
+    "imageAlt": "XPOTrans mijozlar shaxsiy kabineti"
+  },
   "contact": {
-    "feedbackLabel": "Aloqa",
-    "formTitle": "Taklif soʻrashi",
-    "formSubtitle": "2 soat ichida batafsil taklif va transport xarajatlari hisob-kitobini oling.",
-    "successTitle": "Soʻrov yuborildi!",
-    "successMessage": "Mutaxassisimiz 2 soat ichida siz bilan bogʻlanadi.",
-    "nameLabel": "Ismingiz",
+    "feedbackLabel": "Bog'lanish",
+    "formTitle": "Yuk tashish narxini so'rash",
+    "formSubtitle": "Shaklni to'ldiring — mutaxassisimiz siz bilan bog'lanib, 2 soat ichida tijorat taklifi tayyorlaydi.",
+    "successTitle": "So'rov yuborildi!",
+    "successMessage": "Menejerimiz 2 ish soati ichida siz bilan bog'lanadi.",
+    "nameLabel": "Ism va familiya",
     "namePlaceholder": "Ivan Ivanov",
     "phoneLabel": "Telefon / Telegram",
     "phonePlaceholder": "+998 90 123 45 67",
-    "serviceTypeLabel": "Xizmat turi",
+    "serviceTypeLabel": "Transport turi",
     "serviceOptions": [
       "Havo yuk tashish",
       "Dengiz yuk tashish",
       "Avtomobil transporti",
-      "Temir yoʻl transporti",
+      "Temir yo'l transporti",
       "Multimodal transport"
     ],
-    "submitButton": "Hisob olish",
+    "submitButton": "Narx so'rash",
     "submitting": "Yuborilmoqda...",
-    "disclaimer": "Tugmani bosgan holda, maxfiylik siyosatini qabul qilasiz",
+    "disclaimer": "Tugmani bosib, maxfiylik siyosatimizni qabul qilasiz",
     "validation": {
       "name": "Ism va familiyangizni kiriting",
-      "phonePrefix": "Davlat kodi bilan raqamni kiriting, masalan +998...",
-      "phoneInvalid": "Toʻgʻri telefon raqamini kiriting",
-      "serverError": "Xatolik yuz berdi, iltimos keyinroq qayta urinib koʻring",
-      "networkError": "Serverga ulanish yoʻq"
+      "phonePrefix": "Davlat kodi bilan raqam kiriting, masalan +998...",
+      "phoneInvalid": "To'g'ri telefon raqamini kiriting",
+      "serverError": "Server xatosi — iltimos keyinroq qayta urinib ko'ring",
+      "networkError": "Serverga ulanish yo'q"
     },
     "contactInfo": [
       {"icon": "/phone-icon.png", "alt": "phone-icon", "label": "Telefon", "value": "+998 95 233 83 27", "rounded": "rounded"},
@@ -161,21 +192,21 @@
     ]
   },
   "map": {
-    "title": "Yuk tashish geografiyasi",
-    "description": "Biz dunyo boʻylab 60 dan ortiq mamlakatga yetkazib beramiz. Avtomobil, havo, temir yoʻl va multimodal yechimlardan foydalanamiz. Har bir transport bosqichida aniq logistika, optimal marshrutlar va nazoratni taʼminlaymiz.",
+    "title": "Xalqaro yuk tashish marshrutlari",
+    "description": "60+ mamlakatga yuk yetkazib beramiz: Xitoy, Yevropa, AQSh, MDH, Yaqin Sharq. Havo, dengiz, temir yo'l, avtomobil va multimodal yechimlar — har bir yuk uchun optimal marshrutni topamiz.",
     "modes": {
       "auto": "Avto",
-      "rail": "Yoʻl",
+      "rail": "Temir yo'l",
       "air": "Havo",
       "multimodal": "Multimodal"
     },
-    "tooltipUnknown": "Nomaʼlum",
+    "tooltipUnknown": "Noma'lum",
     "countryNames": {
       "643": "Rossiya",
       "156": "Xitoy",
-      "398": "Qozogʻiston",
-      "860": "Oʻzbekiston",
-      "417": "Qirgʻiziston",
+      "398": "Qozog'iston",
+      "860": "O'zbekiston",
+      "417": "Qirg'iziston",
       "762": "Tojikiston",
       "795": "Turkmaniston",
       "112": "Belarus",
@@ -188,7 +219,7 @@
       "724": "Ispaniya",
       "826": "Buyuk Britaniya",
       "804": "Ukraina",
-      "840": "AQSH",
+      "840": "AQSh",
       "124": "Kanada",
       "484": "Meksika",
       "076": "Braziliya",
@@ -198,23 +229,181 @@
       "410": "Janubiy Koreya",
       "784": "BAA",
       "792": "Turkiya",
-      "528": "Gollandiya"
+      "528": "Niderlandiya"
     }
   },
   "chat": {
-    "assistantLabel": "AI Assistent",
-    "placeholder": "Savolingizni yozing...",
+    "assistantLabel": "XPOTrans AI-assistenti",
+    "placeholder": "Jo'natmangiz haqida savol bering...",
     "typing": "Yozilmoqda...",
-    "defaultMessage": "Salom! Men xalqaro transport bo‘yicha yordamchingizman. Qanday yordam bera olaman?",
+    "defaultMessage": "Salom! Yuk tashish narxini hisoblash, eng yaxshi marshrutni tanlash yoki bojxona rasmiylashtiruvi bo'yicha savollarga javob berishga yordam bera olaman. Qanday yordam kerak?",
     "errorPrefix": "Xatolik:",
-    "retryMessage": "Iltimos qayta urinib ko‘ring."
+    "retryMessage": "Iltimos qayta urinib ko'ring."
+  },
+  "advantages": {
+    "title": "Nima uchun XPOTrans-ni tanlashadi",
+    "items": [
+      "Haftaning 7 kuni, 24 soat xizmat",
+      "2 soat ichida narx hisob-kitobi",
+      "Har bir yuk sug'urtalangan",
+      "Kalit ostida bojxona rasmiylashtirish",
+      "Barcha bosqichlarda onlayn kuzatuv",
+      "60+ mamlakatda hamkorlar tarmog'i"
+    ]
+  },
+  "faq": {
+    "eyebrow": "Savollar va javoblar",
+    "title": "Ko'p so'raladigan savollar",
+    "items": [
+      {
+        "question": "Xalqaro yuk tashish narxi qanday hisoblanadi?",
+        "answer": "Narx transport turi, yuk og'irligi va hajmi, marshrut, shoshilinchlik va Incoterms shartlariga bog'liq. Barcha xarajatlarni qamrab olgan individual taklif tayyorlaymiz: yetkazib berish, bojxona rasmiylashtirish, sug'urta — yashirin to'lovlarsiz."
+      },
+      {
+        "question": "Xalqaro yuk yetkazib berish qancha vaqt oladi?",
+        "answer": "Tranzit muddatlari transport turiga bog'liq: havo yuk tashish 18–48 soat, avtomobil transporti 5–12 kun, temir yo'l 14–25 kun, dengiz yuk tashish 25–40 kun. Aniq muddatlar marshrut hisob-kitobidan so'ng tijorat taklifida tasdiqlanadi."
+      },
+      {
+        "question": "Bojxona rasmiylashtiruvi uchun qanday hujjatlar kerak?",
+        "answer": "Standart to'plam: tijorat fakturasi, qadoqlash ro'yxati, shartnoma (xalqaro savdo uchun) va transport hujjatlari (transport turiga qarab CMR, AWB yoki konsignatsiya). Ba'zi yuk toifalari uchun muvofiqlik sertifikatlari talab qilinadi. To'liq hujjat to'plamini tayyorlashda yordam beramiz."
+      },
+      {
+        "question": "Bojxona rasmiylashtirish xizmatini ko'rsatasizmi?",
+        "answer": "Ha. Bojxona rasmiylashtiruvi XPOTrans-ning asosiy kompetensiyalaridan biri: yuk deklaratsiyasi, boj va soliqlarni hisoblash va to'lash, tranzitning har bir bosqichida bojxona organlari bilan bevosita hamkorlik."
+      },
+      {
+        "question": "Yukni real vaqt rejimida kuzatish mumkinmi?",
+        "answer": "Ha. Har bir jo'natma uchun muntazam holat yangilanishlari va asosiy bosqichlarda kuzatuv imkoniyatini taqdim etamiz: yuklash, tranzit, yetib kelish, bojxona rasmiylashtirish va oluvchiga yetkazib berish."
+      },
+      {
+        "question": "Yuk sug'urtasini taklif etasizmi?",
+        "answer": "Ha. Barcha transport turlari uchun yuk sug'urtasini taklif etamiz. To'lov e'lon qilingan qiymat va tovar xususiyatiga qarab individual hisoblanadi."
+      },
+      {
+        "question": "Minimal yuk hajmi bormi?",
+        "answer": "Yo'q. To'liq konteyner va to'liq yuk (FCL/FTL) jo'natmalari bilan birga, minimal cheklovsiz kichik partiyalar uchun konsolidatsiyalangan yuklar (LCL/LTL) bilan ham ishlaymiz."
+      },
+      {
+        "question": "Qanday to'lov usullari mavjud?",
+        "answer": "To'lov yuridik shaxslar uchun bank o'tkazmasi orqali amalga oshiriladi. Doimiy mijozlar qisman avans to'lov va yetkazib berilgandan keyin to'lovni o'z ichiga olgan individual shartlardan foydalanishi mumkin."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Bajarilgan jo'natmalar",
+    "title": "Bizning tajribamiz real loyihalarda",
+    "buttons": {
+      "prev": "Oldingi slayd",
+      "next": "Keyingi slayd",
+      "show": "Hujjatlar va fotosuratlarni ko'rsatish",
+      "hide": "Media galereyani yashirish"
+    },
+    "galleryTitle": "Jo'natma fotohisoboti va hujjatlari:",
+    "items": [
+      {
+        "type": "Havo yuk tashish",
+        "route": "Pekin — Toshkent",
+        "cargo": "Elektronika",
+        "specs": [
+          { "label": "Yuklama", "value": "14.5 t" },
+          { "label": "Tranzit", "value": "36 soat" },
+          { "label": "Samolyot", "value": "Boeing 747-F" }
+        ],
+        "gallery": [
+          { "title": "Pekinda yuklash" },
+          { "title": "Bojxona ombori" },
+          { "title": "Air Waybill hujjatlari" },
+          { "title": "Toshkentda tushirish" }
+        ]
+      },
+      {
+        "type": "Temir yo'l tashish",
+        "route": "Shanxay — Varshava",
+        "cargo": "Avto ehtiyot qismlari",
+        "specs": [
+          { "label": "Vagonlar", "value": "42 vagon" },
+          { "label": "Tranzit", "value": "18 kun" },
+          { "label": "Yuklama", "value": "840 tonna" }
+        ],
+        "gallery": [
+          { "title": "Vagonlar yig'ilishi" },
+          { "title": "Transport vositasini muhrlash" },
+          { "title": "Qozog'iston orqali tranzit" },
+          { "title": "SMGS hujjatlari" }
+        ]
+      },
+      {
+        "type": "Dengiz yuk tashish",
+        "route": "Ninbo — Sankt-Peterburg",
+        "cargo": "Konsolidatsiyalangan (LCL)",
+        "specs": [
+          { "label": "Konteynerlar", "value": "12 × 40ft" },
+          { "label": "Holat", "value": "Bajarildi" },
+          { "label": "Tranzit", "value": "32 kun" }
+        ],
+        "gallery": [
+          { "title": "Kema yuklash" },
+          { "title": "Port terminali" },
+          { "title": "Konnosament B/L" },
+          { "title": "Ajratish ombori" }
+        ]
+      },
+      {
+        "type": "Avtomobil transporti",
+        "route": "Istanbul — Toshkent",
+        "cargo": "To'qimachilik",
+        "specs": [
+          { "label": "Yuk mashinalari", "value": "6 × Tente" },
+          { "label": "Tranzit", "value": "9 kun" },
+          { "label": "Yuklama", "value": "132 t" }
+        ],
+        "gallery": [
+          { "title": "Omborda yuklash" },
+          { "title": "Chegara o'tish nuqtasi" },
+          { "title": "CMR yuk xatnomasi" },
+          { "title": "Toshkentda tushirish" }
+        ]
+      },
+      {
+        "type": "Multimodal",
+        "route": "Guanchjou — Olmaota",
+        "cargo": "Maishiy texnika",
+        "specs": [
+          { "label": "Konteynerlar", "value": "8 × 20ft" },
+          { "label": "Tranzit", "value": "24 kun" },
+          { "label": "Transport", "value": "Dengiz + Temir yo'l" }
+        ],
+        "gallery": [
+          { "title": "Yuklash porti" },
+          { "title": "Temir yo'lga uzatish" },
+          { "title": "Muvofiqlik sertifikati" },
+          { "title": "Oxirgi yetkazib berish" }
+        ]
+      },
+      {
+        "type": "Havo yuk tashish",
+        "route": "Dubay — Samarqand",
+        "cargo": "Farmatsevtika mahsulotlari",
+        "specs": [
+          { "label": "Yuklama", "value": "3.2 t" },
+          { "label": "Tranzit", "value": "18 soat" },
+          { "label": "Rejim", "value": "Temp-control" }
+        ],
+        "gallery": [
+          { "title": "Harorat konteynerlari" },
+          { "title": "Samolyotga yuklash" },
+          { "title": "Sog'liqni saqlash vazirligi ruxsati" },
+          { "title": "Omborda qabul qilish" }
+        ]
+      }
+    ]
   },
   "footer": {
     "nav": ["Biz haqimizda", "Yangiliklar", "Loyihalar", "Hamkorlar", "Karyera", "Aloqa"],
     "social": ["Instagram", "Facebook", "Youtube"],
     "addressLabel": "Manzilimiz",
-    "phoneLabel": "Telefon raqami",
-    "emailLabel": "Elektron pochta",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Email",
     "address": "Gagarin ko'chasi 36, Samarqand, Samarqand viloyati",
     "phone": "+998 95 233-83-27",
     "email": "xpotrans_group@mail.ru",

@@ -8,7 +8,7 @@ import vercel from "@astrojs/vercel"; // Импортируем адаптер �
 const isVercel = process.env.VERCEL === "1";
 
 export default defineConfig({
-  output: "server",
+  output: "static",
   
   adapter: isVercel 
     ? vercel() 

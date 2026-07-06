@@ -3,6 +3,12 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+/* Prevent FOUT — show fallback font immediately while Geist loads */
+@font-face {
+  font-family: 'Geist Variable';
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -139,4 +145,22 @@ body[data-scroll-locked] {
   margin-right: 0 !important;
   pointer-events: auto !important;
   overflow: visible !important;
+}
+
+/* Lenis smooth scroll (inlined from lenis/dist/lenis.css to avoid extra network request) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }

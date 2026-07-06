@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionInner from "./SectionInner";
+import { I18nProvider, useI18n } from "./I18nProvider";
 
 const projectsData = [
   {
@@ -207,7 +208,32 @@ const projectsData = [
   },
 ];
 
-export default function ExperienceMegaBlock() {
+function ExperienceMegaBlockInner() {
+  const { translations } = useI18n();
+  const projectTranslations = translations.projects || {};
+  const projectsToRender = (() => {
+    const items = Array.isArray(projectTranslations.items) && projectTranslations.items.length
+      ? projectTranslations.items
+      : [];
+
+    if (!items.length) return projectsData;
+
+    return items.map((item, index) => {
+      const baseProject = projectsData[index] || projectsData[0];
+      return {
+        ...baseProject,
+        ...item,
+        specs: (item.specs || baseProject.specs || []).map((spec, specIndex) => ({
+          ...(baseProject.specs?.[specIndex] || {}),
+          ...spec,
+        })),
+        gallery: (item.gallery || baseProject.gallery || []).map((media, mediaIndex) => ({
+          ...(baseProject.gallery?.[mediaIndex] || {}),
+          ...media,
+        })),
+      };
+    });
+  })();
   const [expandedCard, setExpandedCard] = useState(null);
   const scrollRef = useRef(null);
   const [canPrev, setCanPrev] = useState(false);
@@ -261,10 +287,10 @@ export default function ExperienceMegaBlock() {
         <div className="flex justify-between items-end mb-12">
           <div>
             <span className="text-[#2BB3C0] font-bold uppercase tracking-widest text-sm block mb-1">
-              Галерея и проекты
+              {projectTranslations.eyebrow || "Галерея и проекты"}
             </span>
             <h2 className="text-2xl text-[#003366] font-normal">
-Наш опыт в деталях
+              {projectTranslations.title || "Наш опыт в деталях"}
             </h2>
           </div>
           <div className="flex gap-2">
@@ -272,7 +298,7 @@ export default function ExperienceMegaBlock() {
               type="button"
               onClick={() => scrollByCard(-1)}
               disabled={!canPrev}
-              aria-label="Предыдущий слайд"
+              aria-label={projectTranslations.buttons?.prev || "Предыдущий слайд"}
               className="p-3 border cursor-pointer border-gray-200 bg-white hover:bg-gray-50 transition-all rounded-sm shadow-sm active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
             >
               <ArrowRight className="rotate-180  text-[#1B3A6B]" size={20} />
@@ -281,7 +307,7 @@ export default function ExperienceMegaBlock() {
               type="button"
               onClick={() => scrollByCard(1)}
               disabled={!canNext}
-              aria-label="Следующий слайд"
+              aria-label={projectTranslations.buttons?.next || "Следующий слайд"}
               className="p-3 border cursor-pointer border-gray-200 bg-white hover:bg-gray-50 transition-all rounded-sm shadow-sm active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white"
             >
               <ArrowRight className="text-[#1B3A6B] cursor-pointer" size={20} />
@@ -293,7 +319,7 @@ export default function ExperienceMegaBlock() {
           ref={scrollRef}
           className="flex items-start gap-4 md:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {projectsData.map((project) => {
+          {projectsToRender.map((project) => {
             const isExpanded = expandedCard === project.id;
 
             return (
@@ -356,8 +382,8 @@ export default function ExperienceMegaBlock() {
                       className="w-full cursor-pointer py-2.5 px-4 bg-[#00A8CC] text-white hover:bg-[#008ba8] font-bold text-xs uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2"
                     >
                       {isExpanded
-                        ? "Скрыть медиагалерею"
-                        : "Показать документы и фото"}
+                        ? projectTranslations.buttons?.hide || "Скрыть медиагалерею"
+                        : projectTranslations.buttons?.show || "Показать документы и фото"}
                     </button>
 
                     <AnimatePresence initial={false}>
@@ -371,7 +397,7 @@ export default function ExperienceMegaBlock() {
                         >
                           <div className="pt-5 border-t border-gray-100 mt-4">
                             <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-3">
-                              Фотоотчет и документы рейса:
+                              {projectTranslations.galleryTitle || "Фотоотчет и документы рейса:"}
                             </p>
                             <div className="grid grid-cols-2 gap-2">
                               {project.gallery.map((media, index) => (
@@ -404,5 +430,13 @@ export default function ExperienceMegaBlock() {
         </div>
       </SectionInner>
     </section>
+  );
+}
+
+export default function ExperienceMegaBlock({ locale = "ru", translations = {} }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <ExperienceMegaBlockInner />
+    </I18nProvider>
   );
 }

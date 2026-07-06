@@ -1,7 +1,7 @@
 import { useMemo, useState, useRef } from "react";
 import { isValidPhoneNumber, parsePhoneNumber } from "libphonenumber-js";
 import { motion, useInView } from "framer-motion";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 import SectionInner from "./SectionInner";
 
 const NAME_RE = /^[A-Za-zА-ЯЁа-яёÀ-ÿ]+([\s-][A-Za-zА-ЯЁа-яёÀ-ÿ]+)+$/;
@@ -17,7 +17,7 @@ const defaultContacts = [
   { icon: "/email-icon.png", alt: "email-icon", label: "Email", value: "xpotrans_group@mail.ru", rounded: "rounded-full" },
 ];
 
-export default function ContactForm() {
+function ContactFormInner() {
   const { translations } = useI18n();
   const contact = translations.contact || {};
   const serviceOptions = useMemo(
@@ -304,5 +304,13 @@ export default function ContactForm() {
       </div>
     </SectionInner>
     </div>
+  );
+}
+
+export default function ContactForm({ locale = "ru", translations = {} }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <ContactFormInner />
+    </I18nProvider>
   );
 }

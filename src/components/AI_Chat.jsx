@@ -1,8 +1,8 @@
 
 import { useState, useRef, useEffect } from "react";
-import { useI18n } from "./I18nProvider";
+import { useI18n, I18nProvider } from "./I18nProvider";
 
-export default function AI_Chat() {
+function AI_ChatInner() {
   const { translations } = useI18n();
   const chat = translations.chat || {};
   const welcomeMessage = chat.welcome ?? chat.defaultMessage ?? "Здравствуйте! Я помощник по международным перевозкам. Чем могу помочь?";
@@ -259,8 +259,8 @@ export default function AI_Chat() {
 
       <style>{`
         @keyframes ripple {
-          0%   { box-shadow: 0 0 0 0px rgba(55,65,100,0.4); opacity: 1; }
-          100% { box-shadow: 0 0 0 22px rgba(55,65,100,0); opacity: 0; }
+          0%   { transform: scale(0.72); opacity: 0.9; }
+          100% { transform: scale(1.35); opacity: 0; }
         }
         @keyframes pulseIcon {
           0%, 100% { transform: scale(1); }
@@ -280,5 +280,13 @@ export default function AI_Chat() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function AI_Chat({ locale = "ru", translations = {} }) {
+  return (
+    <I18nProvider locale={locale} translations={translations}>
+      <AI_ChatInner />
+    </I18nProvider>
   );
 }
