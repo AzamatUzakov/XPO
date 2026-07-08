@@ -1,8 +1,77 @@
 ---
 import "../styles/global.css";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import { stripLocaleFromPath } from "../lib/i18n";
 
-const { locale = "ru", translations = {} } = Astro.props;
+const { locale = "ru", translations = {}, robots = "index, follow" } = Astro.props;
+
+const domain = "https://www.xpo-transgroup.com";
+const cleanPathname = Astro.url.pathname.replace(/\/$/, "");
+const canonicalURL = cleanPathname === "" ? domain : `${domain}${cleanPathname}`;
+
+const rawPath = Astro.url.pathname.replace(/\/$/, "");
+const cleanPath = stripLocaleFromPath(rawPath === "" ? "/" : rawPath);
+
+const ruURL = cleanPath === "/" ? domain : `${domain}${cleanPath}`;
+const enURL = `${domain}/en${cleanPath === "/" ? "" : cleanPath}`;
+const uzURL = `${domain}/uz${cleanPath === "/" ? "" : cleanPath}`;
+
+const localeMap: Record<string, string> = {
+  ru: "ru_RU",
+  en: "en_US",
+  uz: "uz_UZ",
+};
+const currentLocaleCode = localeMap[locale] || "ru_RU";
+const alternateLocales = Object.keys(localeMap)
+  .filter((l) => l !== locale)
+  .map((l) => localeMap[l]);
+
+const ogImage = `${domain}/about-logo.webp`; // TODO: Replace with 1200x630px JPG banner for social previews
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${domain}/#organization`,
+      "name": "XPOTrans",
+      "url": domain,
+      "logo": `${domain}/header-logo.webp`,
+      "description": translations.meta?.description || "",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+998 95 233-83-27",
+        "contactType": "customer service",
+        "email": "xpotrans_group@mail.ru"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${domain}/#localbusiness`,
+      "parentOrganization": {
+        "@id": `${domain}/#organization`
+      },
+      "name": "XPOTrans Samarkand",
+      "image": `${domain}/about-logo.webp`,
+      "telephone": "+998 95 233-83-27",
+      "email": "xpotrans_group@mail.ru",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": translations.footer?.address || "г. Самарканд, улица Гагарина, 36",
+        "addressLocality": locale === "en" ? "Samarkand" : locale === "uz" ? "Samarqand" : "Самарканд",
+        "addressRegion": locale === "en" ? "Samarkand Region" : locale === "uz" ? "Samarqand viloyati" : "Самаркандская область",
+        "addressCountry": "UZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "39.6542",
+        "longitude": "66.9597"
+      },
+      "url": canonicalURL
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -11,19 +80,43 @@ const { locale = "ru", translations = {} } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		{/* Verification tags */}
+		<meta name="google-site-verification" content="PIo8DS2LlXoBq8RrI0QM515qzag4K9Esqu-4KPRqBvQ" />
+
 		<title>{translations.meta?.title ?? "Landing Page"}</title>
-		<meta
-			name="description"
-			content={translations.meta?.description ?? ""}
-		/>
-		<meta property="og:title" content={translations.meta?.ogTitle ?? ""} />
-		<meta
-			property="og:description"
-			content={translations.meta?.ogDescription ?? ""}
-		/>
-		<meta property="og:url" content={Astro.url.href} />
-		<link rel="canonical" href={Astro.url.href} />
-		<!-- Preload critical font subsets to eliminate FOUT -->
+		<meta name="description" content={translations.meta?.description ?? ""} />
+		<meta name="robots" content={robots} />
+		
+		<link rel="canonical" href={canonicalURL} />
+		
+		{/* Alternate languages */}
+		<link rel="alternate" hreflang="ru" href={ruURL} />
+		<link rel="alternate" hreflang="en" href={enURL} />
+		<link rel="alternate" hreflang="uz" href={uzURL} />
+		<link rel="alternate" hreflang="x-default" href={ruURL} />
+
+		{/* Open Graph */}
+		<meta property="og:title" content={translations.meta?.ogTitle ?? translations.meta?.title ?? ""} />
+		<meta property="og:description" content={translations.meta?.ogDescription ?? translations.meta?.description ?? ""} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:locale" content={currentLocaleCode} />
+		{alternateLocales.map((alt) => (
+			<meta property="og:locale:alternate" content={alt} />
+		))}
+
+		{/* Twitter Cards */}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={translations.meta?.ogTitle ?? translations.meta?.title ?? ""} />
+		<meta name="twitter:description" content={translations.meta?.ogDescription ?? translations.meta?.description ?? ""} />
+		<meta name="twitter:image" content={ogImage} />
+
+		{/* Structured Data */}
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+		{/* Preload critical font subsets to eliminate FOUT */}
 		<link
 			rel="preload"
 			href="/fonts/geist-latin.woff2"
@@ -38,7 +131,7 @@ const { locale = "ru", translations = {} } = Astro.props;
 			type="font/woff2"
 			crossorigin="anonymous"
 		/>
-		<!-- Preload hero video for faster background playback start -->
+		{/* Preload hero video for faster background playback start */}
 		<link
 			rel="preload"
 			href="/video/hero_video-Second.mp4"
@@ -46,6 +139,26 @@ const { locale = "ru", translations = {} } = Astro.props;
 			type="video/mp4"
 			fetchpriority="high"
 		/>
+
+		{/* Yandex.Metrika counter */}
+		<script type="text/javascript" is:inline>
+			const metrikaId = null; // TODO: Replace null with your Yandex.Metrika Counter ID (e.g., 99999999)
+			
+			if (metrikaId) {
+				(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+				m[i].l=1*new Date();
+				for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+				k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+				(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+				ym(metrikaId, "init", {
+					clickmap:true,
+					trackLinks:true,
+					accurateTrackBounce:true,
+					webvisor:true
+				});
+			}
+		</script>
 	</head>
 	<body class="bg-white text-gray-900 min-h-screen antialiased">
 		<slot />

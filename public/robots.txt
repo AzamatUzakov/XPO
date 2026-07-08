@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /en
+Allow: /uz
+Disallow: /api/
+
+Sitemap: https://www.xpo-transgroup.com/sitemap.xml

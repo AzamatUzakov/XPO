@@ -113,17 +113,17 @@
     "description": "O'zbekistondan xalqaro yuk tashish va logistikaga ixtisoslashamiz. 12 yildan ortiq davomida biznesga samarali ta'minot zanjirlarini qurishda yordam beramiz — kechikishlarsiz va yashirin xarajatlarsiz.",
     "features": [
       {
-        "alt": "reliability",
+        "alt": "XPOTrans ishonchli xalqaro yuk tashish va logistika xizmati",
         "title": "Ishonchlilik",
         "desc": "Har qanday sharoit va force majeure holatida majburiyatlarni bajaramiz."
       },
       {
-        "alt": "individuality",
+        "alt": "Yuk tashishda individual logistik yondashuv",
         "title": "Individual yondashuv",
         "desc": "Yukingiz va biznesingizning o'ziga xos xususiyatlariga moslashtirilgan logistika sxemalarini ishlab chiqamiz."
       },
       {
-        "alt": "safety",
+        "alt": "Yuk xavfsizligi, sug'urta va GPS orqali yuk monitoringi",
         "title": "Yuk xavfsizligi",
         "desc": "Sug'urta, GPS-monitoring va tranzitning har bir bosqichida qat'iy nazorat."
       }

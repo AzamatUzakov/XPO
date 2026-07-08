@@ -8,6 +8,8 @@ import vercel from "@astrojs/vercel"; // Импортируем адаптер �
 const isVercel = process.env.VERCEL === "1";
 
 export default defineConfig({
+  site: "https://www.xpo-transgroup.com",
+  trailingSlash: "never",
   output: "static",
   
   adapter: isVercel 
