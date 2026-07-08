@@ -85,7 +85,15 @@ function AboutUsInner() {
               {...fadeLeft(0.2 + i * 0.12)}
               className={`flex items-start gap-4 border-l border-white/20 pl-[24px] ${i < features.length - 1 ? "mb-[24px]" : ""}`}
             >
-              <img src={f.src} alt={f.alt} className="shrink-0" />
+              <img
+                src={f.src}
+                alt={f.alt}
+                className="shrink-0"
+                width={24}
+                height={24}
+                loading="lazy"
+                decoding="async"
+              />
               <div className="space-y-1">
                 <p className="text-[16px] leading-[24px] font-medium text-white">
                   {f.title}

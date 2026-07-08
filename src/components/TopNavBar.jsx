@@ -130,6 +130,13 @@ function TopNavBarInner({ locale }) {
         </nav>
 
         <div className="relative z-[101] flex-1 flex items-center justify-end gap-4 cursor-pointer">
+          {/* Crawlable fallback links for search engines */}
+          <nav className="sr-only" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }} aria-label="Languages">
+            <a href="/">RU</a>
+            <a href="/en">EN</a>
+            <a href="/uz">UZ</a>
+          </nav>
+
           <Select defaultValue={locale} onValueChange={(val) => {
             if (val === locale) return;
             if (val === "ru") {
@@ -152,22 +159,22 @@ function TopNavBarInner({ locale }) {
               className="min-w-0 w-fit rounded-xl cursor-pointer border-slate-300 bg-white/50 backdrop-blur-md shadow-lg"
             >
               <SelectItem value="ru" className="cursor-pointer">
-                <div className="flex items-center gap-2">
+                <a href="/" onClick={(e) => e.stopPropagation()} className="flex items-center gap-2 text-inherit no-underline w-full h-full">
                   <ReactCountryFlag countryCode="RU" svg style={{ width: "1.2em", height: "1.2em", borderRadius: "2px" }} />
                   <span>{languages.ru || "RU"}</span>
-                </div>
+                </a>
               </SelectItem>
               <SelectItem value="en" className="cursor-pointer">
-                <div className="flex items-center gap-2">
+                <a href="/en" onClick={(e) => e.stopPropagation()} className="flex items-center gap-2 text-inherit no-underline w-full h-full">
                   <ReactCountryFlag countryCode="GB" svg style={{ width: "1.2em", height: "1.2em", borderRadius: "2px" }} />
                   <span>{languages.en || "EN"}</span>
-                </div>
+                </a>
               </SelectItem>
               <SelectItem value="uz" className="cursor-pointer">
-                <div className="flex items-center gap-2">
+                <a href="/uz" onClick={(e) => e.stopPropagation()} className="flex items-center gap-2 text-inherit no-underline w-full h-full">
                   <ReactCountryFlag countryCode="UZ" svg style={{ width: "1.2em", height: "1.2em", borderRadius: "2px" }} />
                   <span>{languages.uz || "UZ"}</span>
-                </div>
+                </a>
               </SelectItem>
             </SelectContent>
           </Select>

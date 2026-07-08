@@ -77,10 +77,13 @@ function HeroSectionInner() {
             variants={heroItem}
             className="mb-[40px] flex flex-col w-full mt-9 md:flex-row md:items-stretch gap-3 md:gap-4"
           >
-            <Button className="w-full md:w-auto py-7 cursor-pointer border border-[#007A99] rounded-none text-[13px] bg-[#007A99] hover:bg-[#005F77] hover:border-[#005F77] text-white transition-colors md:h-[66px] md:px-[40px] flex items-center justify-center">
-              <RiTelegram2Fill className="mr-2 text-xl" />
-              {hero.buttonTelegram ?? "Связаться в Telegram"}
-            </Button>
+            <a href="https://t.me/Samir_07_30">
+              {" "}
+              <Button className="w-full md:w-auto py-7 cursor-pointer border border-[#007A99] rounded-none text-[13px] bg-[#007A99] hover:bg-[#005F77] hover:border-[#005F77] text-white transition-colors md:h-[66px] md:px-[40px] flex items-center justify-center">
+                <RiTelegram2Fill className="mr-2 text-xl" />
+                {hero.buttonTelegram ?? "Связаться в Telegram"}
+              </Button>
+            </a>
             <Button className="w-full md:w-auto py-7 bg-transparent cursor-pointer border border-white rounded-none text-[13px] hover:bg-white/10 transition-colors md:h-[66px] flex items-center md:px-[40px] justify-center">
               <TbRouteSquare className="mr-2 text-xl" />
               {hero.buttonRoutes ?? "Наши Маршруты"}
