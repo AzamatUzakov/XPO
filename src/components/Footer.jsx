@@ -8,13 +8,18 @@ function FooterInner() {
   const shouldReduce = useReducedMotion();
   const footer = translations.footer || {};
   const navItems = footer.nav || ["About", "Projects", "Partners", "Careers", "Contact"];
-  const socials = footer.social || ["Instagram", "Facebook", "Youtube"];
+  const socials = footer.social || ["Instagram", "WhatsApp", "Youtube"];
+  const socialLinks = {
+    Instagram: "https://www.instagram.com/xpotrans_group/?__d=1%3Futm_source%3Dig_embed",
+    WhatsApp: "https://wa.me/qr/2TWYXCQ7MCO5J1",
+    Youtube: "https://youtube.com/@samirabdukhalimov?si=jHsN0R2oC_ewbJM5",
+  };
   const addressLabel = footer.addressLabel ?? "Our address";
   const phoneLabel = footer.phoneLabel ?? "Phone number";
   const emailLabel = footer.emailLabel ?? "Email";
   const address = footer.address ?? "Gagarin Street 36, Samarkand, Samarkand Region";
   const phone = footer.phone ?? "+998 95 233-83-27";
-  const email = footer.email ?? "xpotrans_group@mail.ru";
+  const email = footer.email ?? "info.xpotransgroup@gmail.com";
   const copyright = footer.copyright ?? "2026 All rights reserved";
 
   const scrollTargets = {
@@ -100,7 +105,7 @@ function FooterInner() {
 
             <nav aria-label="Social links" className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-[28px]">
               {socials.map((social) => (
-                <a key={social} href="#" target="_blank" rel="noopener noreferrer" className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]">{social}</a>
+                <a key={social} href={socialLinks[social] || "#"} target="_blank" rel="noopener noreferrer" className="text-[15px] leading-none text-[#0D0D0D] hover:text-[#0D0D0D]/70 transition-colors sm:text-[16px] lg:text-[18px]">{social}</a>
               ))}
             </nav>
 

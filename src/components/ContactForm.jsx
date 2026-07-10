@@ -14,7 +14,7 @@ const defaultServiceOptions = [
 ];
 const defaultContacts = [
   { icon: "/phone-icon.png", alt: "phone-icon", label: "Телефон", value: "+998 95 233 83 27", rounded: "rounded" },
-  { icon: "/email-icon.png", alt: "email-icon", label: "Email", value: "xpotrans_group@mail.ru", rounded: "rounded-full" },
+  { icon: "/email-icon.png", alt: "email-icon", label: "Email", value: "info.xpotransgroup@gmail.com", rounded: "rounded-full" },
 ];
 
 function ContactFormInner() {

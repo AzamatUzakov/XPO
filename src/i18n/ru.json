@@ -6,13 +6,29 @@
     "ogDescription": "Международные грузоперевозки авиа, морем, ж/д и автотранспортом. Таможенное оформление. Доставка в 60+ стран. Расчёт стоимости — за 2 часа."
   },
   "header": {
-    "nav": ["Услуги", "География", "О компании", "Партнёры", "Вакансии"],
+    "nav": [
+      "Услуги",
+      "География",
+      "О компании",
+      "Партнёры",
+      "Вакансии"
+    ],
     "contact": "Связаться",
     "language": "Язык",
-    "languages": {"ru": "RU", "en": "EN", "uz": "UZ"},
-    "mobileMenu": ["О компании", "Услуги", "География", "Партнёры", "Вакансии"],
-    "contactPhone": "+7 (999) 123-45-67",
-    "contactEmail": "info@logistic.com"
+    "languages": {
+      "ru": "RU",
+      "en": "EN",
+      "uz": "UZ"
+    },
+    "mobileMenu": [
+      "О компании",
+      "Услуги",
+      "География",
+      "Партнёры",
+      "Вакансии"
+    ],
+    "contactPhone": "+998 95 233-83-27",
+    "contactEmail": "info.xpotransgroup@gmail.com"
   },
   "hero": {
     "headlinePrefix": "МЕЖДУНАРОДНАЯ",
@@ -21,7 +37,11 @@
     "introLong": "Оператор полного цикла международных грузоперевозок. Авиа, морской фрахт, ж/д и автодоставка — с таможенным оформлением под ключ и контролем на каждом этапе.",
     "buttonTelegram": "Получить расчёт в Telegram",
     "buttonRoutes": "Маршруты доставки",
-    "typewriter": ["ЛОГИСТИКА БЕЗ ГРАНИЦ", "ДОСТАВКА В 60+ СТРАН", "ТАМОЖНЯ ПОД КЛЮЧ"]
+    "typewriter": [
+      "ЛОГИСТИКА БЕЗ ГРАНИЦ",
+      "ДОСТАВКА В 60+ СТРАН",
+      "ТАМОЖНЯ ПОД КЛЮЧ"
+    ]
   },
   "services": {
     "title": "Услуги грузоперевозок",
@@ -134,22 +154,53 @@
   "partners": {
     "title": "Партнёры и клиенты",
     "logos": [
-      {"src": "/orion.svg", "alt": "Orion"},
-      {"src": "/agromir.png", "alt": "Agromir"},
-      {"src": "/smz.svg", "alt": "SMZ"},
-      {"src": "/uzairways.jpg", "alt": "Uzbekistan Airways"},
-      {"src": "/samauto.png", "alt": "SamAuto"},
-      {"src": "/sag-gilamlar.png", "alt": "SAG Gilamlar"},
-      {"src": "/nestle.svg", "alt": "Nestle"},
-      {"src": "/uzkimyoimpeks.jpg", "alt": "Uzkimyoimpeks"},
-      {"src": "/orientMotors.jpg", "alt": "OrientMotors"}
+      {
+        "src": "/orion.svg",
+        "alt": "Orion"
+      },
+      {
+        "src": "/agromir.png",
+        "alt": "Agromir"
+      },
+      {
+        "src": "/smz.svg",
+        "alt": "SMZ"
+      },
+      {
+        "src": "/uzairways.jpg",
+        "alt": "Uzbekistan Airways"
+      },
+      {
+        "src": "/samauto.png",
+        "alt": "SamAuto"
+      },
+      {
+        "src": "/sag-gilamlar.png",
+        "alt": "SAG Gilamlar"
+      },
+      {
+        "src": "/nestle.svg",
+        "alt": "Nestle"
+      },
+      {
+        "src": "/uzkimyoimpeks.jpg",
+        "alt": "Uzkimyoimpeks"
+      },
+      {
+        "src": "/orientMotors.jpg",
+        "alt": "OrientMotors"
+      }
     ]
   },
   "crmPromo": {
     "eyebrow": "Скоро в запуске",
     "title": "Контролируйте груз в режиме реального времени",
     "description": "Личный кабинет клиента: онлайн-трекинг груза, документы по перевозкам, история отправок и мгновенные уведомления — всё в одном окне.",
-    "features": ["Онлайн-трекинг груза", "Документы и накладные", "Push-уведомления"],
+    "features": [
+      "Онлайн-трекинг груза",
+      "Документы и накладные",
+      "Push-уведомления"
+    ],
     "placeholder": "Ваш номер телефона",
     "button": "Записаться на ранний доступ",
     "loading": "Отправка...",
@@ -187,8 +238,20 @@
       "networkError": "Нет соединения с сервером"
     },
     "contactInfo": [
-      {"icon": "/phone-icon.png", "alt": "phone-icon", "label": "Телефон", "value": "+998 95 233 83 27", "rounded": "rounded"},
-      {"icon": "/email-icon.png", "alt": "email-icon", "label": "Email", "value": "xpotrans_group@mail.ru", "rounded": "rounded-full"}
+      {
+        "icon": "/phone-icon.png",
+        "alt": "phone-icon",
+        "label": "Телефон",
+        "value": "+998 95 233 83 27",
+        "rounded": "rounded"
+      },
+      {
+        "icon": "/email-icon.png",
+        "alt": "email-icon",
+        "label": "Email",
+        "value": "info.xpotransgroup@gmail.com",
+        "rounded": "rounded-full"
+      }
     ]
   },
   "map": {
@@ -305,15 +368,32 @@
         "route": "Пекин — Ташкент",
         "cargo": "Электроника",
         "specs": [
-          { "label": "Тоннаж", "value": "14.5 т" },
-          { "label": "Срок", "value": "36 часов" },
-          { "label": "Транспорт", "value": "Boeing 747-F" }
+          {
+            "label": "Тоннаж",
+            "value": "14.5 т"
+          },
+          {
+            "label": "Срок",
+            "value": "36 часов"
+          },
+          {
+            "label": "Транспорт",
+            "value": "Boeing 747-F"
+          }
         ],
         "gallery": [
-          { "title": "Погрузка в Пекине" },
-          { "title": "Таможенный склад" },
-          { "title": "Накладные Air Waybill" },
-          { "title": "Разгрузка в Ташкенте" }
+          {
+            "title": "Погрузка в Пекине"
+          },
+          {
+            "title": "Таможенный склад"
+          },
+          {
+            "title": "Накладные Air Waybill"
+          },
+          {
+            "title": "Разгрузка в Ташкенте"
+          }
         ]
       },
       {
@@ -321,15 +401,32 @@
         "route": "Шанхай — Варшава",
         "cargo": "Автозапчасти",
         "specs": [
-          { "label": "Состав", "value": "42 вагона" },
-          { "label": "Срок", "value": "18 дней" },
-          { "label": "Тоннаж", "value": "840 тонн" }
+          {
+            "label": "Состав",
+            "value": "42 вагона"
+          },
+          {
+            "label": "Срок",
+            "value": "18 дней"
+          },
+          {
+            "label": "Тоннаж",
+            "value": "840 тонн"
+          }
         ],
         "gallery": [
-          { "title": "Формирование состава" },
-          { "title": "Пломбировка ТС" },
-          { "title": "Транзит Казахстан" },
-          { "title": "Документы СМГС" }
+          {
+            "title": "Формирование состава"
+          },
+          {
+            "title": "Пломбировка ТС"
+          },
+          {
+            "title": "Транзит Казахстан"
+          },
+          {
+            "title": "Документы СМГС"
+          }
         ]
       },
       {
@@ -337,15 +434,32 @@
         "route": "Нинбо — Санкт-Петербург",
         "cargo": "Сборный (LCL)",
         "specs": [
-          { "label": "Контейнеры", "value": "12 × 40ft" },
-          { "label": "Статус", "value": "Выполнено" },
-          { "label": "Срок", "value": "32 дня" }
+          {
+            "label": "Контейнеры",
+            "value": "12 × 40ft"
+          },
+          {
+            "label": "Статус",
+            "value": "Выполнено"
+          },
+          {
+            "label": "Срок",
+            "value": "32 дня"
+          }
         ],
         "gallery": [
-          { "title": "Погрузка судна" },
-          { "title": "Портовый терминал" },
-          { "title": "Коносамент B/L" },
-          { "title": "Склад расформирования" }
+          {
+            "title": "Погрузка судна"
+          },
+          {
+            "title": "Портовый терминал"
+          },
+          {
+            "title": "Коносамент B/L"
+          },
+          {
+            "title": "Склад расформирования"
+          }
         ]
       },
       {
@@ -353,15 +467,32 @@
         "route": "Стамбул — Ташкент",
         "cargo": "Текстиль",
         "specs": [
-          { "label": "Фуры", "value": "6 × Тент" },
-          { "label": "Срок", "value": "9 дней" },
-          { "label": "Тоннаж", "value": "132 т" }
+          {
+            "label": "Фуры",
+            "value": "6 × Тент"
+          },
+          {
+            "label": "Срок",
+            "value": "9 дней"
+          },
+          {
+            "label": "Тоннаж",
+            "value": "132 т"
+          }
         ],
         "gallery": [
-          { "title": "Загрузка на складе" },
-          { "title": "Пограничный пост" },
-          { "title": "CMR накладная" },
-          { "title": "Выгрузка в Ташкенте" }
+          {
+            "title": "Загрузка на складе"
+          },
+          {
+            "title": "Пограничный пост"
+          },
+          {
+            "title": "CMR накладная"
+          },
+          {
+            "title": "Выгрузка в Ташкенте"
+          }
         ]
       },
       {
@@ -369,15 +500,32 @@
         "route": "Гуанчжоу — Алматы",
         "cargo": "Бытовая техника",
         "specs": [
-          { "label": "Контейнеры", "value": "8 × 20ft" },
-          { "label": "Срок", "value": "24 дня" },
-          { "label": "Транспорт", "value": "Море + Ж/Д" }
+          {
+            "label": "Контейнеры",
+            "value": "8 × 20ft"
+          },
+          {
+            "label": "Срок",
+            "value": "24 дня"
+          },
+          {
+            "label": "Транспорт",
+            "value": "Море + Ж/Д"
+          }
         ],
         "gallery": [
-          { "title": "Порт отгрузки" },
-          { "title": "Перевалка на ж/д" },
-          { "title": "Сертификат соответствия" },
-          { "title": "Финальная доставка" }
+          {
+            "title": "Порт отгрузки"
+          },
+          {
+            "title": "Перевалка на ж/д"
+          },
+          {
+            "title": "Сертификат соответствия"
+          },
+          {
+            "title": "Финальная доставка"
+          }
         ]
       },
       {
@@ -385,28 +533,56 @@
         "route": "Дубай — Самарканд",
         "cargo": "Фарм. продукция",
         "specs": [
-          { "label": "Тоннаж", "value": "3.2 т" },
-          { "label": "Срок", "value": "18 часов" },
-          { "label": "Режим", "value": "Temp-control" }
+          {
+            "label": "Тоннаж",
+            "value": "3.2 т"
+          },
+          {
+            "label": "Срок",
+            "value": "18 часов"
+          },
+          {
+            "label": "Режим",
+            "value": "Temp-control"
+          }
         ],
         "gallery": [
-          { "title": "Термоконтейнеры" },
-          { "title": "Погрузка на борт" },
-          { "title": "Разрешение Минздрава" },
-          { "title": "Приёмка на складе" }
+          {
+            "title": "Термоконтейнеры"
+          },
+          {
+            "title": "Погрузка на борт"
+          },
+          {
+            "title": "Разрешение Минздрава"
+          },
+          {
+            "title": "Приёмка на складе"
+          }
         ]
       }
     ]
   },
   "footer": {
-    "nav": ["О компании", "Новости", "Проекты", "Партнёры", "Вакансии", "Контакты"],
-    "social": ["Instagram", "Facebook", "Youtube"],
+    "nav": [
+      "О компании",
+      "Новости",
+      "Проекты",
+      "Партнёры",
+      "Вакансии",
+      "Контакты"
+    ],
+    "social": [
+      "Instagram",
+      "WhatsApp",
+      "Youtube"
+    ],
     "addressLabel": "Наш адрес",
     "phoneLabel": "Телефон",
     "emailLabel": "Email",
     "address": "г. Самарканд, Самаркандская область, улица Гагарина, 36",
     "phone": "+998 95 233-83-27",
-    "email": "xpotrans_group@mail.ru",
+    "email": "info.xpotransgroup@gmail.com",
     "copyright": "2026 Все права защищены"
   }
 }

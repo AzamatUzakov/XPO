@@ -58,7 +58,9 @@ const { locale, translations, currentPath } = Astro.props;
     
     <LogoMarquee client:visible locale={locale} translations={translations} />
     <ContactForm client:visible locale={locale} translations={translations} />
-    <GeographyMap client:visible locale={locale} translations={translations} />
+    <div id="delivery-routes" style="scroll-margin-top: 80px">
+      <GeographyMap client:visible locale={locale} translations={translations} />
+    </div>
     <AI_Chat client:visible locale={locale} translations={translations} />
     <FAQSection client:visible locale={locale} translations={translations} />
     <CrmPromo client:visible locale={locale} translations={translations} />

@@ -6,13 +6,29 @@
     "ogDescription": "International cargo delivery by air, sea, rail and road. Customs clearance included. 60+ countries covered. Request a quote in 2 hours."
   },
   "header": {
-    "nav": ["Services", "Geography", "About", "Partners", "Careers"],
+    "nav": [
+      "Services",
+      "Geography",
+      "About",
+      "Partners",
+      "Careers"
+    ],
     "contact": "Contact Us",
     "language": "Language",
-    "languages": {"ru": "RU", "en": "EN", "uz": "UZ"},
-    "mobileMenu": ["About", "Services", "Geography", "Partners", "Careers"],
-    "contactPhone": "+7 (999) 123-45-67",
-    "contactEmail": "info@logistic.com"
+    "languages": {
+      "ru": "RU",
+      "en": "EN",
+      "uz": "UZ"
+    },
+    "mobileMenu": [
+      "About",
+      "Services",
+      "Geography",
+      "Partners",
+      "Careers"
+    ],
+    "contactPhone": "+998 95 233-83-27",
+    "contactEmail": "info.xpotransgroup@gmail.com"
   },
   "hero": {
     "headlinePrefix": "INTERNATIONAL",
@@ -21,7 +37,11 @@
     "introLong": "Full-cycle international freight operator. Air, sea freight, rail and road — with end-to-end customs clearance and full shipment control at every stage.",
     "buttonTelegram": "Get a Quote on Telegram",
     "buttonRoutes": "Delivery Routes",
-    "typewriter": ["FREIGHT WITHOUT LIMITS", "DELIVERY TO 60+ COUNTRIES", "END-TO-END CUSTOMS"]
+    "typewriter": [
+      "FREIGHT WITHOUT LIMITS",
+      "DELIVERY TO 60+ COUNTRIES",
+      "END-TO-END CUSTOMS"
+    ]
   },
   "services": {
     "title": "Freight Services",
@@ -134,22 +154,53 @@
   "partners": {
     "title": "Partners & Clients",
     "logos": [
-      {"src": "/orion.svg", "alt": "Orion"},
-      {"src": "/agromir.png", "alt": "Agromir"},
-      {"src": "/smz.svg", "alt": "SMZ"},
-      {"src": "/uzairways.jpg", "alt": "Uzbekistan Airways"},
-      {"src": "/samauto.png", "alt": "SamAuto"},
-      {"src": "/sag-gilamlar.png", "alt": "SAG Gilamlar"},
-      {"src": "/nestle.svg", "alt": "Nestle"},
-      {"src": "/uzkimyoimpeks.jpg", "alt": "Uzkimyoimpeks"},
-      {"src": "/orientMotors.jpg", "alt": "OrientMotors"}
+      {
+        "src": "/orion.svg",
+        "alt": "Orion"
+      },
+      {
+        "src": "/agromir.png",
+        "alt": "Agromir"
+      },
+      {
+        "src": "/smz.svg",
+        "alt": "SMZ"
+      },
+      {
+        "src": "/uzairways.jpg",
+        "alt": "Uzbekistan Airways"
+      },
+      {
+        "src": "/samauto.png",
+        "alt": "SamAuto"
+      },
+      {
+        "src": "/sag-gilamlar.png",
+        "alt": "SAG Gilamlar"
+      },
+      {
+        "src": "/nestle.svg",
+        "alt": "Nestle"
+      },
+      {
+        "src": "/uzkimyoimpeks.jpg",
+        "alt": "Uzkimyoimpeks"
+      },
+      {
+        "src": "/orientMotors.jpg",
+        "alt": "OrientMotors"
+      }
     ]
   },
   "crmPromo": {
     "eyebrow": "Launching soon",
     "title": "Track your shipment in real time",
     "description": "Client portal: live shipment tracking, transport documents, shipment history and instant notifications — all in one place.",
-    "features": ["Live cargo tracking", "Documents & invoices", "Push notifications"],
+    "features": [
+      "Live cargo tracking",
+      "Documents & invoices",
+      "Push notifications"
+    ],
     "placeholder": "Your phone number",
     "button": "Request early access",
     "loading": "Sending...",
@@ -187,8 +238,20 @@
       "networkError": "No connection to the server"
     },
     "contactInfo": [
-      {"icon": "/phone-icon.png", "alt": "phone-icon", "label": "Phone", "value": "+998 95 233 83 27", "rounded": "rounded"},
-      {"icon": "/email-icon.png", "alt": "email-icon", "label": "Email", "value": "xpotrans_group@mail.ru", "rounded": "rounded-full"}
+      {
+        "icon": "/phone-icon.png",
+        "alt": "phone-icon",
+        "label": "Phone",
+        "value": "+998 95 233 83 27",
+        "rounded": "rounded"
+      },
+      {
+        "icon": "/email-icon.png",
+        "alt": "email-icon",
+        "label": "Email",
+        "value": "info.xpotransgroup@gmail.com",
+        "rounded": "rounded-full"
+      }
     ]
   },
   "map": {
@@ -305,15 +368,32 @@
         "route": "Beijing — Tashkent",
         "cargo": "Electronics",
         "specs": [
-          { "label": "Payload", "value": "14.5 t" },
-          { "label": "Transit", "value": "36 hours" },
-          { "label": "Aircraft", "value": "Boeing 747-F" }
+          {
+            "label": "Payload",
+            "value": "14.5 t"
+          },
+          {
+            "label": "Transit",
+            "value": "36 hours"
+          },
+          {
+            "label": "Aircraft",
+            "value": "Boeing 747-F"
+          }
         ],
         "gallery": [
-          { "title": "Loading in Beijing" },
-          { "title": "Customs warehouse" },
-          { "title": "Air Waybill documents" },
-          { "title": "Unloading in Tashkent" }
+          {
+            "title": "Loading in Beijing"
+          },
+          {
+            "title": "Customs warehouse"
+          },
+          {
+            "title": "Air Waybill documents"
+          },
+          {
+            "title": "Unloading in Tashkent"
+          }
         ]
       },
       {
@@ -321,15 +401,32 @@
         "route": "Shanghai — Warsaw",
         "cargo": "Auto parts",
         "specs": [
-          { "label": "Rolling stock", "value": "42 wagons" },
-          { "label": "Transit", "value": "18 days" },
-          { "label": "Payload", "value": "840 t" }
+          {
+            "label": "Rolling stock",
+            "value": "42 wagons"
+          },
+          {
+            "label": "Transit",
+            "value": "18 days"
+          },
+          {
+            "label": "Payload",
+            "value": "840 t"
+          }
         ],
         "gallery": [
-          { "title": "Train formation" },
-          { "title": "Sealing the rolling stock" },
-          { "title": "Transit through Kazakhstan" },
-          { "title": "SMGS documents" }
+          {
+            "title": "Train formation"
+          },
+          {
+            "title": "Sealing the rolling stock"
+          },
+          {
+            "title": "Transit through Kazakhstan"
+          },
+          {
+            "title": "SMGS documents"
+          }
         ]
       },
       {
@@ -337,15 +434,32 @@
         "route": "Ningbo — Saint Petersburg",
         "cargo": "Consolidated (LCL)",
         "specs": [
-          { "label": "Containers", "value": "12 × 40ft" },
-          { "label": "Status", "value": "Completed" },
-          { "label": "Transit", "value": "32 days" }
+          {
+            "label": "Containers",
+            "value": "12 × 40ft"
+          },
+          {
+            "label": "Status",
+            "value": "Completed"
+          },
+          {
+            "label": "Transit",
+            "value": "32 days"
+          }
         ],
         "gallery": [
-          { "title": "Vessel loading" },
-          { "title": "Port terminal" },
-          { "title": "Bill of lading" },
-          { "title": "Breakbulk warehouse" }
+          {
+            "title": "Vessel loading"
+          },
+          {
+            "title": "Port terminal"
+          },
+          {
+            "title": "Bill of lading"
+          },
+          {
+            "title": "Breakbulk warehouse"
+          }
         ]
       },
       {
@@ -353,15 +467,32 @@
         "route": "Istanbul — Tashkent",
         "cargo": "Textiles",
         "specs": [
-          { "label": "Trailers", "value": "6 × Curtain" },
-          { "label": "Transit", "value": "9 days" },
-          { "label": "Payload", "value": "132 t" }
+          {
+            "label": "Trailers",
+            "value": "6 × Curtain"
+          },
+          {
+            "label": "Transit",
+            "value": "9 days"
+          },
+          {
+            "label": "Payload",
+            "value": "132 t"
+          }
         ],
         "gallery": [
-          { "title": "Loading at warehouse" },
-          { "title": "Border crossing" },
-          { "title": "CMR consignment note" },
-          { "title": "Unloading in Tashkent" }
+          {
+            "title": "Loading at warehouse"
+          },
+          {
+            "title": "Border crossing"
+          },
+          {
+            "title": "CMR consignment note"
+          },
+          {
+            "title": "Unloading in Tashkent"
+          }
         ]
       },
       {
@@ -369,15 +500,32 @@
         "route": "Guangzhou — Almaty",
         "cargo": "Home appliances",
         "specs": [
-          { "label": "Containers", "value": "8 × 20ft" },
-          { "label": "Transit", "value": "24 days" },
-          { "label": "Mode", "value": "Sea + Rail" }
+          {
+            "label": "Containers",
+            "value": "8 × 20ft"
+          },
+          {
+            "label": "Transit",
+            "value": "24 days"
+          },
+          {
+            "label": "Mode",
+            "value": "Sea + Rail"
+          }
         ],
         "gallery": [
-          { "title": "Loading port" },
-          { "title": "Rail transfer" },
-          { "title": "Compliance certificate" },
-          { "title": "Final delivery" }
+          {
+            "title": "Loading port"
+          },
+          {
+            "title": "Rail transfer"
+          },
+          {
+            "title": "Compliance certificate"
+          },
+          {
+            "title": "Final delivery"
+          }
         ]
       },
       {
@@ -385,28 +533,56 @@
         "route": "Dubai — Samarkand",
         "cargo": "Pharma products",
         "specs": [
-          { "label": "Payload", "value": "3.2 t" },
-          { "label": "Transit", "value": "18 hours" },
-          { "label": "Mode", "value": "Temp-control" }
+          {
+            "label": "Payload",
+            "value": "3.2 t"
+          },
+          {
+            "label": "Transit",
+            "value": "18 hours"
+          },
+          {
+            "label": "Mode",
+            "value": "Temp-control"
+          }
         ],
         "gallery": [
-          { "title": "Temperature containers" },
-          { "title": "Aircraft loading" },
-          { "title": "Ministry of Health permit" },
-          { "title": "Warehouse acceptance" }
+          {
+            "title": "Temperature containers"
+          },
+          {
+            "title": "Aircraft loading"
+          },
+          {
+            "title": "Ministry of Health permit"
+          },
+          {
+            "title": "Warehouse acceptance"
+          }
         ]
       }
     ]
   },
   "footer": {
-    "nav": ["About", "News", "Projects", "Partners", "Careers", "Contact"],
-    "social": ["Instagram", "Facebook", "Youtube"],
+    "nav": [
+      "About",
+      "News",
+      "Projects",
+      "Partners",
+      "Careers",
+      "Contact"
+    ],
+    "social": [
+      "Instagram",
+      "WhatsApp",
+      "Youtube"
+    ],
     "addressLabel": "Our address",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
     "address": "Gagarin Street 36, Samarkand, Samarkand Region",
     "phone": "+998 95 233-83-27",
-    "email": "xpotrans_group@mail.ru",
+    "email": "info.xpotransgroup@gmail.com",
     "copyright": "2026 All rights reserved"
   }
 }
