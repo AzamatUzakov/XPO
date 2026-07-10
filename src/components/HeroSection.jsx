@@ -84,10 +84,23 @@ function HeroSectionInner() {
                 {hero.buttonTelegram ?? "Связаться в Telegram"}
               </Button>
             </a>
-            <Button className="w-full md:w-auto py-7 bg-transparent cursor-pointer border border-white rounded-none text-[13px] hover:bg-white/10 transition-colors md:h-[66px] flex items-center md:px-[40px] justify-center">
-              <TbRouteSquare className="mr-2 text-xl" />
-              {hero.buttonRoutes ?? "Наши Маршруты"}
-            </Button>
+            <a
+              href="#delivery-routes"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("delivery-routes");
+                if (el) {
+                  const offset = 80;
+                  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                  window.scrollTo({ top, behavior: "smooth" });
+                }
+              }}
+            >
+              <Button className="w-full md:w-auto py-7 bg-transparent cursor-pointer border border-white rounded-none text-[13px] hover:bg-white/10 transition-colors md:h-[66px] flex items-center md:px-[40px] justify-center">
+                <TbRouteSquare className="mr-2 text-xl" />
+                {hero.buttonRoutes ?? "Наши Маршруты"}
+              </Button>
+            </a>
           </motion.div>
         </motion.div>
       </SectionInner>

@@ -238,7 +238,7 @@ function TopNavBarInner({ locale }) {
               </nav>
 
               <motion.div className="mt-6 pt-6 border-t border-white/10 flex flex-col items-center gap-4 text-white/80 w-full" initial={shouldReduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.2 }}>
-                <a href={`tel:${contactPhone}`} className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit">
+                <a href={`tel:${contactPhone.replace(/\s/g, "")}`} className="flex items-center gap-3 hover:text-white hover:scale-105 transition-all w-fit">
                   <FiPhone className="text-xl text-[#00A8CC]" />
                   <span className="text-base tracking-wider">{contactPhone}</span>
                 </a>

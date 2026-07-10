@@ -80,10 +80,10 @@ function CrmPromoInner() {
               <label htmlFor="website" className="sr-only">Website</label>
               <input id="website" type="text" name="website" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ position: "absolute", left: "-9999px", opacity: 0 }} tabIndex={-1} autoComplete="off" aria-label="Website" />
 
-              <div className="relative flex-1 max-w-md">
+              <div className="relative flex-1">
                 <input type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder={promo.placeholder || "Your phone"} pattern="^[+]?[0-9\s\-()]{7,20}$" className="w-full h-12 md:h-14 px-5 rounded-xl border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#00a8cc]/50 transition-all" disabled={status === "success" || status === "loading"} />
               </div>
-              <button type="submit" disabled={status === "success" || status === "loading"} className="h-12 md:h-14 px-8 rounded-xl bg-[#00a8cc] text-white font-medium hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50 flex items-center justify-center min-w-[220px]">
+              <button type="submit" disabled={status === "success" || status === "loading"} className="flex-1 h-12 md:h-14 px-4 rounded-xl bg-[#00a8cc] text-white font-medium hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50 flex items-center justify-center">
                 {status === "loading"
                   ? promo.loading || "Sending..."
                   : status === "success"

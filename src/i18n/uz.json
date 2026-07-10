@@ -6,13 +6,29 @@
     "ogDescription": "Havo, dengiz, temir yo'l va avtomobil orqali xalqaro yuk yetkazib berish. Bojxona rasmiylashtirish. 60+ mamlakat. 2 soat ichida narx so'rov."
   },
   "header": {
-    "nav": ["Xizmatlar", "Geografiya", "Biz haqimizda", "Hamkorlar", "Vakansiyalar"],
+    "nav": [
+      "Xizmatlar",
+      "Geografiya",
+      "Biz haqimizda",
+      "Hamkorlar",
+      "Vakansiyalar"
+    ],
     "contact": "Bog'lanish",
     "language": "Til",
-    "languages": {"ru": "RU", "en": "EN", "uz": "UZ"},
-    "mobileMenu": ["Biz haqimizda", "Xizmatlar", "Geografiya", "Hamkorlar", "Vakansiyalar"],
-    "contactPhone": "+7 (999) 123-45-67",
-    "contactEmail": "info@logistic.com"
+    "languages": {
+      "ru": "RU",
+      "en": "EN",
+      "uz": "UZ"
+    },
+    "mobileMenu": [
+      "Biz haqimizda",
+      "Xizmatlar",
+      "Geografiya",
+      "Hamkorlar",
+      "Vakansiyalar"
+    ],
+    "contactPhone": "+998 95 233-83-27",
+    "contactEmail": "info.xpotransgroup@gmail.com"
   },
   "hero": {
     "headlinePrefix": "XALQARO",
@@ -21,7 +37,11 @@
     "introLong": "To'liq siklli xalqaro yuk tashish operatori. Havo, dengiz, temir yo'l va avtomobil — bojxona rasmiylashtirish va har bir bosqichda to'liq nazorat bilan.",
     "buttonTelegram": "Telegram orqali narx so'rash",
     "buttonRoutes": "Yetkazib berish marshrutlari",
-    "typewriter": ["CHEGARASIZ YUK TASHISH", "60+ MAMLAKATGA YETKAZIB BERISH", "BOJXONA UNDER KEY"]
+    "typewriter": [
+      "CHEGARASIZ YUK TASHISH",
+      "60+ MAMLAKATGA YETKAZIB BERISH",
+      "BOJXONA UNDER KEY"
+    ]
   },
   "services": {
     "title": "Yuk tashish xizmatlari",
@@ -134,22 +154,53 @@
   "partners": {
     "title": "Hamkorlar va mijozlar",
     "logos": [
-      {"src": "/orion.svg", "alt": "Orion"},
-      {"src": "/agromir.png", "alt": "Agromir"},
-      {"src": "/smz.svg", "alt": "SMZ"},
-      {"src": "/uzairways.jpg", "alt": "Uzbekistan Airways"},
-      {"src": "/samauto.png", "alt": "SamAuto"},
-      {"src": "/sag-gilamlar.png", "alt": "SAG Gilamlar"},
-      {"src": "/nestle.svg", "alt": "Nestle"},
-      {"src": "/uzkimyoimpeks.jpg", "alt": "Uzkimyoimpeks"},
-      {"src": "/orientMotors.jpg", "alt": "OrientMotors"}
+      {
+        "src": "/orion.svg",
+        "alt": "Orion"
+      },
+      {
+        "src": "/agromir.png",
+        "alt": "Agromir"
+      },
+      {
+        "src": "/smz.svg",
+        "alt": "SMZ"
+      },
+      {
+        "src": "/uzairways.jpg",
+        "alt": "Uzbekistan Airways"
+      },
+      {
+        "src": "/samauto.png",
+        "alt": "SamAuto"
+      },
+      {
+        "src": "/sag-gilamlar.png",
+        "alt": "SAG Gilamlar"
+      },
+      {
+        "src": "/nestle.svg",
+        "alt": "Nestle"
+      },
+      {
+        "src": "/uzkimyoimpeks.jpg",
+        "alt": "Uzkimyoimpeks"
+      },
+      {
+        "src": "/orientMotors.jpg",
+        "alt": "OrientMotors"
+      }
     ]
   },
   "crmPromo": {
     "eyebrow": "Tez orada ishga tushadi",
     "title": "Yukingizni real vaqt rejimida kuzating",
     "description": "Mijozlar shaxsiy kabineti: jonli yuk kuzatuvi, transport hujjatlari, jo'natmalar tarixi va tezkor bildirishnomalar — barchasi bir joyda.",
-    "features": ["Jonli yuk kuzatuvi", "Hujjatlar va fakturalar", "Push-bildirishnomalar"],
+    "features": [
+      "Jonli yuk kuzatuvi",
+      "Hujjatlar va fakturalar",
+      "Push-bildirishnomalar"
+    ],
     "placeholder": "Telefon raqamingiz",
     "button": "Erta kirish so'rash",
     "loading": "Yuborilmoqda...",
@@ -187,8 +238,20 @@
       "networkError": "Serverga ulanish yo'q"
     },
     "contactInfo": [
-      {"icon": "/phone-icon.png", "alt": "phone-icon", "label": "Telefon", "value": "+998 95 233 83 27", "rounded": "rounded"},
-      {"icon": "/email-icon.png", "alt": "email-icon", "label": "Email", "value": "xpotrans_group@mail.ru", "rounded": "rounded-full"}
+      {
+        "icon": "/phone-icon.png",
+        "alt": "phone-icon",
+        "label": "Telefon",
+        "value": "+998 95 233 83 27",
+        "rounded": "rounded"
+      },
+      {
+        "icon": "/email-icon.png",
+        "alt": "email-icon",
+        "label": "Email",
+        "value": "info.xpotransgroup@gmail.com",
+        "rounded": "rounded-full"
+      }
     ]
   },
   "map": {
@@ -305,15 +368,32 @@
         "route": "Pekin — Toshkent",
         "cargo": "Elektronika",
         "specs": [
-          { "label": "Yuklama", "value": "14.5 t" },
-          { "label": "Tranzit", "value": "36 soat" },
-          { "label": "Samolyot", "value": "Boeing 747-F" }
+          {
+            "label": "Yuklama",
+            "value": "14.5 t"
+          },
+          {
+            "label": "Tranzit",
+            "value": "36 soat"
+          },
+          {
+            "label": "Samolyot",
+            "value": "Boeing 747-F"
+          }
         ],
         "gallery": [
-          { "title": "Pekinda yuklash" },
-          { "title": "Bojxona ombori" },
-          { "title": "Air Waybill hujjatlari" },
-          { "title": "Toshkentda tushirish" }
+          {
+            "title": "Pekinda yuklash"
+          },
+          {
+            "title": "Bojxona ombori"
+          },
+          {
+            "title": "Air Waybill hujjatlari"
+          },
+          {
+            "title": "Toshkentda tushirish"
+          }
         ]
       },
       {
@@ -321,15 +401,32 @@
         "route": "Shanxay — Varshava",
         "cargo": "Avto ehtiyot qismlari",
         "specs": [
-          { "label": "Vagonlar", "value": "42 vagon" },
-          { "label": "Tranzit", "value": "18 kun" },
-          { "label": "Yuklama", "value": "840 tonna" }
+          {
+            "label": "Vagonlar",
+            "value": "42 vagon"
+          },
+          {
+            "label": "Tranzit",
+            "value": "18 kun"
+          },
+          {
+            "label": "Yuklama",
+            "value": "840 tonna"
+          }
         ],
         "gallery": [
-          { "title": "Vagonlar yig'ilishi" },
-          { "title": "Transport vositasini muhrlash" },
-          { "title": "Qozog'iston orqali tranzit" },
-          { "title": "SMGS hujjatlari" }
+          {
+            "title": "Vagonlar yig'ilishi"
+          },
+          {
+            "title": "Transport vositasini muhrlash"
+          },
+          {
+            "title": "Qozog'iston orqali tranzit"
+          },
+          {
+            "title": "SMGS hujjatlari"
+          }
         ]
       },
       {
@@ -337,15 +434,32 @@
         "route": "Ninbo — Sankt-Peterburg",
         "cargo": "Konsolidatsiyalangan (LCL)",
         "specs": [
-          { "label": "Konteynerlar", "value": "12 × 40ft" },
-          { "label": "Holat", "value": "Bajarildi" },
-          { "label": "Tranzit", "value": "32 kun" }
+          {
+            "label": "Konteynerlar",
+            "value": "12 × 40ft"
+          },
+          {
+            "label": "Holat",
+            "value": "Bajarildi"
+          },
+          {
+            "label": "Tranzit",
+            "value": "32 kun"
+          }
         ],
         "gallery": [
-          { "title": "Kema yuklash" },
-          { "title": "Port terminali" },
-          { "title": "Konnosament B/L" },
-          { "title": "Ajratish ombori" }
+          {
+            "title": "Kema yuklash"
+          },
+          {
+            "title": "Port terminali"
+          },
+          {
+            "title": "Konnosament B/L"
+          },
+          {
+            "title": "Ajratish ombori"
+          }
         ]
       },
       {
@@ -353,15 +467,32 @@
         "route": "Istanbul — Toshkent",
         "cargo": "To'qimachilik",
         "specs": [
-          { "label": "Yuk mashinalari", "value": "6 × Tente" },
-          { "label": "Tranzit", "value": "9 kun" },
-          { "label": "Yuklama", "value": "132 t" }
+          {
+            "label": "Yuk mashinalari",
+            "value": "6 × Tente"
+          },
+          {
+            "label": "Tranzit",
+            "value": "9 kun"
+          },
+          {
+            "label": "Yuklama",
+            "value": "132 t"
+          }
         ],
         "gallery": [
-          { "title": "Omborda yuklash" },
-          { "title": "Chegara o'tish nuqtasi" },
-          { "title": "CMR yuk xatnomasi" },
-          { "title": "Toshkentda tushirish" }
+          {
+            "title": "Omborda yuklash"
+          },
+          {
+            "title": "Chegara o'tish nuqtasi"
+          },
+          {
+            "title": "CMR yuk xatnomasi"
+          },
+          {
+            "title": "Toshkentda tushirish"
+          }
         ]
       },
       {
@@ -369,15 +500,32 @@
         "route": "Guanchjou — Olmaota",
         "cargo": "Maishiy texnika",
         "specs": [
-          { "label": "Konteynerlar", "value": "8 × 20ft" },
-          { "label": "Tranzit", "value": "24 kun" },
-          { "label": "Transport", "value": "Dengiz + Temir yo'l" }
+          {
+            "label": "Konteynerlar",
+            "value": "8 × 20ft"
+          },
+          {
+            "label": "Tranzit",
+            "value": "24 kun"
+          },
+          {
+            "label": "Transport",
+            "value": "Dengiz + Temir yo'l"
+          }
         ],
         "gallery": [
-          { "title": "Yuklash porti" },
-          { "title": "Temir yo'lga uzatish" },
-          { "title": "Muvofiqlik sertifikati" },
-          { "title": "Oxirgi yetkazib berish" }
+          {
+            "title": "Yuklash porti"
+          },
+          {
+            "title": "Temir yo'lga uzatish"
+          },
+          {
+            "title": "Muvofiqlik sertifikati"
+          },
+          {
+            "title": "Oxirgi yetkazib berish"
+          }
         ]
       },
       {
@@ -385,28 +533,56 @@
         "route": "Dubay — Samarqand",
         "cargo": "Farmatsevtika mahsulotlari",
         "specs": [
-          { "label": "Yuklama", "value": "3.2 t" },
-          { "label": "Tranzit", "value": "18 soat" },
-          { "label": "Rejim", "value": "Temp-control" }
+          {
+            "label": "Yuklama",
+            "value": "3.2 t"
+          },
+          {
+            "label": "Tranzit",
+            "value": "18 soat"
+          },
+          {
+            "label": "Rejim",
+            "value": "Temp-control"
+          }
         ],
         "gallery": [
-          { "title": "Harorat konteynerlari" },
-          { "title": "Samolyotga yuklash" },
-          { "title": "Sog'liqni saqlash vazirligi ruxsati" },
-          { "title": "Omborda qabul qilish" }
+          {
+            "title": "Harorat konteynerlari"
+          },
+          {
+            "title": "Samolyotga yuklash"
+          },
+          {
+            "title": "Sog'liqni saqlash vazirligi ruxsati"
+          },
+          {
+            "title": "Omborda qabul qilish"
+          }
         ]
       }
     ]
   },
   "footer": {
-    "nav": ["Biz haqimizda", "Yangiliklar", "Loyihalar", "Hamkorlar", "Karyera", "Aloqa"],
-    "social": ["Instagram", "Facebook", "Youtube"],
+    "nav": [
+      "Biz haqimizda",
+      "Yangiliklar",
+      "Loyihalar",
+      "Hamkorlar",
+      "Karyera",
+      "Aloqa"
+    ],
+    "social": [
+      "Instagram",
+      "WhatsApp",
+      "Youtube"
+    ],
     "addressLabel": "Manzilimiz",
     "phoneLabel": "Telefon",
     "emailLabel": "Email",
     "address": "Gagarin ko'chasi 36, Samarqand, Samarqand viloyati",
     "phone": "+998 95 233-83-27",
-    "email": "xpotrans_group@mail.ru",
+    "email": "info.xpotransgroup@gmail.com",
     "copyright": "2026 Barcha huquqlar himoyalangan"
   }
 }
