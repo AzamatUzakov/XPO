@@ -155,7 +155,7 @@
     "title": "Partners & Clients",
     "logos": [
       {
-        "src": "/orion.svg",
+        "src": "/orion.png",
         "alt": "Orion"
       },
       {
@@ -397,13 +397,13 @@
         ]
       },
       {
-        "type": "Rail transport",
-        "route": "Shanghai — Warsaw",
-        "cargo": "Auto parts",
+        "type": "Road transport",
+        "route": "Italy — Tashkent",
+        "cargo": "Equipment",
         "specs": [
           {
-            "label": "Rolling stock",
-            "value": "42 wagons"
+            "label": "Trucks",
+            "value": "8 × Tilt"
           },
           {
             "label": "Transit",
@@ -411,21 +411,21 @@
           },
           {
             "label": "Payload",
-            "value": "840 t"
+            "value": "176 t"
           }
         ],
         "gallery": [
           {
-            "title": "Train formation"
+            "title": "Loading the trucks"
           },
           {
-            "title": "Sealing the rolling stock"
+            "title": "Sealing the vehicles"
           },
           {
-            "title": "Transit through Kazakhstan"
+            "title": "Border crossing"
           },
           {
-            "title": "SMGS documents"
+            "title": "CMR waybill"
           }
         ]
       },

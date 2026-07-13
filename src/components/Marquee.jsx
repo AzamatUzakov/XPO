@@ -4,7 +4,7 @@ import { useI18n, I18nProvider } from "./I18nProvider";
 import { fadeUp, defaultViewport } from "../lib/animations";
 
 const LOGOS = [
-  { src: "/orion.svg", alt: "Orion" },
+  { src: "/orion.png", alt: "Orion" },
   { src: "/agromir.webp", alt: "Agromir" },
   { src: "/smz.svg", alt: "SMZ" },
   { src: "/uzairways.webp", alt: "Uzbekistan Airways" },
