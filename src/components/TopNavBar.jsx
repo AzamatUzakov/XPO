@@ -130,8 +130,8 @@ function TopNavBarInner({ locale }) {
         </nav>
 
         <div className="relative z-[101] flex-1 flex items-center justify-end gap-4 cursor-pointer">
-          {/* Crawlable fallback links for search engines */}
-          <nav className="sr-only" style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }} aria-label="Languages">
+          {/* Hidden static links for SEO/crawlability */}
+          <nav className="sr-only" aria-label="Languages">
             <a href="/">RU</a>
             <a href="/en">EN</a>
             <a href="/uz">UZ</a>

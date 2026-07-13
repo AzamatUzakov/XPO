@@ -10,34 +10,34 @@ export const GET: APIRoute = async () => {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>${domain}</loc>
+    <loc>${domain}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="${domain}" />
+    <xhtml:link rel="alternate" hreflang="ru" href="${domain}/" />
     <xhtml:link rel="alternate" hreflang="en" href="${domain}/en" />
     <xhtml:link rel="alternate" hreflang="uz" href="${domain}/uz" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/" />
   </url>
   <url>
     <loc>${domain}/en</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="${domain}" />
+    <xhtml:link rel="alternate" hreflang="ru" href="${domain}/" />
     <xhtml:link rel="alternate" hreflang="en" href="${domain}/en" />
     <xhtml:link rel="alternate" hreflang="uz" href="${domain}/uz" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/" />
   </url>
   <url>
     <loc>${domain}/uz</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="${domain}" />
+    <xhtml:link rel="alternate" hreflang="ru" href="${domain}/" />
     <xhtml:link rel="alternate" hreflang="en" href="${domain}/en" />
     <xhtml:link rel="alternate" hreflang="uz" href="${domain}/uz" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${domain}/" />
   </url>
 </urlset>`;
 
