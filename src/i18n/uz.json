@@ -155,7 +155,7 @@
     "title": "Hamkorlar va mijozlar",
     "logos": [
       {
-        "src": "/orion.svg",
+        "src": "/orion.png",
         "alt": "Orion"
       },
       {
@@ -397,13 +397,13 @@
         ]
       },
       {
-        "type": "Temir yo'l tashish",
-        "route": "Shanxay — Varshava",
-        "cargo": "Avto ehtiyot qismlari",
+        "type": "Avtomobil tashish",
+        "route": "Italiya — Toshkent",
+        "cargo": "Uskunalar",
         "specs": [
           {
-            "label": "Vagonlar",
-            "value": "42 vagon"
+            "label": "Yuk mashinalari",
+            "value": "8 × Tent"
           },
           {
             "label": "Tranzit",
@@ -411,21 +411,21 @@
           },
           {
             "label": "Yuklama",
-            "value": "840 tonna"
+            "value": "176 tonna"
           }
         ],
         "gallery": [
           {
-            "title": "Vagonlar yig'ilishi"
+            "title": "Yuk mashinalarini yuklash"
           },
           {
             "title": "Transport vositasini muhrlash"
           },
           {
-            "title": "Qozog'iston orqali tranzit"
+            "title": "Chegara punkti"
           },
           {
-            "title": "SMGS hujjatlari"
+            "title": "CMR hujjati"
           }
         ]
       },

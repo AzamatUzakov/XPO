@@ -46,14 +46,14 @@ const projectsData = [
   {
     id: 2,
     idTag: "XP-5401",
-    type: "Ж/Д Перевозка",
-    route: "Шанхай — Варшава",
-    cargo: "Автозапчасти",
+    type: "Автоперевозка",
+    route: "Италия — Ташкент",
+    cargo: "Оборудование",
     img: "https://images.pexels.com/photos/12196578/pexels-photo-12196578.jpeg?auto=compress&cs=tinysrgb&w=800",
     specs: [
-      { label: "Состав", value: "42 вагона", icon: <LayoutGrid size={14} /> },
+      { label: "Фуры", value: "8 × Тент", icon: <LayoutGrid size={14} /> },
       { label: "Срок", value: "18 дней", icon: <Calendar size={14} /> },
-      { label: "Тоннаж", value: "840 тонн", icon: <Boxes size={14} /> },
+      { label: "Тоннаж", value: "176 тонн", icon: <Boxes size={14} /> },
     ],
     gallery: [
       {
